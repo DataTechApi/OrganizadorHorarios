@@ -16,7 +16,7 @@ Nós, alunos do 2° semestre do curso de Banco de Dados da Faculdade de Tecnolog
 # User Story
 
 Acesse o User Story:
-  <a href="https://github.com/orgs/API-FATEC-2024/projects/1" target="_blank">
+  <a href="https://github.com/orgs/DataTechApi/projects/1" target="_blank">
     <button style="background-color:#0078D7; color:white; border:none; padding:10px 20px; border-radius:5px; font-size:16px;">
       Clique Aqui
     </button>
