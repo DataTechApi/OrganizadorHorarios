@@ -4,14 +4,10 @@ Nós, alunos do 2° semestre do curso de Banco de Dados da Faculdade de Tecnolog
 
 # Funcionalidades do projeto 🔨
 
-- `Funcionalidade 1`: Cálculo das funções básicas: Soma, Subtração, Multiplicação e Divisão
-- `Funcionalidade 2`: Cálculo de Fatorial
-- `Funcionalidade 3`: Cálculo de Função de Segundo Grau
-- `Funcionalidade 4`: Cálculo de Juros Simples e Juros Compostos
-- `Funcionalidade 5`: Conversão de número Binário para Decimal vice e versa
-- `Funcionalidade 6`: Conversão de número Binário para Hexadecimal vice e versa
-- `Funcionalidade 7`: Conversão de número Binário para Octal vice e versa
-- `Funcionalidade 8`: Concatenação de 2 strings
+- `Funcionalidade 1`: Login do Professor
+- `Funcionalidade 2`: Tela cadastro restições
+- `Funcionalidade 3`: Tela de visualização da grade
+- `Funcionalidade 4`: Aviso de conflito entre restrição
 
 # User Story
 
