@@ -27,4 +27,12 @@ Para desenvolver o Projeto do organizador de horários, foi utilizado o Github t
 
 # Demonstração de Telas
 
-# Autores 📃
+# Integrantes 📃
+
+- **André Diniz** - Desenvolvedor
+- **Thor Lyndgaard** - Desenvolvedor 
+- **João Andrade** - Desenvolvedor
+- **Davi Pereira** - Desenvolvedor
+- **Cauê Gandini** - P.O
+- **Lucas Silva Sousa** - Scrum Master
+- **Jackson Tadeu** - Desenvolvedor
