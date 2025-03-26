@@ -23,8 +23,6 @@ Acesse o User Story:
 
 Para desenvolver o Projeto do organizador de horários, foi utilizado o Github tanto para a documentação como para o gerenciamento e acompanhamento de entregas, o Intellij para o desenvolvimento do código, Mysql para o SGBD. O projeto foi realizado utilizando a Metodologia Àgil.
 
-# Cronograma 📅 
-
 # Demonstração de Telas
 
 # Integrantes 📃
