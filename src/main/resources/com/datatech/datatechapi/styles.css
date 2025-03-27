@@ -1,0 +1,10 @@
+.label {
+    -fx-background-radius: 100px;
+}
+.botao{
+    -fx-background-radius: 100px;
+    -fx-background-color: #3dc83d;
+}
+.imagem{
+    -fx-background-color: white;
+}

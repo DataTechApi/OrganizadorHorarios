@@ -1,0 +1,38 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="DatatechAPI">
+    <output-path>$PROJECT_DIR$/out/artifacts/DatatechAPI</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.datatech.datatechapi.App" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="DatatechAPI.jar">
+        <element id="module-output" name="DatatechAPI" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Udemy/Java/JavaFx/openjfx-23.0.2_windows-x64_bin-sdk (1)/javafx-sdk-23.0.2/lib/javafx-swt.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Udemy/Java/JavaFx/openjfx-23.0.2_windows-x64_bin-sdk (1)/javafx-sdk-23.0.2/lib/javafx.base.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Udemy/Java/JavaFx/openjfx-23.0.2_windows-x64_bin-sdk (1)/javafx-sdk-23.0.2/lib/javafx.controls.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Udemy/Java/JavaFx/openjfx-23.0.2_windows-x64_bin-sdk (1)/javafx-sdk-23.0.2/lib/javafx.fxml.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Udemy/Java/JavaFx/openjfx-23.0.2_windows-x64_bin-sdk (1)/javafx-sdk-23.0.2/lib/javafx.graphics.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Udemy/Java/JavaFx/openjfx-23.0.2_windows-x64_bin-sdk (1)/javafx-sdk-23.0.2/lib/javafx.media.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Udemy/Java/JavaFx/openjfx-23.0.2_windows-x64_bin-sdk (1)/javafx-sdk-23.0.2/lib/javafx.properties" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Udemy/Java/JavaFx/openjfx-23.0.2_windows-x64_bin-sdk (1)/javafx-sdk-23.0.2/lib/javafx.swing.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Udemy/Java/JavaFx/openjfx-23.0.2_windows-x64_bin-sdk (1)/javafx-sdk-23.0.2/lib/javafx.web.jar" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:17.0.6" />
+      <element id="library" level="project" name="Maven: org.controlsfx:controlsfx:11.2.1" />
+    </root>
+  </artifact>
+</component>
