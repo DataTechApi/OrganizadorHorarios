@@ -25,7 +25,7 @@ Para desenvolver o Projeto do organizador de horários, foi utilizado o Github t
 
 # Modelo entidade-relacionamento 
 
-[diagrama2.pdf](https://github.com/user-attachments/files/19511801/diagrama2.pdf)
+![diagrama2_page-0001](https://github.com/user-attachments/assets/55ca95b2-a6ee-40d9-b9c6-89d604b67ac0)
 
 
 # Integrantes 📃
