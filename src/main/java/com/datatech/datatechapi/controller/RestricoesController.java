@@ -1,106 +1,62 @@
 package com.datatech.datatechapi.controller;
 
+import com.datatech.datatechapi.App;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.stage.StageStyle;
 
-public class RestricoesController {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    @FXML
-    private Button bt_salvarrestricoes;
-
-    @FXML
-    private CheckBox cb_qua_aula1;
-
-    @FXML
-    private CheckBox cb_qua_aula2;
+public class RestricoesController implements Initializable {
 
     @FXML
-    private CheckBox cb_qua_aula3;
+    private Button btn_excluir;
 
     @FXML
-    private CheckBox cb_qua_aula4;
+    private Button btn_salvar;
 
     @FXML
-    private CheckBox cb_qua_aula5;
+    private ComboBox<?> cbx_diadasemana;
 
     @FXML
-    private CheckBox cb_quarta;
+    private ComboBox<?> cbx_horariodaaula;
 
     @FXML
-    private CheckBox cb_qui_aula1;
+    private ComboBox<?> cbx_professor;
 
     @FXML
-    private CheckBox cb_qui_aula2;
+    private TableColumn<?, ?> tbc_diadasemana;
 
     @FXML
-    private CheckBox cb_qui_aula3;
+    private TableColumn<?, ?> tbc_horariodaaula;
 
     @FXML
-    private CheckBox cb_qui_aula4;
+    private TableView<?> tbv_restricoes;
+
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 
     @FXML
-    private CheckBox cb_qui_aula5;
+    void excluirResticao(ActionEvent event) {
+
+    }
 
     @FXML
-    private CheckBox cb_quinta;
+    void salvarRestricao(ActionEvent event) {
 
-    @FXML
-    private CheckBox cb_seg_aula1;
+    }
 
-    @FXML
-    private CheckBox cb_seg_aula2;
-
-    @FXML
-    private CheckBox cb_seg_aula3;
-
-    @FXML
-    private CheckBox cb_seg_aula4;
-
-    @FXML
-    private CheckBox cb_seg_aula5;
-
-    @FXML
-    private CheckBox cb_segunda;
-
-    @FXML
-    private CheckBox cb_sex_aula1;
-
-    @FXML
-    private CheckBox cb_sex_aula2;
-
-    @FXML
-    private CheckBox cb_sex_aula3;
-
-    @FXML
-    private CheckBox cb_sex_aula4;
-
-    @FXML
-    private CheckBox cb_sex_aula5;
-
-    @FXML
-    private CheckBox cb_sexta;
-
-    @FXML
-    private CheckBox cb_ter_aula1;
-
-    @FXML
-    private CheckBox cb_ter_aula2;
-
-    @FXML
-    private CheckBox cb_ter_aula3;
-
-    @FXML
-    private CheckBox cb_ter_aula4;
-
-    @FXML
-    private CheckBox cb_ter_aula5;
-
-    @FXML
-    private CheckBox cb_terca;
-
-    @FXML
-    private TextField tf_restricaoprofessor;
 
 }
