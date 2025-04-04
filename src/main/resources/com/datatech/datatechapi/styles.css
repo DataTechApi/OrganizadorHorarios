@@ -3,7 +3,7 @@
 }
 .botao{
     -fx-background-radius: 100px;
-    -fx-background-color: #3dc83d;
+    -fx-background-color: rgba(143, 182, 108, 0.93);
 }
 .imagem{
     -fx-background-color: white;

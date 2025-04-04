@@ -1,13 +1,22 @@
-package com.datatech.datatechapi.model;
+package com.datatech.datatechapi.Entities.models;
 
 public class Professor {
 
     private String nome;
     private String email;
     private String senha;
+    private boolean isCoordenador = false;
 
     public String getNome() {
         return nome;
+    }
+
+    public boolean isCoordenador() {
+        return isCoordenador;
+    }
+
+    public void setCoordenador(boolean coordenador) {
+        isCoordenador = coordenador;
     }
 
     public void setNome(String nome) {

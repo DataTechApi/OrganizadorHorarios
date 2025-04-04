@@ -1,4 +1,7 @@
-package com.datatech.datatechapi.model;
+package com.datatech.datatechapi.Entities.models;
+
+import com.datatech.datatechapi.Entities.Enums.DiaDaSemana;
+import com.datatech.datatechapi.Entities.Enums.HorarioDaAula;
 
 public class Restricao {
 

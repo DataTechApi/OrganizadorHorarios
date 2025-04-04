@@ -1,4 +1,4 @@
-package com.datatech.datatechapi.model;
+package com.datatech.datatechapi.Entities.Enums;
 
 public enum DiaDaSemana {
     SEGUNDA("Segunda-feira"),

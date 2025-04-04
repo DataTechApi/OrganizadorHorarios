@@ -5,7 +5,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane fx:id="anchorpane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.TelaMenuController">
    <children>
       <MenuBar fx:id="barramenu" layoutY="1.0" prefHeight="25.0" prefWidth="600.0">
@@ -21,9 +20,9 @@
                   <MenuItem fx:id="mit_visualizargrade" mnemonicParsing="false" onAction="#visualizarGrade" text="Visualizar Grade" />
             </items>
           </Menu>
-          <Menu fx:id="logout" mnemonicParsing="false" text="Logout">
+          <Menu fx:id="logout" mnemonicParsing="false" text="Sair">
             <items>
-              <MenuItem fx:id="mit_logout" mnemonicParsing="false" onAction="#realizarLogout" text="Logout" />
+              <MenuItem fx:id="mit_logout" mnemonicParsing="false" onAction="#realizarLogout" text="Sair do Sistema" />
             </items>
           </Menu>
         </menus>

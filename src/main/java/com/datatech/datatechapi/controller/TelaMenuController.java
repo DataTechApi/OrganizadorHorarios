@@ -54,14 +54,12 @@ public class TelaMenuController implements Initializable {
 
     @FXML
     void cadastrarRestricoes(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("restricoes.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/restricoes.fxml"));
         Parent restricoes = fxmlLoader.load();
         Scene scene = new Scene(restricoes);
-       // String caimnhoCss = getClass().getResource("styles.css").toExternalForm();
         Stage stage = new Stage();
         stage.setTitle("DataTech API - Cadastrar Restrições");
         stage.initStyle(StageStyle.UTILITY);
-        //scene.getStylesheets().add(caimnhoCss);
         stage.setScene(scene);
         stage.show();
 
@@ -74,11 +72,21 @@ public class TelaMenuController implements Initializable {
 
     @FXML
     void realizarLogout(ActionEvent event) {
+        System.exit(0);
 
     }
 
     @FXML
-    void visualizarGrade(ActionEvent event) {
+    void visualizarGrade(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/visualizargrade.fxml"));
+        Parent visualizar = fxmlLoader.load();
+        Scene scene = new Scene(visualizar);
+        Stage stage = new Stage();
+        stage.setTitle("DataTech API - Visualizar Grade");
+        stage.initStyle(StageStyle.UTILITY);
+        stage.setScene(scene);
+        stage.show();
+
 
     }
 

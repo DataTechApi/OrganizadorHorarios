@@ -1,4 +1,4 @@
-package com.datatech.datatechapi.model;
+package com.datatech.datatechapi.Entities.Enums;
 
 public enum HorarioDaAula {
     PRIMEIRAAULA("18:45-19:35"),
