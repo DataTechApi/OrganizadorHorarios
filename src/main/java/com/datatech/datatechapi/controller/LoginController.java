@@ -30,7 +30,10 @@ public class LoginController implements Initializable {
     @FXML
     private TextField tf_email;
 
+
+
     Professor professor = new Professor();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,7 +42,7 @@ public class LoginController implements Initializable {
 
     @FXML
     void logar(ActionEvent event) throws IOException {
-        professor.setNome("Jackson");
+        professor.setNome("DATATECH");
         professor.setEmail("teste@gmail.com");
         professor.setSenha("123456");
         if (!tf_email.getText().equals(professor.getEmail()) &&
@@ -54,16 +57,17 @@ public class LoginController implements Initializable {
             Notifications.create()
                     .title("Login DataTech API")
                     .position(Pos.TOP_CENTER)
-                    .text("Login realizado com sucesso!!!")
+                    .text(professor.getNome() + " seu login foi realizado com sucesso!!!")
                     .darkStyle()
                     .showInformation();
             navegarMenu();
         }
     }
     void navegarMenu() throws IOException {
+        
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/telamenu.fxml"));
-        Parent menur = fxmlLoader.load();
-        Scene scene = new Scene(menur);
+        Parent menu = fxmlLoader.load();
+        Scene scene = new Scene(menu);
         Stage stage = new Stage();
         stage.setTitle("DataTech API - Menu DATAGRADE");
         stage.initStyle(StageStyle.UTILITY);
@@ -71,5 +75,7 @@ public class LoginController implements Initializable {
         stage.show();
 
     }
+
+
 
 }

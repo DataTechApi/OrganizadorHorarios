@@ -1,15 +1,13 @@
 package com.datatech.datatechapi.controller;
 
 import com.datatech.datatechapi.App;
+import com.datatech.datatechapi.Entities.models.Professor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
@@ -30,7 +28,7 @@ public class RestricoesController implements Initializable {
     private ComboBox<?> cbx_horariodaaula;
 
     @FXML
-    private ComboBox<?> cbx_professor;
+    private Label lbl_professor;
 
     @FXML
     private TableColumn<?, ?> tbc_diadasemana;
@@ -43,9 +41,11 @@ public class RestricoesController implements Initializable {
 
 
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        visualizarNomeProfessor();
     }
 
     @FXML
@@ -57,6 +57,12 @@ public class RestricoesController implements Initializable {
     void salvarRestricao(ActionEvent event) {
 
     }
+    void visualizarNomeProfessor(){
+        Professor professor = new Professor();
+        professor.setNome("DATATECH");
+        lbl_professor.setText(professor.getNome());
 
 
+
+    }
 }

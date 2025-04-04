@@ -32,7 +32,6 @@
         </rowConstraints>
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="117.0" text="Professor" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <ComboBox fx:id="cbx_professor" prefHeight="25.0" prefWidth="396.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <ComboBox fx:id="cbx_diadasemana" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
             <ComboBox fx:id="cbx_horariodaaula" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
@@ -45,6 +44,7 @@
                   <Insets left="250.0" />
                </GridPane.margin>
             </Label>
+            <Label fx:id="lbl_professor" prefHeight="31.0" prefWidth="393.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <TableView fx:id="tbv_restricoes" layoutX="152.0" layoutY="190.0" prefHeight="144.0" prefWidth="393.0">

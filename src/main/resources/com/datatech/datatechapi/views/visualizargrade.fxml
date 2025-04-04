@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.VisualizarGradeController">
    <children>
       <GridPane gridLinesVisible="true" layoutX="1.0" layoutY="96.0" prefHeight="227.0" prefWidth="600.0">
@@ -54,7 +53,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbx_curso" prefHeight="25.0" prefWidth="524.0" />
+            <ComboBox fx:id="cbx_curso" prefHeight="25.0" prefWidth="540.0" />
          </children>
       </HBox>
    </children>
