@@ -1,6 +1,8 @@
+## Projeto DataGrade ##
+
 # Contexto e Objetivo do Projeto 🎯
 
-Nós, alunos do 2° semestre do curso de Banco de Dados da Faculdade de Tecnologia Jessen Vidal, desenvolvemos esse projeto de organizador de horários e restrições, com o objetivo e propósito de entregar uma solução que facilite e automatize a questão de restrições de professores quanto aos cursos e disciplinas que foram contemplados na FAREC de São José dos Campos, o produto irá avisar e barrar quando houver quaisquer conflito entre um restringimento de um professor com os horários e disponibilidades já fornecidas pela instituição Centro Paula Souza.
+Nós, alunos do 2° semestre do curso de Banco de Dados da Faculdade de Tecnologia Jessen Vidal, desenvolvemos esse projeto de organizador de horários e restrições, com o objetivo e propósito de entregar uma solução que facilite e automatize a questão de restrições de professores quanto aos cursos e disciplinas que foram contemplados na FAREC de São José dos Campos, o produto irá notificar quando houver quaisquer conflito entre um restringimento de um professor com os horários e disponibilidades já fornecidas pela instituição Centro Paula Souza.
 
 # Funcionalidades do projeto 🔨
 
@@ -23,7 +25,10 @@ Acesse o User Story:
 
 Para desenvolver o Projeto do organizador de horários, foi utilizado o Github tanto para a documentação como para o gerenciamento e acompanhamento de entregas, o Intellij para o desenvolvimento do código, Mysql para o SGBD. O projeto foi realizado utilizando a Metodologia Àgil.
 
-# Demonstração de Telas
+# Modelo entidade-relacionamento 
+
+![diagrama2_page-0001](https://github.com/user-attachments/assets/55ca95b2-a6ee-40d9-b9c6-89d604b67ac0)
+
 
 # Integrantes 📃
 
