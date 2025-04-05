@@ -13,5 +13,9 @@ public class teste {
         String dia = DiaDaSemana.QUINTA.getDescricao();
         System.out.println("A aula ocorre no dia "+ dia + " na " +
                 r.getHorarioDaAula().getDescricao());
+
+        for(var item : DiaDaSemana.values()){
+            System.out.println(item.getDescricao());
+        }
     }
 }
