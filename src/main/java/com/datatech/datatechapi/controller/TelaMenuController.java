@@ -66,7 +66,15 @@ public class TelaMenuController implements Initializable {
     }
 
     @FXML
-    void criarGrade(ActionEvent event) {
+    void criarGrade(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/criadorgrade.fxml"));
+        Parent criador = fxmlLoader.load();
+        Scene scene = new Scene(criador);
+        Stage stage = new Stage();
+        stage.setTitle("DataTech API - Criador Grade");
+        stage.initStyle(StageStyle.UTILITY);
+        stage.setScene(scene);
+        stage.show();
 
     }
 

@@ -1,7 +1,10 @@
 package com.datatech.datatechapi.controller;
 
 import com.datatech.datatechapi.App;
+import com.datatech.datatechapi.Entities.Enums.DiaDaSemana;
+import com.datatech.datatechapi.Entities.Enums.HorarioDaAula;
 import com.datatech.datatechapi.Entities.models.Professor;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class RestricoesController implements Initializable {
@@ -22,10 +26,10 @@ public class RestricoesController implements Initializable {
     private Button btn_salvar;
 
     @FXML
-    private ComboBox<?> cbx_diadasemana;
+    private ComboBox<DiaDaSemana> cbx_diadasemana;
 
     @FXML
-    private ComboBox<?> cbx_horariodaaula;
+    private ComboBox<HorarioDaAula> cbx_horariodaaula;
 
     @FXML
     private Label lbl_professor;
@@ -46,6 +50,8 @@ public class RestricoesController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         visualizarNomeProfessor();
+        cbx_diadasemana.getItems().setAll(DiaDaSemana.values());
+        cbx_horariodaaula.getItems().setAll(HorarioDaAula.values());
     }
 
     @FXML

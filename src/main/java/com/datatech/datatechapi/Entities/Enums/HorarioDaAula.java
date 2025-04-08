@@ -1,11 +1,11 @@
 package com.datatech.datatechapi.Entities.Enums;
 
 public enum HorarioDaAula {
-    PRIMEIRAAULA("18:45-19:35"),
-    SEGUNDAAULA("19:35-20:25"),
-    TERCEIRAAULA("20:25-21:15"),
-    QUARTAAULA("21:25-22:15"),
-    QUINTAAULA("22:15-23:05");
+    PRIMEIRA_AULA("18:45-19:35"),
+    SEGUNDA_AULA("19:35-20:25"),
+    TERCEIRA_AULA("20:25-21:15"),
+    QUARTA_AULA("21:25-22:15"),
+    QUINTA_AULA("22:15-23:05");
 
     private String descricao;
 

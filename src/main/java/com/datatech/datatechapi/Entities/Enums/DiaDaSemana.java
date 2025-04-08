@@ -1,11 +1,11 @@
 package com.datatech.datatechapi.Entities.Enums;
 
 public enum DiaDaSemana {
-    SEGUNDA("Segunda-feira"),
-    TERCA("Terça-feira"),
-    QUARTA("Quarta-feira"),
-    QUINTA("Quinta-feira"),
-    SEXTA("Sexta-feira");
+    SEGUNDA_FEIRA("Segunda-feira"),
+    TERCA_FEIRA("Terça-feira"),
+    QUARTA_FEIRA("Quarta-feira"),
+    QUINTA_FEIRA("Quinta-feira"),
+    SEXTA_FEIRA("Sexta-feira");
 
     private String descricao;
 
