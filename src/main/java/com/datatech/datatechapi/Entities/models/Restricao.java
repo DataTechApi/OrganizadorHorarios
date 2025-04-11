@@ -7,6 +7,24 @@ public class Restricao {
 
     private DiaDaSemana diaDaSemana;
     private HorarioDaAula horarioDaAula;
+    private Professor professor;
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+    private int professorId;
+
+    public int getProfessorId() {
+        return professorId;
+    }
+
+    public void setProfessorId(int professorId) {
+        this.professorId = professorId;
+    }
 
     public DiaDaSemana getDiaDaSemana() {
         return diaDaSemana;

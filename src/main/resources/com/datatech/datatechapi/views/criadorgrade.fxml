@@ -3,8 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -42,156 +40,33 @@
                 <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="21:25-22-15" GridPane.rowIndex="4" />
                 <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="22:15-23:05" GridPane.rowIndex="5" />
                 <Label alignment="CENTER" layoutX="10.0" layoutY="97.0" prefHeight="17.0" prefWidth="98.0" text="20:25-21:15" GridPane.rowIndex="3" />
-                <SplitMenuButton fx:id="slot_11" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_12" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_13" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_14" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_15" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_21" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_31" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_41" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_51" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_22" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_32" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_42" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_52" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_23" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_33" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_43" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_53" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_24" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_34" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_44" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_54" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_25" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_35" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_45" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="4" GridPane.rowIndex="5">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
-                <SplitMenuButton fx:id="slot_55" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="SplitMenuButton" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </SplitMenuButton>
+            <ComboBox fx:id="cbx_segunda_pri" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_segunda_seg" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_segunda_ter" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_segunda_quar" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_segunda_qui" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_terca_pri" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_terca_seg" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_terca_ter" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_terca_quar" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_terca_qui" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_quarta_pri" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_quarta_seg" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_quarta_seg" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_quarta_seg" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_quarta_ter" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_quarta_quar" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_quarta_qui" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_quinta_pri" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_sexta_pri" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_quinta_seg" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_quinta_ter" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_quinta_quar" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_quinta_qui" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_sexta_seg" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_sexta_ter" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_sexta_quar" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_sexta_qui" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
             </children>
         </GridPane>
         <Label alignment="CENTER" layoutY="7.0" prefHeight="17.0" prefWidth="600.0" text="Criação da Grade de Horários">
