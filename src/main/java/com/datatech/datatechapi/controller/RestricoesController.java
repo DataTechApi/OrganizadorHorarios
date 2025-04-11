@@ -4,13 +4,7 @@ import com.datatech.datatechapi.App;
 import com.datatech.datatechapi.Entities.Enums.DiaDaSemana;
 import com.datatech.datatechapi.Entities.Enums.HorarioDaAula;
 import com.datatech.datatechapi.Entities.models.Professor;
-<<<<<<< HEAD
 import javafx.collections.ObservableList;
-=======
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
->>>>>>> 8ed2f8de0b7021d96f84d52e77d98de4e5c8b590
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,13 +20,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
->>>>>>> 8ed2f8de0b7021d96f84d52e77d98de4e5c8b590
 import java.util.ResourceBundle;
-
-public class RestricoesController implements Initializable {
-
-    @FXML
-    private Button btn_excluir;
 
     @FXML
     private Button btn_salvar;
