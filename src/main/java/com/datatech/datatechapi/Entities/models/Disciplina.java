@@ -8,6 +8,9 @@ public class Disciplina {
     private int professorId;
     private Curso curso;
     private int cursoId;
+
+
+
     public int getId() {
         return id;
     }

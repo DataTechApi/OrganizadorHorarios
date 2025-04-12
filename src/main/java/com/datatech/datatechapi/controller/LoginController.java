@@ -2,6 +2,7 @@ package com.datatech.datatechapi.controller;
 
 import com.datatech.datatechapi.App;
 import com.datatech.datatechapi.Entities.models.Professor;
+import com.datatech.datatechapi.dao.ProfessorDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,9 @@ import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -31,8 +35,9 @@ public class LoginController implements Initializable {
     private TextField tf_email;
 
 
-
     Professor professor = new Professor();
+    ProfessorDao prof = new ProfessorDao();
+    List<Professor>professores= new ArrayList<>();
 
 
     @Override
@@ -42,9 +47,10 @@ public class LoginController implements Initializable {
 
     @FXML
     void logar(ActionEvent event) throws IOException {
-        professor.setNome("DATATECH");
-        professor.setEmail("teste@gmail.com");
-        professor.setSenha("123456");
+        professores= Collections.singletonList(prof.buscaPorEmail(tf_email.getText()));
+
+        System.out.println(professores.size());
+
         if (!tf_email.getText().equals(professor.getEmail()) &&
                 !pwd_senha.getText().equals(professor.getSenha())) {
             Notifications.create()
@@ -62,9 +68,11 @@ public class LoginController implements Initializable {
                     .showInformation();
             navegarMenu();
         }
+
     }
+
     void navegarMenu() throws IOException {
-        
+
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/telamenu.fxml"));
         Parent menu = fxmlLoader.load();
         Scene scene = new Scene(menu);
@@ -75,7 +83,6 @@ public class LoginController implements Initializable {
         stage.show();
 
     }
-
 
 
 }

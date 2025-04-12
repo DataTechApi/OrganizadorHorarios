@@ -1,21 +1,24 @@
 package com.datatech.datatechapi.Entities.models;
 
 
+import com.datatech.datatechapi.dao.ProfessorDao;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class teste {
 
     public static void main(String[] args) {
+        ProfessorDao p = new ProfessorDao();
+        List<Professor> teste = new ArrayList<>();
 
-        Curso c1 = new Curso();
-        c1.setId(1);
-        c1.setNome("BD");
+        teste = Collections.singletonList(p.buscaPorEmail("adrian@fatec"));
 
-        Disciplina d1 = new Disciplina();
-        d1.setId(1);
-        d1.setCurso(c1);
+        for (var item : teste){
+            System.out.println(item);
+        }
 
-
-        System.out.println(d1.getCurso().getNome());
 
     }
 }

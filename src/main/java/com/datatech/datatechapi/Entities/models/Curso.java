@@ -23,6 +23,9 @@ public class Curso {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public  void teste(){
+        System.out.println("testando");
+    }
 
     
 

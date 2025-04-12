@@ -2,21 +2,22 @@ package com.datatech.datatechapi.Entities.models;
 
 public class Professor {
 
+    private int id;
     private String nome;
     private String email;
     private String senha;
-    private boolean isCoordenador = false;
+    private boolean ehCoordenador = false;
 
     public String getNome() {
         return nome;
     }
 
-    public boolean isCoordenador() {
-        return isCoordenador;
+    public boolean ehCoordenador() {
+        return ehCoordenador;
     }
 
     public void setCoordenador(boolean coordenador) {
-        isCoordenador = coordenador;
+        ehCoordenador = coordenador;
     }
 
     public void setNome(String nome) {
@@ -37,5 +38,31 @@ public class Professor {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isEhCoordenador() {
+        return ehCoordenador;
+    }
+
+    public void setEhCoordenador(boolean ehCoordenador) {
+        this.ehCoordenador = ehCoordenador;
+    }
+
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", ehCoordenador=" + ehCoordenador +
+                '}';
     }
 }
