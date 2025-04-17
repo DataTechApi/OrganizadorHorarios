@@ -34,10 +34,12 @@ public class LoginController implements Initializable {
     @FXML
     private TextField tf_email;
 
+    public static String USUARIOLOGADO;
+
 
     Professor professor = new Professor();
-    ProfessorDao prof = new ProfessorDao();
-    List<Professor>professores= new ArrayList<>();
+    ProfessorDao professorDao = new ProfessorDao();
+    List<Professor> professores = new ArrayList<>();
 
 
     @Override
@@ -47,12 +49,17 @@ public class LoginController implements Initializable {
 
     @FXML
     void logar(ActionEvent event) throws IOException {
-        professores= Collections.singletonList(prof.buscaPorEmail(tf_email.getText()));
+        professor = professorDao.buscaPorEmail(tf_email.getText());
 
-        System.out.println(professores.size());
 
-        if (!tf_email.getText().equals(professor.getEmail()) &&
-                !pwd_senha.getText().equals(professor.getSenha())) {
+        if (professor == null) {
+            Notifications.create()
+                    .title("Login DataTech API")
+                    .position(Pos.TOP_CENTER)
+                    .text("Usuário não existe!!!")
+                    .darkStyle()
+                    .showError();
+        } else if (!professor.getSenha().equals(pwd_senha.getText())) {
             Notifications.create()
                     .title("Login DataTech API")
                     .position(Pos.TOP_CENTER)
@@ -66,6 +73,8 @@ public class LoginController implements Initializable {
                     .text(professor.getNome() + " seu login foi realizado com sucesso!!!")
                     .darkStyle()
                     .showInformation();
+
+            USUARIOLOGADO = professor.getNome();
             navegarMenu();
         }
 

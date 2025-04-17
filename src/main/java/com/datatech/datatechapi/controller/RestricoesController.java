@@ -64,8 +64,8 @@ public class RestricoesController implements Initializable{
 
     void visualizarNomeProfessor() {
         Professor professor = new Professor();
-        professor.setNome("DATATECH");
-        lbl_professor.setText(professor.getNome());
+
+        lbl_professor.setText(LoginController.USUARIOLOGADO);
     }
 
 

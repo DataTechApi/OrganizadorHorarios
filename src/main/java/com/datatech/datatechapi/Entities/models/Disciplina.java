@@ -48,6 +48,15 @@ public class Disciplina {
         this.cursoId = cursoId;
     }
 
-    
-
+    @Override
+    public String toString() {
+        return "Disciplina{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", professor=" + professor +
+                ", professorId=" + professorId +
+                ", curso=" + curso +
+                ", cursoId=" + cursoId +
+                '}';
+    }
 }
