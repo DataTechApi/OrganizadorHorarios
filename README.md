@@ -50,16 +50,14 @@ Acesse o User Story:
 
 # Metodologias Utilizadas
 
-Para desenvolver o Projeto do organizador de horários, foi utilizado o Github tanto para a documentação como para o gerenciamento e acompanhamento de entregas, o Intellij para o desenvolvimento do código, Mysql para o SGBD. O projeto foi realizado utilizando a Metodologia Àgil.
+Para o desenvolvimento do projeto do Gerenciador de Escalas, foi utilizado o GitHub para documentação, controle de versões e acompanhamento das entregas. A implementação do código foi realizada com o auxílio do IntelliJ IDEA, utilizando a linguagem Java em conjunto com o JavaFX para a criação da interface gráfica. Além disso, o projeto foi conduzido seguindo os princípios da Metodologia Ágil, garantindo maior organização e eficiência no processo de desenvolvimento.
+
 
 # Modelo entidade-relacionamento 
 
 ![diagrama2_page-0001](https://github.com/user-attachments/assets/55ca95b2-a6ee-40d9-b9c6-89d604b67ac0)
 
 
-## Metodologias Utilizadas
-
-Para o desenvolvimento do projeto do Gerenciador de Escalas, foi utilizado o GitHub para documentação, controle de versões e acompanhamento das entregas. A implementação do código foi realizada com o auxílio do IntelliJ IDEA, utilizando a linguagem Java em conjunto com o JavaFX para a criação da interface gráfica. Além disso, o projeto foi conduzido seguindo os princípios da Metodologia Ágil, garantindo maior organização e eficiência no processo de desenvolvimento.
 
 
 
