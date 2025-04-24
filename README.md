@@ -8,13 +8,15 @@ Nós, alunos do 2° semestre do curso de Banco de Dados da Faculdade de Tecnolog
 
 | Foto | Aluno | Função                                                                                                  |
 |-|-|-|
-|  | <div align="center"> Cauê Gandini | Product Owner |
+| ![Caue](https://github.com/user-attachments/assets/f77aad10-6dff-4e73-83e5-218d90bd2652) | <div align="center"> Cauê Gandini | Product Owner |
 | ![Lucas](https://github.com/user-attachments/assets/0063daa4-e83e-4d22-9d76-71b5482d56df) | <div align="center"> Lucas Silva Sousa | Scrum Master |
 | ![Abimael foto](https://github.com/user-attachments/assets/e402d840-1f14-48db-aceb-6931bd62bd86) |<div align="center"> Abimael | Dev |
 | ![Andre](https://github.com/user-attachments/assets/e5b1612b-3685-41b8-900f-9d3ed0f48697) |<div align="center"> André Diniz | Dev|
-|  | <div align="center"> Jackson Tadeu | Dev |
+| ![Jakson](https://github.com/user-attachments/assets/c5c1f6c3-c145-4e98-be5f-4f4a281fbdb3) | <div align="center"> Jackson Tadeu | Dev |
 |  | <div align="center"> João Andrade | Dev |
 | ![Thor](https://github.com/user-attachments/assets/1953daad-e890-47b8-b646-3e40af462d2c) | <div align="center"> Thor Lyndgaard | Dev |
+
+
 
 
 ## Cronograma 📅
