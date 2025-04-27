@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -30,6 +31,9 @@ public class TelaMenuController implements Initializable {
     private Menu logout;
 
     @FXML
+    private MenuItem mit_sair;
+
+    @FXML
     private Menu menugrade;
 
     @FXML
@@ -47,8 +51,11 @@ public class TelaMenuController implements Initializable {
     @FXML
     private MenuItem mit_visualizargrade;
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        verificarCoordenador();
 
     }
 
@@ -58,7 +65,7 @@ public class TelaMenuController implements Initializable {
         Parent restricoes = fxmlLoader.load();
         Scene scene = new Scene(restricoes);
         Stage stage = new Stage();
-        stage.setTitle("DataTech API - Cadastrar Restrições");
+        stage.setTitle("DataTech API - Cadastrar Restrições   " + " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
         stage.initStyle(StageStyle.UTILITY);
         stage.setScene(scene);
         stage.show();
@@ -71,8 +78,9 @@ public class TelaMenuController implements Initializable {
         Parent criador = fxmlLoader.load();
         Scene scene = new Scene(criador);
         Stage stage = new Stage();
-        stage.setTitle("DataTech API - Criador Grade");
+        stage.setTitle("DataTech API - Criador Grade   "+ " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
         stage.initStyle(StageStyle.UTILITY);
+       // stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
 
@@ -80,7 +88,7 @@ public class TelaMenuController implements Initializable {
 
     @FXML
     void realizarLogout(ActionEvent event) {
-        System.exit(0);
+
 
     }
 
@@ -90,11 +98,20 @@ public class TelaMenuController implements Initializable {
         Parent visualizar = fxmlLoader.load();
         Scene scene = new Scene(visualizar);
         Stage stage = new Stage();
-        stage.setTitle("DataTech API - Visualizar Grade");
+        stage.setTitle("DataTech API - Visualizar Grade    "+ " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
         stage.initStyle(StageStyle.UTILITY);
         stage.setScene(scene);
         stage.show();
 
+
+    }
+    void verificarCoordenador(){
+        if (LoginController.EHCOORDENADOR == true) mit_criargrade.setDisable(false);
+        else mit_criargrade.setDisable(true);
+    }
+    @FXML
+    void sairDoSistema(ActionEvent event) {
+        System.exit(0);
 
     }
 

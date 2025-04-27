@@ -12,14 +12,14 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.CriadorController">
     <children>
-        <GridPane gridLinesVisible="true" layoutX="1.0" layoutY="96.0" prefHeight="296.0" prefWidth="789.0">
+        <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="1.0" layoutY="96.0" prefHeight="347.0" prefWidth="800.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="133.33" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="133.33" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="133.33" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="133.33" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="133.33" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="133.33" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -30,23 +30,23 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label fx:id="lb_segunda" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Segunda-feira" GridPane.columnIndex="1">
+                <Label fx:id="lb_segunda" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Segunda-feira" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label fx:id="lb_terca" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Terça-feira" GridPane.columnIndex="2">
+                <Label fx:id="lb_terca" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Terça-feira" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label fx:id="lb_quarta" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Quarta-feira" GridPane.columnIndex="3">
+                <Label fx:id="lb_quarta" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Quarta-feira" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label fx:id="lb_quinta" alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="Quinta-feira" GridPane.columnIndex="4">
+                <Label fx:id="lb_quinta" alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="Quinta-feira" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label fx:id="lb_sexta" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Sexta-feira" GridPane.columnIndex="5">
+                <Label fx:id="lb_sexta" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Sexta-feira" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
@@ -70,48 +70,46 @@
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-            <ComboBox fx:id="cbx_segunda_pri" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_segunda_seg" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_segunda_ter" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_segunda_quar" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_segunda_qui" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <ComboBox fx:id="cbx_terca_pri" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_terca_seg" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_terca_ter" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_terca_quar" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_terca_qui" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <ComboBox fx:id="cbx_quarta_pri" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_quarta_seg" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_quarta_seg" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_quarta_seg" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_quarta_ter" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_quarta_quar" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_quarta_qui" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <ComboBox fx:id="cbx_quinta_pri" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_sexta_pri" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_quinta_seg" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_quinta_ter" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_quinta_quar" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_quinta_qui" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <ComboBox fx:id="cbx_sexta_seg" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_sexta_ter" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_sexta_quar" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_sexta_qui" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_segunda_pri" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_segunda_seg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_segunda_ter" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_segunda_quar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_segunda_qui" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_terca_pri" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_terca_seg" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_terca_ter" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_terca_quar" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_terca_qui" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_quarta_pri" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_quarta_seg" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_quarta_ter" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_quarta_quar" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_quarta_qui" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_quinta_pri" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_sexta_pri" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_quinta_seg" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_quinta_ter" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_quinta_quar" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_quinta_qui" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_sexta_seg" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_sexta_ter" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_sexta_quar" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_sexta_qui" GridPane.columnIndex="5" GridPane.rowIndex="5" />
             </children>
         </GridPane>
-        <Label alignment="CENTER" layoutY="7.0" prefHeight="28.0" prefWidth="789.0" text="Criação da Grade de Horários">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="7.0" prefHeight="28.0" prefWidth="789.0" text="Criação da Grade de Horários" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="19.0" />
             </font>
         </Label>
         <HBox layoutX="-4.0" layoutY="68.0" prefHeight="28.0" prefWidth="800.0">
             <children>
-                <Label alignment="CENTER" prefHeight="25.0" prefWidth="138.0" text="Curso">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="141.0" text="Curso" textAlignment="CENTER">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <ComboBox fx:id="cbx_curso" prefHeight="25.0" prefWidth="659.0" />
+                <ComboBox fx:id="cbx_curso" prefHeight="25.0" />
             </children>
         </HBox>
         <Button fx:id="bt_salvar" layoutX="358.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Salvar" />

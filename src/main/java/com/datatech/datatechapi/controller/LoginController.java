@@ -35,7 +35,7 @@ public class LoginController implements Initializable {
     private TextField tf_email;
 
     public static String USUARIOLOGADO;
-
+    public static Boolean EHCOORDENADOR;
 
     Professor professor = new Professor();
     ProfessorDao professorDao = new ProfessorDao();
@@ -75,6 +75,7 @@ public class LoginController implements Initializable {
                     .showInformation();
 
             USUARIOLOGADO = professor.getNome();
+            EHCOORDENADOR = professor.isEhCoordenador();
             navegarMenu();
         }
 
@@ -86,7 +87,7 @@ public class LoginController implements Initializable {
         Parent menu = fxmlLoader.load();
         Scene scene = new Scene(menu);
         Stage stage = new Stage();
-        stage.setTitle("DataTech API - Menu DATAGRADE");
+        stage.setTitle("DataTech API - Menu DATAGRADE  " + " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
         stage.initStyle(StageStyle.UTILITY);
         stage.setScene(scene);
         stage.show();

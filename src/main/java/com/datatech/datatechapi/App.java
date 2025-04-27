@@ -22,6 +22,7 @@ public class App extends Application {
         stage.setTitle("DataTech API");
         stage.initStyle(StageStyle.UTILITY);
         scene.getStylesheets().add(caimnhoCss);
+
         stage.setScene(scene);
         stage.show();
     }

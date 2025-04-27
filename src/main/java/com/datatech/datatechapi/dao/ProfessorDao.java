@@ -52,6 +52,7 @@ public class ProfessorDao {
                 professor.setNome(rs.getString("nome"));
                 professor.setEmail(rs.getString("email"));
                 professor.setSenha(rs.getString("senha"));
+                professor.setCoordenador(rs.getBoolean("ehCoordenador"));
             }
 
         } catch (Exception e) {

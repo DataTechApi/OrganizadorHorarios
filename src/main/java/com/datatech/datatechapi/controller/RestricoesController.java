@@ -47,8 +47,10 @@ public class RestricoesController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         visualizarNomeProfessor();
-        cbx_diadasemana.getItems().setAll(DiaDaSemana.values());
-        cbx_horariodaaula.getItems().setAll(HorarioDaAula.values());
+        //cbx_diadasemana.getItems().setAll(DiaDaSemana.values());
+        visualizarDiaSemana(cbx_diadasemana);
+        visualizarHorarios(cbx_horariodaaula);
+        //cbx_horariodaaula.getItems().setAll(HorarioDaAula.values());
 
     }
 
@@ -64,9 +66,19 @@ public class RestricoesController implements Initializable{
 
     void visualizarNomeProfessor() {
         Professor professor = new Professor();
-
         lbl_professor.setText(LoginController.USUARIOLOGADO);
     }
+    void visualizarDiaSemana(ComboBox cbx){
+        for(DiaDaSemana dia : DiaDaSemana.values()){
+            cbx.getItems().add(dia.getDescricao());
+        }
+    }
+    void visualizarHorarios(ComboBox cbx){
+        for(HorarioDaAula horario : HorarioDaAula.values()){
+            cbx.getItems().add(horario.getDescricao());
+        }
+    }
+
 
 
 }

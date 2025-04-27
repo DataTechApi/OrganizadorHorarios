@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="anchorpane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.TelaMenuController">
    <children>
-      <MenuBar fx:id="barramenu" layoutY="1.0" prefHeight="25.0" prefWidth="600.0">
+      <MenuBar fx:id="barramenu" layoutY="1.0" prefHeight="26.0" prefWidth="600.0">
         <menus>
           <Menu fx:id="menuprofessor" mnemonicParsing="false" text="Professor">
             <items>
@@ -22,7 +22,8 @@
           </Menu>
           <Menu fx:id="logout" mnemonicParsing="false" text="Sair">
             <items>
-              <MenuItem fx:id="mit_logout" mnemonicParsing="false" onAction="#realizarLogout" text="Sair do Sistema" />
+              <MenuItem fx:id="mit_logout" mnemonicParsing="false" onAction="#realizarLogout" text="Efetuar Logoff" />
+                  <MenuItem fx:id="mit_sair" mnemonicParsing="false" onAction="#sairDoSistema" text="Sair do Sistema" />
             </items>
           </Menu>
         </menus>
