@@ -1,7 +1,7 @@
 package com.datatech.datatechapi.controller;
 
 import com.datatech.datatechapi.App;
-import com.datatech.datatechapi.Entities.models.Professor;
+import com.datatech.datatechapi.entities.models.Professor;
 import com.datatech.datatechapi.dao.ProfessorDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +20,6 @@ import org.controlsfx.control.Notifications;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -36,6 +35,7 @@ public class LoginController implements Initializable {
 
     public static String USUARIOLOGADO;
     public static Boolean EHCOORDENADOR;
+    public static String EMAIL;
 
     Professor professor = new Professor();
     ProfessorDao professorDao = new ProfessorDao();
@@ -76,6 +76,7 @@ public class LoginController implements Initializable {
 
             USUARIOLOGADO = professor.getNome();
             EHCOORDENADOR = professor.isEhCoordenador();
+            EMAIL = professor.getEmail();
             navegarMenu();
         }
 

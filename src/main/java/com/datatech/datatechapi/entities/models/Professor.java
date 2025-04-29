@@ -1,4 +1,4 @@
-package com.datatech.datatechapi.Entities.models;
+package com.datatech.datatechapi.entities.models;
 
 public class Professor {
 

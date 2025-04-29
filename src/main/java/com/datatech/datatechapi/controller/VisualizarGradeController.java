@@ -1,6 +1,6 @@
 package com.datatech.datatechapi.controller;
 
-import com.datatech.datatechapi.Entities.models.Curso;
+import com.datatech.datatechapi.entities.models.Curso;
 import com.datatech.datatechapi.dao.CursoDao;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -7,5 +7,7 @@ module com.datatech.datatechapi {
 
     opens com.datatech.datatechapi to javafx.fxml;
     opens com.datatech.datatechapi.controller to javafx.fxml;
+    opens com.datatech.datatechapi.util to javafx.fxml;
+    opens com.datatech.datatechapi.entities.models to javafx.base;
     exports com.datatech.datatechapi;
 }

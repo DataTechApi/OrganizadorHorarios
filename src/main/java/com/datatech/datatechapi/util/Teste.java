@@ -1,7 +1,5 @@
 package com.datatech.datatechapi.util;
 
-import com.datatech.datatechapi.Entities.models.Curso;
-
 import java.sql.SQLException;
 
 public class Teste {

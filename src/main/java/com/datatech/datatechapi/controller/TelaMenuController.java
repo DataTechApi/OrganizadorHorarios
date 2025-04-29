@@ -76,7 +76,7 @@ public class TelaMenuController implements Initializable {
     void criarGrade(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/criadorgrade.fxml"));
         Parent criador = fxmlLoader.load();
-        Scene scene = new Scene(criador);
+        Scene scene = new Scene(criador,800,600);
         Stage stage = new Stage();
         stage.setTitle("DataTech API - Criador Grade   "+ " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
         stage.initStyle(StageStyle.UTILITY);
@@ -96,7 +96,7 @@ public class TelaMenuController implements Initializable {
     void visualizarGrade(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/visualizargrade.fxml"));
         Parent visualizar = fxmlLoader.load();
-        Scene scene = new Scene(visualizar);
+        Scene scene = new Scene(visualizar, 800,600);
         Stage stage = new Stage();
         stage.setTitle("DataTech API - Visualizar Grade    "+ " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
         stage.initStyle(StageStyle.UTILITY);

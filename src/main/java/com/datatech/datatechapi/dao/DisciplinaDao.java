@@ -1,7 +1,6 @@
 package com.datatech.datatechapi.dao;
 
-import com.datatech.datatechapi.Entities.models.Disciplina;
-import com.datatech.datatechapi.Entities.models.Professor;
+import com.datatech.datatechapi.entities.models.Disciplina;
 import com.datatech.datatechapi.util.Conexao;
 
 import java.sql.PreparedStatement;

@@ -1,7 +1,7 @@
 package com.datatech.datatechapi.controller;
 
-import com.datatech.datatechapi.Entities.models.Curso;
-import com.datatech.datatechapi.Entities.models.Disciplina;
+import com.datatech.datatechapi.entities.models.Curso;
+import com.datatech.datatechapi.entities.models.Disciplina;
 import com.datatech.datatechapi.dao.CursoDao;
 import com.datatech.datatechapi.dao.DisciplinaDao;
 

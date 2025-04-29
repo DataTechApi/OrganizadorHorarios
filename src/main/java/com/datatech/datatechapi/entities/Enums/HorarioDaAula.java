@@ -1,4 +1,4 @@
-package com.datatech.datatechapi.Entities.Enums;
+package com.datatech.datatechapi.entities.Enums;
 
 public enum HorarioDaAula {
     PRIMEIRA_AULA("18:45-19:35"),
@@ -9,11 +9,17 @@ public enum HorarioDaAula {
 
     private String descricao;
 
+
     HorarioDaAula(String descricao) {
+
         this.descricao = descricao;
+
     }
 
     public String getDescricao() {
+
         return descricao;
     }
+
+
 }

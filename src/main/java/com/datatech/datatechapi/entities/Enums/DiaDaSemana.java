@@ -1,4 +1,4 @@
-package com.datatech.datatechapi.Entities.Enums;
+package com.datatech.datatechapi.entities.Enums;
 
 public enum DiaDaSemana {
     SEGUNDA_FEIRA("Segunda-feira"),
@@ -9,11 +9,16 @@ public enum DiaDaSemana {
 
     private String descricao;
 
+
     DiaDaSemana(String descricao) {
         this.descricao = descricao;
+
     }
 
     public String getDescricao() {
+
         return descricao;
     }
+
+
 }
