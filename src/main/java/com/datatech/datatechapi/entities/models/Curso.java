@@ -23,10 +23,15 @@ public class Curso {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public  void teste(){
-        System.out.println("testando");
+
+
+
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", siglaCurso='" + siglaCurso + '\'' +
+                '}';
     }
-
-    
-
 }

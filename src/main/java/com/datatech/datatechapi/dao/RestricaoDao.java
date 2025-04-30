@@ -51,4 +51,12 @@ public class RestricaoDao {
             System.out.println("Erro " + e.getMessage());
         }
     }
+    public void removerRestricao(Restricao restricao) {
+        try {
+            String sql = "DELETE FROM restricao WHERE id=?";
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+            ps.setInt(1,restricao.getId());
+            ps.execute();
+        } catch (Exception e) { }
+    }
 }

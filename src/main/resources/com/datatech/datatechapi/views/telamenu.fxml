@@ -5,9 +5,9 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorpane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.TelaMenuController">
+<AnchorPane fx:id="anchorpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.TelaMenuController">
    <children>
-      <MenuBar fx:id="barramenu" layoutY="1.0" prefHeight="26.0" prefWidth="600.0">
+      <MenuBar fx:id="barramenu" layoutY="1.0" prefHeight="26.0" prefWidth="800.0">
         <menus>
           <Menu fx:id="menuprofessor" mnemonicParsing="false" text="Professor">
             <items>

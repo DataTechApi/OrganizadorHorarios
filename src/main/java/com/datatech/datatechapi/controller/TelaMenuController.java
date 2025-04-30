@@ -87,16 +87,16 @@ public class TelaMenuController implements Initializable {
     }
 
     @FXML
-    void realizarLogout(ActionEvent event) {
+    void realizarLogout(ActionEvent event) throws IOException {
 
-
+        App.setRoot("views/login.fxml");
     }
 
     @FXML
     void visualizarGrade(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/visualizargrade.fxml"));
         Parent visualizar = fxmlLoader.load();
-        Scene scene = new Scene(visualizar, 800,600);
+        Scene scene = new Scene(visualizar);
         Stage stage = new Stage();
         stage.setTitle("DataTech API - Visualizar Grade    "+ " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
         stage.initStyle(StageStyle.UTILITY);

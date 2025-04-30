@@ -1,5 +1,6 @@
 package com.datatech.datatechapi.dao;
 
+import com.datatech.datatechapi.entities.models.Curso;
 import com.datatech.datatechapi.entities.models.Disciplina;
 import com.datatech.datatechapi.util.Conexao;
 
@@ -36,12 +37,12 @@ public class DisciplinaDao {
         }
         return disciplinas;
     }
-    public List<Disciplina> buscarTodosNome() {
+    public List<Disciplina> buscarTodosPorCurso() {
         List<Disciplina> disciplinasNome = new ArrayList<>();
 
         try {
             ResultSet rs = null;
-            String sql = "select nome  from disciplina";
+            String sql = "select *  from disciplina ";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
 
             rs = ps.executeQuery();
@@ -49,9 +50,9 @@ public class DisciplinaDao {
             while (rs.next()) {
                 Disciplina disciplina = new Disciplina();
 
-               // disciplina.setId(rs.getInt("id"));
+                disciplina.setId(rs.getInt("id"));
                 disciplina.setNome(rs.getString("nome"));
-                //disciplina.setCursoId((rs.getInt("cursoid")));
+               disciplina.setCursoId((rs.getInt("cursoid")));
                // disciplina.setProfessorId(rs.getInt("professorid"));
 
                 disciplinasNome.add(disciplina);

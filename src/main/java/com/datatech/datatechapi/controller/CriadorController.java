@@ -33,7 +33,7 @@ public class CriadorController implements Initializable {
     private ComboBox<Disciplina> cbx_quarta_qui;
 
     @FXML
-    private ComboBox<Disciplina>cbx_quarta_seg;
+    private ComboBox<Disciplina> cbx_quarta_seg;
 
     @FXML
     private ComboBox<Disciplina> cbx_quarta_ter;
@@ -115,7 +115,8 @@ public class CriadorController implements Initializable {
 
 
     DisciplinaDao disciplinaDao = new DisciplinaDao();
-    List<Disciplina> disciplinas=disciplinaDao.buscarTodosNome();
+    List<Disciplina> disciplinas = disciplinaDao.buscarTodosPorCurso();
+
 
     CursoDao cursoDao = new CursoDao();
     List<Curso> cursos = cursoDao.buscarTodos();
@@ -123,7 +124,10 @@ public class CriadorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        visualizarCursos(cbx_curso);
         visualizarDisciplinas(cbx_segunda_pri);
+
         visualizarDisciplinas(cbx_segunda_seg);
         visualizarDisciplinas(cbx_segunda_ter);
         visualizarDisciplinas(cbx_segunda_quar);
@@ -148,16 +152,21 @@ public class CriadorController implements Initializable {
         visualizarDisciplinas(cbx_sexta_ter);
         visualizarDisciplinas(cbx_sexta_quar);
         visualizarDisciplinas(cbx_sexta_qui);
-        visualizarCursos(cbx_curso);
+
     }
 
-    void visualizarDisciplinas(ComboBox cbx){
-        for (Disciplina d : disciplinas){
+    void visualizarDisciplinas(ComboBox cbx) {
+
+
+
+        for (Disciplina d : disciplinas) {
+
             cbx.getItems().add(d.getNome().toUpperCase());
         }
     }
-    void visualizarCursos(ComboBox cbx){
-        for (Curso c : cursos){
+
+    void visualizarCursos(ComboBox cbx) {
+        for (Curso c : cursos) {
             cbx.getItems().add(c.getNome().toUpperCase());
         }
     }

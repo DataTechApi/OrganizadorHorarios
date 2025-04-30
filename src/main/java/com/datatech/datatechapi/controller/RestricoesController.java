@@ -50,8 +50,8 @@ public class RestricoesController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         visualizarNomeProfessor();
-        visualizarDiaSemana(cbx_diadasemana);
-        visualizarHorarios(cbx_horariodaaula);
+        cbx_diadasemana.getItems().addAll(DiaDaSemana.values());
+        cbx_horariodaaula.getItems().addAll(HorarioDaAula.values());
         preencherTabela();
 
 
@@ -59,31 +59,25 @@ public class RestricoesController implements Initializable {
 
     @FXML
     void excluirResticao(ActionEvent event) {
-
+        restricaoDao.removerRestricao(restricoesObservable.get(tbv_restricoes.getSelectionModel().getSelectedIndex()));
+        preencherTabela();
     }
 
     @FXML
     void salvarRestricao(ActionEvent event) {
+        Restricao restricao = new Restricao();
+        restricao.setDiaDaSemana(cbx_diadasemana.getValue());
+        restricao.setHorarioDaAula(cbx_horariodaaula.getValue());
+        restricao.setProfessorEmail(LoginController.EMAIL);
+        restricaoDao.cadastrarRestricao(restricao);
         preencherTabela();
+        limparCampos();
     }
 
     void visualizarNomeProfessor() {
         Professor professor = new Professor();
         lbl_professor.setText(LoginController.USUARIOLOGADO);
     }
-
-    void visualizarDiaSemana(ComboBox cbx) {
-        for (DiaDaSemana dia : DiaDaSemana.values()) {
-            cbx.getItems().add(dia.getDescricao());
-        }
-    }
-
-    void visualizarHorarios(ComboBox cbx) {
-        for (HorarioDaAula horario : HorarioDaAula.values()) {
-            cbx.getItems().add(horario.getDescricao());
-        }
-    }
-
     void preencherTabela() {
         tbc_diadasemana.setCellValueFactory(new PropertyValueFactory<>("diaDaSemana"));
         tbc_horariodaaula.setCellValueFactory(new PropertyValueFactory<>("horarioDaAula"));
@@ -92,6 +86,10 @@ public class RestricoesController implements Initializable {
         restricoesObservable= FXCollections.observableArrayList(restricoes);
 
         tbv_restricoes.setItems(restricoesObservable);
+    }
+    void limparCampos(){
+        cbx_diadasemana.getSelectionModel().clearSelection();
+        cbx_horariodaaula.getSelectionModel().clearSelection();
     }
 
 

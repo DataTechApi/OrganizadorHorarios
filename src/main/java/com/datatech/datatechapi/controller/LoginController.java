@@ -50,8 +50,6 @@ public class LoginController implements Initializable {
     @FXML
     void logar(ActionEvent event) throws IOException {
         professor = professorDao.buscaPorEmail(tf_email.getText());
-
-
         if (professor == null) {
             Notifications.create()
                     .title("Login DataTech API")
@@ -77,7 +75,8 @@ public class LoginController implements Initializable {
             USUARIOLOGADO = professor.getNome();
             EHCOORDENADOR = professor.isEhCoordenador();
             EMAIL = professor.getEmail();
-            navegarMenu();
+            //navegarMenu();
+            App.setRoot("views/telamenu.fxml");
         }
 
     }

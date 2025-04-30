@@ -1,6 +1,7 @@
 package com.datatech.datatechapi.entities.models;
 
 
+import com.datatech.datatechapi.dao.DisciplinaDao;
 import com.datatech.datatechapi.dao.RestricaoDao;
 
 import java.util.ArrayList;
@@ -19,24 +20,25 @@ public class teste {
 //        }
 //        DisciplinaDao dd = new DisciplinaDao();
 //        List<Disciplina> teste = new ArrayList<>();
-//
-//        teste = dd.buscarTodosNome();
+//        Curso curso = new Curso();
+//        curso.setId(2);
+//        teste = dd.buscarTodosPorCurso(curso);
 //        for(var disc : teste){
-//            System.out.println(disc.getNome());
+//            System.out.println(disc.getId() + disc.getCursoId() + disc.getNome());
 //        }
-        RestricaoDao r = new RestricaoDao();
+   //     RestricaoDao r = new RestricaoDao();
 //        Restricao restricao = new Restricao();
 //        restricao.setDiaDaSemana(DiaDaSemana.SEGUNDA_FEIRA);
 //        restricao.setHorarioDaAula(HorarioDaAula.SEGUNDA_AULA);
 //        restricao.setProfessorEmail("adriana@fatec");
 //        r.cadastrarRestricao(restricao);
-        r.buscarRestricao("adriana@fatec");
-
-       List<Restricao> t = new ArrayList<>();
-       t=r.buscarRestricao("adriana@fatec");
-       for (var i: t){
-           System.out.println(i);
-       }
+//        r.buscarRestricao("adriana@fatec");
+//
+//       List<Restricao> t = new ArrayList<>();
+//       t=r.buscarRestricao("adriana@fatec");
+//       for (var i: t){
+//           System.out.println(i);
+//       }
 
 
 
