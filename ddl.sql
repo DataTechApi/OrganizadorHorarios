@@ -49,12 +49,12 @@ disciplinanome varchar(45) not null,
 professornome varchar(45));
 
 alter table grade
-add foreign key(cursosigla)
-references curso(siglacurso);
+add foreign key(cursonome)
+references curso(nome);
 
 alter table grade
-add foreign key(disciplinaid)
-references disciplina(id);
+add foreign key(disciplinanome)
+references disciplina(nome);
 
 alter table grade change
 professoremail professorid int;
@@ -62,4 +62,7 @@ professoremail professorid int;
 alter table grade
 add foreign key(professorid)
 references professor(id);
+
+alter table grade
+add primary key(cursonome,dia,horario);
 
