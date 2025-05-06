@@ -4,6 +4,7 @@ module com.datatech.datatechapi {
 
     requires org.controlsfx.controls;
     requires java.sql;
+    requires org.jetbrains.annotations;
 
     opens com.datatech.datatechapi to javafx.fxml;
     opens com.datatech.datatechapi.controller to javafx.fxml;

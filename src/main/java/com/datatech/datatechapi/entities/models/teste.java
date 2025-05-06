@@ -2,6 +2,7 @@ package com.datatech.datatechapi.entities.models;
 
 
 import com.datatech.datatechapi.dao.DisciplinaDao;
+import com.datatech.datatechapi.dao.GradeDao;
 import com.datatech.datatechapi.dao.RestricaoDao;
 
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ public class teste {
 //        List<Disciplina> teste = new ArrayList<>();
 //        Curso curso = new Curso();
 //        curso.setId(2);
-//        teste = dd.buscarTodosPorCurso(curso);
+//        teste = dd.buscarTodosPorCurso();
 //        for(var disc : teste){
-//            System.out.println(disc.getId() + disc.getCursoId() + disc.getNome());
+//            System.out.println(disc.getId() +  disc.getNome() + " " + disc.getCursoId() + "");
 //        }
    //     RestricaoDao r = new RestricaoDao();
 //        Restricao restricao = new Restricao();
@@ -39,6 +40,12 @@ public class teste {
 //       for (var i: t){
 //           System.out.println(i);
 //       }
+        GradeDao g = new GradeDao();
+        List<Grade> t = g.buscarPorCurso("Banco de Dados II");
+
+        for(var i : t){
+            System.out.println(i);
+        }
 
 
 

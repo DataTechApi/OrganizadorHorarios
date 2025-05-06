@@ -53,7 +53,7 @@ public class DisciplinaDao {
                 disciplina.setId(rs.getInt("id"));
                 disciplina.setNome(rs.getString("nome"));
                disciplina.setCursoId((rs.getInt("cursoid")));
-               // disciplina.setProfessorId(rs.getInt("professorid"));
+                disciplina.setProfessorId(rs.getInt("professorid"));
 
                 disciplinasNome.add(disciplina);
             }

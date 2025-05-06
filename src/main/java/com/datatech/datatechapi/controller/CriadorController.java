@@ -1,19 +1,27 @@
 package com.datatech.datatechapi.controller;
 
+import com.datatech.datatechapi.dao.GradeDao;
+import com.datatech.datatechapi.entities.Enums.DiaDaSemana;
+import com.datatech.datatechapi.entities.Enums.HorarioDaAula;
 import com.datatech.datatechapi.entities.models.Curso;
 import com.datatech.datatechapi.entities.models.Disciplina;
 import com.datatech.datatechapi.dao.CursoDao;
 import com.datatech.datatechapi.dao.DisciplinaDao;
 
+import com.datatech.datatechapi.entities.models.Grade;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+
 
 import java.net.URL;
+import java.util.*;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class CriadorController implements Initializable {
 
@@ -113,6 +121,9 @@ public class CriadorController implements Initializable {
     @FXML
     private Label lb_terca;
 
+    @FXML
+    private GridPane gdp_grade;
+
 
     DisciplinaDao disciplinaDao = new DisciplinaDao();
     List<Disciplina> disciplinas = disciplinaDao.buscarTodosPorCurso();
@@ -121,13 +132,17 @@ public class CriadorController implements Initializable {
     CursoDao cursoDao = new CursoDao();
     List<Curso> cursos = cursoDao.buscarTodos();
 
+    GradeDao gradeDao = new GradeDao();
+    List<Grade> grades = new ArrayList<>();
+
+   ;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         visualizarCursos(cbx_curso);
         visualizarDisciplinas(cbx_segunda_pri);
-
         visualizarDisciplinas(cbx_segunda_seg);
         visualizarDisciplinas(cbx_segunda_ter);
         visualizarDisciplinas(cbx_segunda_quar);
@@ -152,24 +167,54 @@ public class CriadorController implements Initializable {
         visualizarDisciplinas(cbx_sexta_ter);
         visualizarDisciplinas(cbx_sexta_quar);
         visualizarDisciplinas(cbx_sexta_qui);
+        lb_segunda.setText(DiaDaSemana.SEGUNDA_FEIRA.toString());
+
+    }
+
+    @FXML
+    void salvarGrade(ActionEvent event) {
+        receberDados(cbx_sexta_pri);
+        receberDados(cbx_sexta_seg);
+        receberDados(cbx_sexta_ter);
+        receberDados(cbx_sexta_quar);
+        receberDados(cbx_sexta_qui);
+
 
     }
 
     void visualizarDisciplinas(ComboBox cbx) {
-
-
-
         for (Disciplina d : disciplinas) {
-
-            cbx.getItems().add(d.getNome().toUpperCase());
+            cbx.getItems().add(d.getNome());
         }
     }
 
     void visualizarCursos(ComboBox cbx) {
         for (Curso c : cursos) {
-            cbx.getItems().add(c.getNome().toUpperCase());
+            cbx.getItems().add(c.getNome());
         }
     }
 
+    void receberDados(ComboBox cbx) {
+        String curso = nomeCurso(cbx_curso);
+        for (int i = 1; i < gdp_grade.getRowCount(); i++) {
+            for(int j = 1; j < gdp_grade.getColumnCount(); j++)
+            if(GridPane.getColumnIndex(cbx) == j && GridPane.getRowIndex(cbx) == i){
+                Grade grade = new Grade();
+                grade.setCursoNome(curso);
+                grade.setDisciplinanome(cbx.getValue().toString());
+                grade.setDia(DiaDaSemana.SEXTA_FEIRA);
+                grade.setHorario(HorarioDaAula.PRIMEIRA_AULA);
+                grades.add(grade);
+            }
+        }
+       gradeDao.cadastrarGrade(grades);
+        for(Grade g : grades){
+            System.out.println(g);
+        }
+    }
+     String  nomeCurso(@org.jetbrains.annotations.NotNull ComboBox cbx){
+        String curso = (java.lang.String) cbx.getValue();
+        return curso;
+    }
 
 }

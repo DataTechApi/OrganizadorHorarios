@@ -31,3 +31,35 @@ alter table disciplina
 add foreign key(professorid)
 references professor(id);
 
+create table restricao
+(id int primary key auto_increment,
+dia int not null,
+aula int not null,
+professoremail varchar(100) not null);
+
+alter table restricao
+add foreign key(professoremail)
+references professor(email);
+
+create table grade
+(cursonome varchar(45) not null,
+dia varchar(45) not null,
+horario varchar(45) not null,
+disciplinanome varchar(45) not null,
+professornome varchar(45));
+
+alter table grade
+add foreign key(cursosigla)
+references curso(siglacurso);
+
+alter table grade
+add foreign key(disciplinaid)
+references disciplina(id);
+
+alter table grade change
+professoremail professorid int;
+
+alter table grade
+add foreign key(professorid)
+references professor(id);
+
