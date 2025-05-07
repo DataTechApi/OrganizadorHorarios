@@ -12,11 +12,13 @@ import com.datatech.datatechapi.entities.models.Grade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import org.controlsfx.control.Notifications;
 
 
 import java.net.URL;
@@ -173,11 +175,21 @@ public class CriadorController implements Initializable {
 
     @FXML
     void salvarGrade(ActionEvent event) {
-        receberDados(cbx_sexta_pri);
-        receberDados(cbx_sexta_seg);
-        receberDados(cbx_sexta_ter);
-        receberDados(cbx_sexta_quar);
-        receberDados(cbx_sexta_qui);
+        if (cbx_curso.getValue() == null) {
+            Notifications.create()
+                    .darkStyle()
+                    .position(Pos.TOP_CENTER)
+                    .text("O campo CURSO deve ser preenchido!!!")
+                    .title("Necessário atençaõ")
+                    .showWarning();
+        }else{
+            receberDados(cbx_sexta_pri);
+            receberDados(cbx_sexta_seg);
+            receberDados(cbx_sexta_ter);
+            receberDados(cbx_sexta_quar);
+            receberDados(cbx_sexta_qui);
+        }
+
 
 
     }
@@ -215,6 +227,13 @@ public class CriadorController implements Initializable {
      String  nomeCurso(@org.jetbrains.annotations.NotNull ComboBox cbx){
         String curso = (java.lang.String) cbx.getValue();
         return curso;
+    }
+    boolean verificarCurso(ComboBox cbx){
+        if (cbx.getValue() == null){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }
