@@ -65,23 +65,23 @@ A seguir, está o backlog do projeto com as tarefas organizadas por título, res
 
 | Título | Responsáveis | Status | Prioridade | Estimativa (Data) | Sprint |
 |--------|--------------|--------|------------|-------------------|--------|
-| Criação da tabela BD #10 | andrediniz96, caue... | Done | ALTA | Apr 9, 2025 | 2 |
-| Alimentação BD #11 | andrediniz96, caue... | Done | ALTA | Apr 18, 2025 | 2 |
+| Criação da tabela BD #10 | Todos | Done | ALTA | Apr 9, 2025 | 2 |
+| Alimentação BD #11 | Todos | Done | ALTA | Apr 18, 2025 | 2 |
 | Modelo MER #12 | thor-lynd | Done | MÉDIA | Mar 27, 2025 | 1 |
-| Conexão BD #13 | jacksondeau e t... | Done | ALTA | Apr 18, 2025 | 2 |
-| Criação de Grade #14 | causeal and lucamus... | Done | MÉDIA | Apr 10, 2025 | 2 |
-| Visualização de grade #15 | andrediniz96 and jo... | Done | MÉDIA | Apr 16, 2025 | 2 |
-| Tela de login #16 | jacksondeau | Done | MÉDIA | Apr 18, 2025 | 2 |
-| Logout #17 | jacksondeau | Done | MÉDIA | Apr 18, 2025 | 2 |
-| Tela restrição #18 | jacksondeau | Done | MÉDIA | Apr 18, 2025 | 2 |
-| Validações #19 | Bima0195 and thor... | Todo | ALTA | May 9, 2025 | 3 |
-| Testes #20 | andrediniz96, Bima... | Todo | MÉDIA | May 20, 2025 | 3 |
-| Aviso de conflito #21 | causeal and lucamus... | Todo | ALTA | May 7, 2025 | 3 |
+| Conexão BD #13 | jackson e thor-Lynd | Done | ALTA | Apr 18, 2025 | 2 |
+| Criação de Grade #14 | caue e lucas | Done | MÉDIA | Apr 10, 2025 | 2 |
+| Visualização de grade #15 | andre e joao | Done | MÉDIA | Apr 16, 2025 | 2 |
+| Tela de login #16 | jackson| Done | MÉDIA | Apr 18, 2025 | 2 |
+| Logout #17 | jackson | Done | MÉDIA | Apr 18, 2025 | 2 |
+| Tela restrição #18 | jackson | Done | MÉDIA | Apr 18, 2025 | 2 |
+| Validações #19 | abimael e thor-Lynd| Todo | ALTA | May 9, 2025 | 3 |
+| Testes #20 | Todos | Todo | MÉDIA | May 20, 2025 | 3 |
+| Aviso de conflito #21 | caue e lucas | Todo | ALTA | May 7, 2025 | 3 |
 | Protótipos #22 | jacksondeau | Done | MÉDIA | Mar 27, 2025 | 1 |
-| Ferramentas de trabalho #23 | andrediniz96, caue... | Done | MÉDIA | Mar 12, 2025 | 1 |
-| Documentos do projeto #24 | causeal e joaand... | Todo | MÉDIA | May 23, 2025 | 3 |
-| Entrega #25 | causeal e jacksondeau | Todo | MÉDIA | May 23, 2025 | 3 |
-| Verificação/replanejamento do Banco de Dados sobre os Slots #26 | Bima0195 e thor... | Todo | ALTA | May 9, 2025 | 3 |
+| Ferramentas de trabalho #23 | Todos | Done | MÉDIA | Mar 12, 2025 | 1 |
+| Documentos do projeto #24 | caue e joao | Todo | MÉDIA | May 23, 2025 | 3 |
+| Entrega #25 | caue e jackson | Todo | MÉDIA | May 23, 2025 | 3 |
+| Verificação/replanejamento do Banco de Dados sobre os Slots #26 | abimael e thor-Lynd | Todo | ALTA | May 9, 2025 | 3 |
 
 ---
 
@@ -89,6 +89,7 @@ A seguir, está o backlog do projeto com as tarefas organizadas por título, res
 - **Status**:
   - `Done`: Tarefa concluída.
   - `Todo`: Tarefa pendente.
+  - `In Progress`: Tarefa em progresso.
   
 - **Prioridade**:
   - `ALTA`: Tarefa crítica ou de alta importância.
