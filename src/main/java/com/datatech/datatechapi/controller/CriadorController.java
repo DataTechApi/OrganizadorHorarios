@@ -109,19 +109,35 @@ public class CriadorController implements Initializable {
     private ComboBox<Disciplina> cbx_terca_ter;
 
     @FXML
+    private Label lb_primeiraaula;
+
+    @FXML
     private Label lb_quarta;
+
+    @FXML
+    private Label lb_quartaaula;
 
     @FXML
     private Label lb_quinta;
 
     @FXML
+    private Label lb_quintaaula;
+
+    @FXML
     private Label lb_segunda;
+
+    @FXML
+    private Label lb_segundaaula;
 
     @FXML
     private Label lb_sexta;
 
     @FXML
     private Label lb_terca;
+
+    @FXML
+    private Label lb_terceiraaula;
+
 
     @FXML
     private GridPane gdp_grade;
@@ -169,7 +185,7 @@ public class CriadorController implements Initializable {
         visualizarDisciplinas(cbx_sexta_ter);
         visualizarDisciplinas(cbx_sexta_quar);
         visualizarDisciplinas(cbx_sexta_qui);
-        lb_segunda.setText(DiaDaSemana.SEGUNDA_FEIRA.toString());
+        
 
     }
 
@@ -178,7 +194,7 @@ public class CriadorController implements Initializable {
         if (cbx_curso.getValue() == null) {
             Notifications.create()
                     .darkStyle()
-                    .position(Pos.TOP_CENTER)
+                    .position(Pos.CENTER)
                     .text("O campo CURSO deve ser preenchido!!!")
                     .title("Necessário atençaõ")
                     .showWarning();
@@ -189,9 +205,6 @@ public class CriadorController implements Initializable {
             receberDados(cbx_sexta_quar);
             receberDados(cbx_sexta_qui);
         }
-
-
-
     }
 
     void visualizarDisciplinas(ComboBox cbx) {

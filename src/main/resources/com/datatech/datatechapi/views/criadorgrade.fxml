@@ -30,43 +30,43 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label fx:id="lb_segunda" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <Label fx:id="lb_segunda" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="SEGUNDA_FEIRA" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label fx:id="lb_terca" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Terça-feira" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <Label fx:id="lb_terca" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="TERCA_FEIRA" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label fx:id="lb_quarta" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Quarta-feira" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <Label fx:id="lb_quarta" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="QUARTA_FEIRA" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label fx:id="lb_quinta" alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="Quinta-feira" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <Label fx:id="lb_quinta" alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="QUINTA_FEIRA" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label fx:id="lb_sexta" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Sexta-feira" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <Label fx:id="lb_sexta" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="SEXTA_FEIRA" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="18:45-19:35" GridPane.rowIndex="1">
+                <Label fx:id="lb_primeiraaula" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="PRIMEIRA_AULA" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="19:35-20:25" GridPane.rowIndex="2">
+                <Label fx:id="lb_segundaaula" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="SEGUNDA_AULA" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="21:25-22:15" GridPane.rowIndex="4">
+                <Label fx:id="lb_quartaaula" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="QUARTA_AULA" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="22:15-23:05" GridPane.rowIndex="5">
+                <Label fx:id="lb_quintaaula" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="QUINTA_AULA" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-                <Label alignment="CENTER" layoutX="10.0" layoutY="97.0" prefHeight="17.0" prefWidth="98.0" text="20:25-21:15" GridPane.rowIndex="3">
+                <Label fx:id="lb_terceiraaula" alignment="CENTER" layoutX="10.0" layoutY="97.0" prefHeight="17.0" prefWidth="98.0" text="TERCEIRA_AULA" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
