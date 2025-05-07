@@ -9,6 +9,8 @@ import com.datatech.datatechapi.dao.CursoDao;
 import com.datatech.datatechapi.dao.DisciplinaDao;
 
 import com.datatech.datatechapi.entities.models.Grade;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +21,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import org.controlsfx.control.Notifications;
+import org.jetbrains.annotations.NotNull;
 
 
 import java.net.URL;
@@ -144,22 +147,96 @@ public class CriadorController implements Initializable {
 
 
     DisciplinaDao disciplinaDao = new DisciplinaDao();
-    List<Disciplina> disciplinas = disciplinaDao.buscarTodosPorCurso();
 
 
     CursoDao cursoDao = new CursoDao();
-    List<Curso> cursos = cursoDao.buscarTodos();
+    ObservableList<Curso> cursos;
 
     GradeDao gradeDao = new GradeDao();
     List<Grade> grades = new ArrayList<>();
-
-   ;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         visualizarCursos(cbx_curso);
+
+
+    }
+
+    @FXML
+    void salvarGrade(ActionEvent event) {
+        if (cbx_curso.getValue() == null) {
+            Notifications.create()
+                    .darkStyle()
+                    .position(Pos.CENTER)
+                    .text("O campo CURSO deve ser preenchido!!!")
+                    .title("Necessário atençaõ")
+                    .showWarning();
+        } else {
+            receberDados(cbx_sexta_pri);
+            receberDados(cbx_sexta_seg);
+            receberDados(cbx_sexta_ter);
+            receberDados(cbx_sexta_quar);
+            receberDados(cbx_sexta_qui);
+        }
+    }
+
+    void visualizarDisciplinas(ComboBox cbx) {
+        Curso c = new Curso();
+        List<Disciplina> disciplinas = new ArrayList<>();
+        c = disciplinaDao.buscarCursoPorNome(nomeCurso(cbx_curso));
+        disciplinas.clear();
+        disciplinas = disciplinaDao.buscarTodosPorCurso(c.getId());
+        cbx.getItems().clear();
+        for (Disciplina d : disciplinas) {
+            cbx.getItems().add(d.getNome());
+        }
+    }
+    void visualizarCursos(ComboBox cbx) {
+        cursos = FXCollections.observableList(cursoDao.buscarTodos());
+        for (Curso c : cursos) {
+            cbx.getItems().add(c.getNome());
+            cbx.setValue(c.getNome());
+        }
+    }
+    void receberDados(ComboBox cbx) {
+        String curso = nomeCurso(cbx_curso);
+        for (int i = 1; i < gdp_grade.getRowCount(); i++) {
+            for (int j = 1; j < gdp_grade.getColumnCount(); j++)
+                if (GridPane.getColumnIndex(cbx) == j && GridPane.getRowIndex(cbx) == i) {
+                    Grade grade = new Grade();
+                    grade.setCursoNome(curso);
+                    grade.setDisciplinanome(cbx.getValue().toString());
+                    grade.setDia(DiaDaSemana.SEXTA_FEIRA);
+                    grade.setHorario(HorarioDaAula.PRIMEIRA_AULA);
+                    grades.add(grade);
+                }
+        }
+        gradeDao.cadastrarGrade(grades);
+        for (Grade g : grades) {
+            System.out.println(g);
+        }
+    }
+    String nomeCurso(ComboBox cbx) {
+        String curso = (String) cbx.getValue();
+        return curso;
+    }
+    boolean verificarCurso(ComboBox cbx) {
+        if (cbx.getValue() == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    @FXML
+    void preencherDisciplinas(ActionEvent event) {
+        if (event.getSource() == cbx_curso) {
+            String nomeCurso = String.valueOf(cbx_curso.getSelectionModel().getSelectedItem());
+            visualizarDisciplinas();
+        }
+    }
+    void visualizarDisciplinas(){
         visualizarDisciplinas(cbx_segunda_pri);
         visualizarDisciplinas(cbx_segunda_seg);
         visualizarDisciplinas(cbx_segunda_ter);
@@ -185,68 +262,7 @@ public class CriadorController implements Initializable {
         visualizarDisciplinas(cbx_sexta_ter);
         visualizarDisciplinas(cbx_sexta_quar);
         visualizarDisciplinas(cbx_sexta_qui);
-        
 
     }
-
-    @FXML
-    void salvarGrade(ActionEvent event) {
-        if (cbx_curso.getValue() == null) {
-            Notifications.create()
-                    .darkStyle()
-                    .position(Pos.CENTER)
-                    .text("O campo CURSO deve ser preenchido!!!")
-                    .title("Necessário atençaõ")
-                    .showWarning();
-        }else{
-            receberDados(cbx_sexta_pri);
-            receberDados(cbx_sexta_seg);
-            receberDados(cbx_sexta_ter);
-            receberDados(cbx_sexta_quar);
-            receberDados(cbx_sexta_qui);
-        }
-    }
-
-    void visualizarDisciplinas(ComboBox cbx) {
-        for (Disciplina d : disciplinas) {
-            cbx.getItems().add(d.getNome());
-        }
-    }
-
-    void visualizarCursos(ComboBox cbx) {
-        for (Curso c : cursos) {
-            cbx.getItems().add(c.getNome());
-        }
-    }
-
-    void receberDados(ComboBox cbx) {
-        String curso = nomeCurso(cbx_curso);
-        for (int i = 1; i < gdp_grade.getRowCount(); i++) {
-            for(int j = 1; j < gdp_grade.getColumnCount(); j++)
-            if(GridPane.getColumnIndex(cbx) == j && GridPane.getRowIndex(cbx) == i){
-                Grade grade = new Grade();
-                grade.setCursoNome(curso);
-                grade.setDisciplinanome(cbx.getValue().toString());
-                grade.setDia(DiaDaSemana.SEXTA_FEIRA);
-                grade.setHorario(HorarioDaAula.PRIMEIRA_AULA);
-                grades.add(grade);
-            }
-        }
-       gradeDao.cadastrarGrade(grades);
-        for(Grade g : grades){
-            System.out.println(g);
-        }
-    }
-     String  nomeCurso(@org.jetbrains.annotations.NotNull ComboBox cbx){
-        String curso = (java.lang.String) cbx.getValue();
-        return curso;
-    }
-    boolean verificarCurso(ComboBox cbx){
-        if (cbx.getValue() == null){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
 }
+

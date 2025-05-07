@@ -23,12 +23,10 @@ public class DisciplinaDao {
 
             while (rs.next()) {
                 Disciplina disciplina = new Disciplina();
-
                 disciplina.setId(rs.getInt("id"));
                 disciplina.setNome(rs.getString("nome"));
                 disciplina.setCursoId((rs.getInt("cursoid")));
                 disciplina.setProfessorId(rs.getInt("professorid"));
-
                 disciplinas.add(disciplina);
             }
 
@@ -37,24 +35,25 @@ public class DisciplinaDao {
         }
         return disciplinas;
     }
-    public List<Disciplina> buscarTodosPorCurso() {
+    public List<Disciplina> buscarTodosPorCurso(int id) {
         List<Disciplina> disciplinasNome = new ArrayList<>();
 
         try {
             ResultSet rs = null;
-            String sql = "select *  from disciplina ";
+            String sql = "select * from disciplina where cursoid= ?";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
-
+            ps.setInt(1,id);
             rs = ps.executeQuery();
 
             while (rs.next()) {
                 Disciplina disciplina = new Disciplina();
 
-                disciplina.setId(rs.getInt("id"));
-                disciplina.setNome(rs.getString("nome"));
-               disciplina.setCursoId((rs.getInt("cursoid")));
-                disciplina.setProfessorId(rs.getInt("professorid"));
 
+                //disciplina.setId(rs.getInt("id"));
+                disciplina.setNome(rs.getString("nome"));
+
+              // disciplina.setCursoId((rs.getInt("cursoid")));
+               // disciplina.setProfessorId(rs.getInt("professorid"));
                 disciplinasNome.add(disciplina);
             }
 
@@ -62,5 +61,27 @@ public class DisciplinaDao {
             System.out.println("Erro " + e.getMessage());
         }
         return disciplinasNome;
+    }
+    public Curso buscarCursoPorNome(String nome) {
+
+        Curso curso = null;
+        try {
+            ResultSet rs = null;
+            String sql = "SELECT * FROM curso WHERE nome=?";
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+            ps.setString(1, nome);
+
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                curso = new Curso();
+                curso.setNome(rs.getString("nome"));
+                curso.setId(rs.getInt("id"));
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erro " + e.getMessage());
+        }
+        return curso;
     }
 }

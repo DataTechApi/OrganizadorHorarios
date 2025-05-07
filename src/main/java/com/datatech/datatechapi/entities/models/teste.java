@@ -19,14 +19,19 @@ public class teste {
 //        for (var item : teste){
 //            System.out.println(item);
 //        }
-//        DisciplinaDao dd = new DisciplinaDao();
-//        List<Disciplina> teste = new ArrayList<>();
-//        Curso curso = new Curso();
-//        curso.setId(2);
-//        teste = dd.buscarTodosPorCurso();
-//        for(var disc : teste){
-//            System.out.println(disc.getId() +  disc.getNome() + " " + disc.getCursoId() + "");
-//        }
+        DisciplinaDao dd = new DisciplinaDao();
+        Curso curso = new Curso();
+        curso= dd.buscarCursoPorNome("Banco de Dados II");
+
+        for (Disciplina disciplina : dd.buscarTodosPorCurso(curso.getId())) {
+            System.out.println(disciplina);
+        }
+
+
+        System.out.println(curso);
+
+
+
    //     RestricaoDao r = new RestricaoDao();
 //        Restricao restricao = new Restricao();
 //        restricao.setDiaDaSemana(DiaDaSemana.SEGUNDA_FEIRA);
@@ -40,12 +45,12 @@ public class teste {
 //       for (var i: t){
 //           System.out.println(i);
 //       }
-        GradeDao g = new GradeDao();
-        List<Grade> t = g.buscarPorCurso("Banco de Dados II");
-
-        for(var i : t){
-            System.out.println(i);
-        }
+//        GradeDao g = new GradeDao();
+//        List<Grade> t = g.buscarPorCurso("Banco de Dados II");
+//
+//        for(var i : t){
+//            System.out.println(i);
+//        }
 
 
 

@@ -15,22 +15,19 @@ public class CursoDao {
 
         try {
             ResultSet rs = null;
-            String sql = "select * from curso";
+            String sql = "select * from curso ";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+
 
             rs = ps.executeQuery();
 
             while (rs.next()) {
                 Curso curso = new Curso();
-
                 curso.setId(rs.getInt("id"));
                 curso.setNome(rs.getString("nome"));
                 curso.setSiglaCurso((rs.getString("siglacurso")));
-
-
                 cursos.add(curso);
             }
-
         } catch (Exception e) {
             System.out.println("Erro " + e.getMessage());
         }
