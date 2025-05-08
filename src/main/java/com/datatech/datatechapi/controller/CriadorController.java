@@ -153,6 +153,8 @@ public class CriadorController implements Initializable {
 
     GradeDao gradeDao = new GradeDao();
     List<Grade> grades = new ArrayList<>();
+    String[] dias = {"SEGUNDA_FEIRA","TERCA_FEIRA","QUARTA_FEIRA","QUINTA_FEIRA","SEXTA_FEIRA"};
+    String[] aulas = {"PRIMEIRA_AULA","SEGUNDA_AULA","TERCEIRA_AULA","QUARTA_AULA","QUINTA_AULA"};
 
 
     @Override
@@ -169,18 +171,13 @@ public class CriadorController implements Initializable {
                     .title("Necessário atençaõ")
                     .showWarning();
         } else {
-            receberDados(cbx_sexta_pri);
-            receberDados(cbx_sexta_seg);
-            receberDados(cbx_sexta_ter);
-            receberDados(cbx_sexta_quar);
-            receberDados(cbx_sexta_qui);
+           receberDados();
         }
     }
     void visualizarDisciplinas(ComboBox cbx) {
         Curso c = new Curso();
         List<Disciplina> disciplinas = new ArrayList<>();
         c = disciplinaDao.buscarCursoPorNome(nomeCurso(cbx_curso));
-        disciplinas.clear();
         disciplinas = disciplinaDao.buscarTodosPorCurso(c.getId());
         cbx.getItems().clear();
         for (Disciplina d : disciplinas) {
@@ -196,26 +193,27 @@ public class CriadorController implements Initializable {
     }
     void receberDados(ComboBox cbx) {
         String curso = nomeCurso(cbx_curso);
+        Grade grade = new Grade();
         for (int i = 1; i < gdp_grade.getRowCount(); i++) {
             for (int j = 1; j < gdp_grade.getColumnCount(); j++)
                 if (GridPane.getColumnIndex(cbx) == j && GridPane.getRowIndex(cbx) == i) {
-                    Grade grade = new Grade();
                     grade.setCursoNome(curso);
                     grade.setDisciplinanome(cbx.getValue().toString());
-                    grade.setDia(DiaDaSemana.SEXTA_FEIRA);
-                    grade.setHorario(HorarioDaAula.PRIMEIRA_AULA);
-                    grades.add(grade);
+                    if(GridPane.getRowIndex(cbx)== i)
+                        grade.setHorario(HorarioDaAula.valueOf(aulas[i-1]));
+
+                    if (GridPane.getColumnIndex(cbx)==j)
+                        grade.setDia(DiaDaSemana.valueOf(dias[j -1]));
                 }
         }
-        gradeDao.cadastrarGrade(grades);
-        for (Grade g : grades) {
-            System.out.println(g);
-        }
+        grades.add(grade);
     }
+
     String nomeCurso(ComboBox cbx) {
         String curso = (String) cbx.getValue();
         return curso;
     }
+
     boolean verificarCurso(ComboBox cbx) {
         if (cbx.getValue() == null) {
             return true;
@@ -230,7 +228,7 @@ public class CriadorController implements Initializable {
             visualizarDisciplinas();
         }
     }
-    void visualizarDisciplinas(){
+    void visualizarDisciplinas() {
         visualizarDisciplinas(cbx_segunda_pri);
         visualizarDisciplinas(cbx_segunda_seg);
         visualizarDisciplinas(cbx_segunda_ter);
@@ -256,7 +254,41 @@ public class CriadorController implements Initializable {
         visualizarDisciplinas(cbx_sexta_ter);
         visualizarDisciplinas(cbx_sexta_quar);
         visualizarDisciplinas(cbx_sexta_qui);
+    }
+    void receberDados(){
+        receberDados(cbx_segunda_pri);
+        receberDados(cbx_segunda_seg);
+        receberDados(cbx_segunda_ter);
+        receberDados(cbx_segunda_quar);
+        receberDados(cbx_segunda_qui);
+
+        receberDados(cbx_terca_pri);
+        receberDados(cbx_terca_seg);
+        receberDados(cbx_terca_ter);
+        receberDados(cbx_terca_quar);
+        receberDados(cbx_terca_qui);
+
+        receberDados(cbx_quarta_pri);
+        receberDados(cbx_quarta_seg);
+        receberDados(cbx_quarta_ter);
+        receberDados(cbx_quarta_quar);
+        receberDados(cbx_quarta_qui);
+
+        receberDados(cbx_quinta_pri);
+        receberDados(cbx_quinta_seg);
+        receberDados(cbx_quinta_ter);
+        receberDados(cbx_quinta_quar);
+        receberDados(cbx_quinta_qui);
+
+        receberDados(cbx_sexta_pri);
+        receberDados(cbx_sexta_seg);
+        receberDados(cbx_sexta_ter);
+        receberDados(cbx_sexta_quar);
+        receberDados(cbx_sexta_qui);
+
+        gradeDao.cadastrarGrade(grades);
 
     }
+
 }
 

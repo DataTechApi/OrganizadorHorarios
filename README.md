@@ -59,8 +59,44 @@ Para o desenvolvimento do projeto do Gerenciador de Escalas, foi utilizado o Git
 
 ![diagrama2_page-0001](https://github.com/user-attachments/assets/55ca95b2-a6ee-40d9-b9c6-89d604b67ac0)
 
+# Backlog do Projeto
 
+A seguir, está o backlog do projeto com as tarefas organizadas por título, responsáveis, status, prioridade, estimativa de data e sprint.
 
+| Título | Responsáveis | Status | Prioridade | Estimativa (Data) | Sprint |
+|--------|--------------|--------|------------|-------------------|--------|
+| Criação da tabela BD #10 | Todos | Done | ALTA | Apr 9, 2025 | 2 |
+| Alimentação BD #11 | Todos | Done | ALTA | Apr 18, 2025 | 2 |
+| Modelo MER #12 | thor-lynd | Done | MÉDIA | Mar 27, 2025 | 1 |
+| Conexão BD #13 | jackson e thor-Lynd | Done | ALTA | Apr 18, 2025 | 2 |
+| Criação de Grade #14 | caue e lucas | Done | MÉDIA | Apr 10, 2025 | 2 |
+| Visualização de grade #15 | andre e joao | Done | MÉDIA | Apr 16, 2025 | 2 |
+| Tela de login #16 | jackson| Done | MÉDIA | Apr 18, 2025 | 2 |
+| Logout #17 | jackson | Done | MÉDIA | Apr 18, 2025 | 2 |
+| Tela restrição #18 | jackson | Done | MÉDIA | Apr 18, 2025 | 2 |
+| Validações #19 | abimael e thor-Lynd| In progress | ALTA | May 14, 2025 | 3 |
+| Testes #20 | Todos | Todo | MÉDIA | May 20, 2025 | 3 |
+| Aviso de conflito #21 | caue e lucas | In progress | ALTA | May 14, 2025 | 3 |
+| Protótipos #22 | jacksondeau | Done | MÉDIA | Mar 27, 2025 | 1 |
+| Ferramentas de trabalho #23 | Todos | Done | MÉDIA | Mar 12, 2025 | 1 |
+| Documentos do projeto #24 | caue. joao e lucas | In progress | MÉDIA | May 23, 2025 | 3 |
+| Entrega #25 | caue e jackson | In progress | MÉDIA | May 23, 2025 | 3 |
+| Verificação/replanejamento do Banco de Dados sobre os Slots #26 | abimael e thor-Lynd | In progress | ALTA | May 14, 2025 | 3 |
 
+---
 
+### Legendas:
+- **Status**:
+  - `Done`: Tarefa concluída.
+  - `Todo`: Tarefa pendente.
+  - `In Progress`: Tarefa em progresso.
+  
+- **Prioridade**:
+  - `ALTA`: Tarefa crítica ou de alta importância.
+  - `MÉDIA`: Tarefa importante, mas não crítica.
 
+- **Sprint**: Número da sprint em que a tarefa foi ou será realizada.
+
+---
+
+Esse backlog é atualizado periodicamente para refletir o progresso do projeto.
