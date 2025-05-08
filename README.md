@@ -65,23 +65,23 @@ A seguir, está o backlog do projeto com as tarefas organizadas por título, res
 
 | Título | Responsáveis | Status | Prioridade | Estimativa (Data) | Sprint |
 |--------|--------------|--------|------------|-------------------|--------|
-| Criação da tabela BD #1 | Todos | Done | ALTA | Apr 9, 2025 | 2 |
-| Alimentação BD #2 | Todos | Done | ALTA | Apr 18, 2025 | 2 |
-| Modelo MER #3 | thor-lynd | Done | MÉDIA | Mar 27, 2025 | 1 |
-| Conexão BD #4 | jackson e thor-Lynd | Done | ALTA | Apr 18, 2025 | 2 |
-| Criação de Grade #5 | caue e lucas | Done | MÉDIA | Apr 10, 2025 | 2 |
-| Visualização de grade #6 | andre e joao | Done | MÉDIA | Apr 16, 2025 | 2 |
-| Tela de login #7 | jackson| Done | MÉDIA | Apr 18, 2025 | 2 |
-| Logout #8 | jackson | Done | MÉDIA | Apr 18, 2025 | 2 |
-| Tela restrição #9 | jackson | Done | MÉDIA | Apr 18, 2025 | 2 |
-| Validações #10 | abimael e thor-Lynd| In progress | ALTA | May 14, 2025 | 3 |
-| Testes #11 | Todos | Todo | MÉDIA | May 20, 2025 | 3 |
-| Aviso de conflito #12 | caue e lucas | In progress | ALTA | May 14, 2025 | 3 |
-| Protótipos #13 | jacksondeau | Done | MÉDIA | Mar 27, 2025 | 1 |
-| Ferramentas de trabalho #14 | Todos | Done | MÉDIA | Mar 12, 2025 | 1 |
-| Documentos do projeto #15 | caue. joao e lucas | In progress | MÉDIA | May 23, 2025 | 3 |
-| Entrega #16 | caue e jackson | In progress | MÉDIA | May 23, 2025 | 3 |
-| Verificação/replanejamento do Banco de Dados sobre os Slots #17 | abimael e thor-Lynd | In progress | ALTA | May 14, 2025 | 3 |
+| Criação da tabela BD #10 | Todos | Done | ALTA | Apr 9, 2025 | 2 |
+| Alimentação BD #11 | Todos | Done | ALTA | Apr 18, 2025 | 2 |
+| Modelo MER #12 | thor-lynd | Done | MÉDIA | Mar 27, 2025 | 1 |
+| Conexão BD #13 | jackson e thor-Lynd | Done | ALTA | Apr 18, 2025 | 2 |
+| Criação de Grade #14 | caue e lucas | Done | MÉDIA | Apr 10, 2025 | 2 |
+| Visualização de grade #15 | andre e joao | Done | MÉDIA | Apr 16, 2025 | 2 |
+| Tela de login #16 | jackson| Done | MÉDIA | Apr 18, 2025 | 2 |
+| Logout #17 | jackson | Done | MÉDIA | Apr 18, 2025 | 2 |
+| Tela restrição #18 | jackson | Done | MÉDIA | Apr 18, 2025 | 2 |
+| Validações #19 | abimael e thor-Lynd| In progress | ALTA | May 14, 2025 | 3 |
+| Testes #20 | Todos | Todo | MÉDIA | May 20, 2025 | 3 |
+| Aviso de conflito #21 | caue e lucas | In progress | ALTA | May 14, 2025 | 3 |
+| Protótipos #22 | jacksondeau | Done | MÉDIA | Mar 27, 2025 | 1 |
+| Ferramentas de trabalho #23 | Todos | Done | MÉDIA | Mar 12, 2025 | 1 |
+| Documentos do projeto #24 | caue. joao e lucas | In progress | MÉDIA | May 23, 2025 | 3 |
+| Entrega #25 | caue e jackson | In progress | MÉDIA | May 23, 2025 | 3 |
+| Verificação/replanejamento do Banco de Dados sobre os Slots #26 | abimael e thor-Lynd | In progress | ALTA | May 14, 2025 | 3 |
 
 ---
 
