@@ -22,7 +22,7 @@ public class teste {
         GradeDao gradeDao  = new GradeDao();
         List<Grade> grades = new ArrayList<>();
 
-        grades = gradeDao.buscarTodos();
+        grades = gradeDao.buscarPorCurso("Banco de Dados I");
 
         for(Grade g : grades){
             System.out.println(g);

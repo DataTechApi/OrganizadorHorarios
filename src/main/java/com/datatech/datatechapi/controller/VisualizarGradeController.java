@@ -11,6 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -46,26 +47,34 @@ public class VisualizarGradeController implements Initializable {
     GradeDao gradeDao = new GradeDao();
     Grade grade = new Grade();
 
-    List<Grade> lista= gradeDao.buscarTodos();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         visualizarCursos(cbx_curso);
-        receberDados(lista);
+
     }
     void visualizarCursos(ComboBox cbx){
         for (Curso c : cursos){
-            cbx.getItems().add(c.getNome().toUpperCase());
+            cbx.getItems().add(c.getNome());
         }
 
     }
-    void receberDados(List<Grade> lista){
+    @FXML
+    void receberDados(){
+        String nome = nomeCurso(cbx_curso);
+        List<Grade> lista= new ArrayList<>();
+        lista = gradeDao.buscarPorCurso(nome);
+
         for(Grade g : lista){
-            System.out.println(lista);
+            System.out.println(g);
+            lbl_seg_pri_disc.setText(g.getDisciplinanome());
+            
         }
-
-
-
+    }
+    String nomeCurso(ComboBox cbx) {
+        String curso = (String) cbx.getValue();
+        return curso;
     }
 }

@@ -75,7 +75,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbx_curso" prefHeight="25.0" prefWidth="758.0" />
+            <ComboBox fx:id="cbx_curso" onAction="#receberDados" prefHeight="25.0" prefWidth="758.0" />
          </children>
       </HBox>
    </children>

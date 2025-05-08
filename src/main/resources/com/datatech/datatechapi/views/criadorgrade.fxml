@@ -109,7 +109,7 @@
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <ComboBox fx:id="cbx_curso" prefHeight="25.0" />
+                <ComboBox fx:id="cbx_curso" prefHeight="25.0" onAction="#preencherDisciplinas"/>
             </children>
         </HBox>
         <Button fx:id="bt_salvar" layoutX="358.0" layoutY="459.0" mnemonicParsing="false" onAction="#salvarGrade" prefHeight="25.0" prefWidth="84.0" text="Salvar" />
