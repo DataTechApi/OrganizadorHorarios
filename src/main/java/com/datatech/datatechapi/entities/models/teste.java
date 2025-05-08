@@ -19,16 +19,17 @@ public class teste {
 //        for (var item : teste){
 //            System.out.println(item);
 //        }
-        DisciplinaDao dd = new DisciplinaDao();
-        Curso curso = new Curso();
-        curso= dd.buscarCursoPorNome("Banco de Dados II");
+        GradeDao gradeDao  = new GradeDao();
+        List<Grade> grades = new ArrayList<>();
 
-        for (Disciplina disciplina : dd.buscarTodosPorCurso(curso.getId())) {
-            System.out.println(disciplina);
+        grades = gradeDao.buscarTodos();
+
+        for(Grade g : grades){
+            System.out.println(g);
         }
 
 
-        System.out.println(curso);
+
 
 
 

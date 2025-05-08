@@ -16,15 +16,13 @@ public class GradeDao {
 
     public List<Grade> buscarTodos() {
         List<Grade> grades = new ArrayList<>();
-
-
+        Grade grade = new Grade();
         try {
             ResultSet rs = null;
             String sql = "select * from grade";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Grade grade = new Grade();
                 grade.setCursoNome(rs.getString("cursonome"));
                 grade.setDia(DiaDaSemana.valueOf(rs.getString("dia")));
                 grade.setHorario(HorarioDaAula.valueOf(rs.getString("horario")));
@@ -79,6 +77,7 @@ public class GradeDao {
                 e.printStackTrace();
                 System.out.println("Erro " + e.getMessage());
             }
+
         }
     }
 }

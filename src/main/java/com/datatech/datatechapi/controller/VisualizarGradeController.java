@@ -61,10 +61,10 @@ public class VisualizarGradeController implements Initializable {
 
     }
     void receberDados(List<Grade> lista){
+        for(Grade g : lista){
+            System.out.println(lista);
+        }
 
-
-            lbl_seg_pri_disc.setText(lista.stream().map(g ->g.getDia().equals(DiaDaSemana.SEGUNDA_FEIRA)).toString());
-           //lbl_seg_pri_prof.setText(g.getProfessorNome().toUpperCase());
 
 
     }
