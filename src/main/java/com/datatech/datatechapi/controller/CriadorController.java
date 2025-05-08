@@ -141,7 +141,6 @@ public class CriadorController implements Initializable {
     @FXML
     private Label lb_terceiraaula;
 
-
     @FXML
     private GridPane gdp_grade;
 
@@ -158,12 +157,8 @@ public class CriadorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         visualizarCursos(cbx_curso);
-
-
     }
-
     @FXML
     void salvarGrade(ActionEvent event) {
         if (cbx_curso.getValue() == null) {
@@ -181,7 +176,6 @@ public class CriadorController implements Initializable {
             receberDados(cbx_sexta_qui);
         }
     }
-
     void visualizarDisciplinas(ComboBox cbx) {
         Curso c = new Curso();
         List<Disciplina> disciplinas = new ArrayList<>();
