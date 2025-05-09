@@ -23,10 +23,15 @@ public class teste {
         List<Grade> grades = new ArrayList<>();
 
         grades = gradeDao.buscarPorCurso("Banco de Dados I");
-
-        for(Grade g : grades){
-            System.out.println(g);
+        int i , j;
+        String materia = "";
+        for( i = 0; i < grades.size(); i++){
+            for( j = 0; j < grades.size(); j++){
+                if (grades.get(i ).getLinha()== 5 && grades.get(i).getColuna() == 2)
+                   materia = grades.get(i).getDisciplinanome();
+            }
         }
+        System.out.println(materia);
 
 
 

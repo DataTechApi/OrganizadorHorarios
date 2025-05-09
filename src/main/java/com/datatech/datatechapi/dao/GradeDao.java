@@ -16,13 +16,16 @@ public class GradeDao {
 
     public List<Grade> buscarTodos() {
         List<Grade> grades = new ArrayList<>();
-        Grade grade = new Grade();
+
         try {
             ResultSet rs = null;
             String sql = "select * from grade";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
+                Grade grade = new Grade();
+                grade.setLinha(rs.getInt("linha"));
+                grade.setColuna(rs.getInt("coluna"));
                 grade.setCursoNome(rs.getString("cursonome"));
                 grade.setDia(DiaDaSemana.valueOf(rs.getString("dia")));
                 grade.setHorario(HorarioDaAula.valueOf(rs.getString("horario")));
@@ -53,6 +56,8 @@ public class GradeDao {
                 grade.setHorario(HorarioDaAula.valueOf(rs.getString("horario")));
                 grade.setDisciplinanome(String.valueOf(rs.getString("disciplinanome")));
                 grade.setProfessorNome(String.valueOf(rs.getString("professornome")));
+                grade.setLinha(rs.getInt("linha"));
+                grade.setColuna(rs.getInt("coluna"));
 
                 grades.add(grade);
             }
@@ -66,12 +71,15 @@ public class GradeDao {
     public void cadastrarGrade(List<Grade> grades) {
         for (Grade grade : grades) {
             try {
-                String sql = "INSERT INTO grade(cursonome,dia,horario,disciplinanome) VALUES(?,?,?,?)";
+                String sql = "INSERT INTO grade(cursonome,dia,horario,disciplinanome,linha,coluna) VALUES(?,?,?,?,?,?)";
                 PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
                 ps.setString(1, grade.getCursoNome());
                 ps.setString(2, grade.getDia().toString());
                 ps.setString(3, grade.getHorario().toString());
                 ps.setString(4, grade.getDisciplinanome());
+                ps.setInt(5, grade.getLinha());
+                ps.setInt(6, grade.getColuna());
+                //ps.setString(7, grade.getProfessorNome());
                 ps.execute();
             } catch (Exception e) {
                 e.printStackTrace();

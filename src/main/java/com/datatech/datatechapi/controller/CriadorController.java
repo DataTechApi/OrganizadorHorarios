@@ -204,6 +204,8 @@ public class CriadorController implements Initializable {
 
                     if (GridPane.getColumnIndex(cbx)==j)
                         grade.setDia(DiaDaSemana.valueOf(dias[j -1]));
+                    grade.setLinha(i);
+                    grade.setColuna(j);
                 }
         }
         grades.add(grade);
