@@ -19,21 +19,20 @@ public class teste {
 //        for (var item : teste){
 //            System.out.println(item);
 //        }
-        GradeDao gradeDao  = new GradeDao();
-        List<Grade> grades = new ArrayList<>();
-
-        grades = gradeDao.buscarPorCurso("Banco de Dados I");
-        int i , j;
-        String materia = "";
-        for( i = 0; i < grades.size(); i++){
-            for( j = 0; j < grades.size(); j++){
-                if (grades.get(i ).getLinha()== 5 && grades.get(i).getColuna() == 2)
-                   materia = grades.get(i).getDisciplinanome();
-            }
+//        GradeDao gradeDao  = new GradeDao();
+//        List<Grade> grades = new ArrayList<>();
+//
+//        grades = gradeDao.buscarPorCurso("Banco de Dados I");
+//        for (Grade item:grades){
+//            System.out.println(item);
+//        }
+        String[] dias = {"SEGUNDA_FEIRA","TERCA_FEIRA","QUARTA_FEIRA","QUINTA_FEIRA","SEXTA_FEIRA"};
+        for (String dia:dias){
+            System.out.println(dia.toLowerCase());
         }
-        System.out.println(materia);
-
-
+        for (int i = 0; i < dias.length; i++) {
+            System.out.println(dias[i].toLowerCase());
+        }
 
 
 

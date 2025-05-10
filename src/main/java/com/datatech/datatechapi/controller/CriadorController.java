@@ -155,7 +155,7 @@ public class CriadorController implements Initializable {
     List<Grade> grades = new ArrayList<>();
     String[] dias = {"SEGUNDA_FEIRA","TERCA_FEIRA","QUARTA_FEIRA","QUINTA_FEIRA","SEXTA_FEIRA"};
     String[] aulas = {"PRIMEIRA_AULA","SEGUNDA_AULA","TERCEIRA_AULA","QUARTA_AULA","QUINTA_AULA"};
-
+   
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -197,15 +197,28 @@ public class CriadorController implements Initializable {
         for (int i = 1; i < gdp_grade.getRowCount(); i++) {
             for (int j = 1; j < gdp_grade.getColumnCount(); j++)
                 if (GridPane.getColumnIndex(cbx) == j && GridPane.getRowIndex(cbx) == i) {
-                    grade.setCursoNome(curso);
-                    grade.setDisciplinanome(cbx.getValue().toString());
-                    if(GridPane.getRowIndex(cbx)== i)
-                        grade.setHorario(HorarioDaAula.valueOf(aulas[i-1]));
+                    if(cbx.getValue() == null){
+                        grade.setCursoNome(curso);
+                        grade.setDisciplinanome("AULA VAGA");
+                        if(GridPane.getRowIndex(cbx)== i)
+                            grade.setHorario(HorarioDaAula.valueOf(aulas[i-1]));
 
-                    if (GridPane.getColumnIndex(cbx)==j)
-                        grade.setDia(DiaDaSemana.valueOf(dias[j -1]));
-                    grade.setLinha(i);
-                    grade.setColuna(j);
+                        if (GridPane.getColumnIndex(cbx)==j)
+                            grade.setDia(DiaDaSemana.valueOf(dias[j -1]));
+                        grade.setLinha(i);
+                        grade.setColuna(j);
+                    }else{
+                        grade.setCursoNome(curso);
+                        grade.setDisciplinanome(cbx.getValue().toString());
+                        if(GridPane.getRowIndex(cbx)== i)
+                            grade.setHorario(HorarioDaAula.valueOf(aulas[i-1]));
+
+                        if (GridPane.getColumnIndex(cbx)==j)
+                            grade.setDia(DiaDaSemana.valueOf(dias[j -1]));
+                        grade.setLinha(i);
+                        grade.setColuna(j);
+                    }
+
                 }
         }
         grades.add(grade);
