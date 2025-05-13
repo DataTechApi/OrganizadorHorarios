@@ -19,23 +19,6 @@ public class teste {
 //        for (var item : teste){
 //            System.out.println(item);
 //        }
-//        GradeDao gradeDao  = new GradeDao();
-//        List<Grade> grades = new ArrayList<>();
-//
-//        grades = gradeDao.buscarPorCurso("Banco de Dados I");
-//        for (Grade item:grades){
-//            System.out.println(item);
-//        }
-        String[] dias = {"SEGUNDA_FEIRA","TERCA_FEIRA","QUARTA_FEIRA","QUINTA_FEIRA","SEXTA_FEIRA"};
-        for (String dia:dias){
-            System.out.println(dia.toLowerCase());
-        }
-        for (int i = 0; i < dias.length; i++) {
-            System.out.println(dias[i].toLowerCase());
-        }
-
-
-
 
    //     RestricaoDao r = new RestricaoDao();
 //        Restricao restricao = new Restricao();
@@ -56,6 +39,13 @@ public class teste {
 //        for(var i : t){
 //            System.out.println(i);
 //        }
+        DisciplinaDao d = new DisciplinaDao();
+       Disciplina disciplina = new Disciplina();
+       disciplina = d.buscarDisciplinaPorNome("Ingles I");
+        System.out.println(disciplina);
+        String nome = disciplina.getProfessor().getNome();
+        System.out.println(nome);
+
 
 
 

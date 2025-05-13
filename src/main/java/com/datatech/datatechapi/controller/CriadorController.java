@@ -153,14 +153,15 @@ public class CriadorController implements Initializable {
 
     GradeDao gradeDao = new GradeDao();
     List<Grade> grades = new ArrayList<>();
-    String[] dias = {"SEGUNDA_FEIRA","TERCA_FEIRA","QUARTA_FEIRA","QUINTA_FEIRA","SEXTA_FEIRA"};
-    String[] aulas = {"PRIMEIRA_AULA","SEGUNDA_AULA","TERCEIRA_AULA","QUARTA_AULA","QUINTA_AULA"};
-   
+    String[] dias = {"SEGUNDA_FEIRA", "TERCA_FEIRA", "QUARTA_FEIRA", "QUINTA_FEIRA", "SEXTA_FEIRA"};
+    String[] aulas = {"PRIMEIRA_AULA", "SEGUNDA_AULA", "TERCEIRA_AULA", "QUARTA_AULA", "QUINTA_AULA"};
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         visualizarCursos(cbx_curso);
     }
+
     @FXML
     void salvarGrade(ActionEvent event) {
         if (cbx_curso.getValue() == null) {
@@ -171,7 +172,7 @@ public class CriadorController implements Initializable {
                     .title("Necessário atençaõ")
                     .showWarning();
         } else {
-           receberDados();
+            receberDados();
         }
     }
     void visualizarDisciplinas(ComboBox cbx) {
@@ -197,43 +198,43 @@ public class CriadorController implements Initializable {
         for (int i = 1; i < gdp_grade.getRowCount(); i++) {
             for (int j = 1; j < gdp_grade.getColumnCount(); j++)
                 if (GridPane.getColumnIndex(cbx) == j && GridPane.getRowIndex(cbx) == i) {
-                    if(cbx.getValue() == null){
+                    if (cbx.getValue() == null) {
                         grade.setCursoNome(curso);
                         grade.setDisciplinanome("AULA VAGA");
-                        if(GridPane.getRowIndex(cbx)== i)
-                            grade.setHorario(HorarioDaAula.valueOf(aulas[i-1]));
-
-                        if (GridPane.getColumnIndex(cbx)==j)
-                            grade.setDia(DiaDaSemana.valueOf(dias[j -1]));
+                        grade.setHorario(HorarioDaAula.valueOf(aulas[i - 1]));
+                        grade.setDia(DiaDaSemana.valueOf(dias[j - 1]));
                         grade.setLinha(i);
                         grade.setColuna(j);
-                    }else{
+                    } else {
+                        DisciplinaDao disciplinadao = new DisciplinaDao();
+                        Disciplina disciplina = new Disciplina();
                         grade.setCursoNome(curso);
                         grade.setDisciplinanome(cbx.getValue().toString());
-                        if(GridPane.getRowIndex(cbx)== i)
-                            grade.setHorario(HorarioDaAula.valueOf(aulas[i-1]));
-
-                        if (GridPane.getColumnIndex(cbx)==j)
-                            grade.setDia(DiaDaSemana.valueOf(dias[j -1]));
+                        disciplina = disciplinadao.buscarDisciplinaPorNome(cbx.getValue().toString());
+                        String nome = disciplina.getProfessor().getNome();
+                        grade.setHorario(HorarioDaAula.valueOf(aulas[i - 1]));
+                        grade.setDia(DiaDaSemana.valueOf(dias[j - 1]));
                         grade.setLinha(i);
                         grade.setColuna(j);
+                        grade.setProfessorNome(nome);
                     }
-
                 }
         }
         grades.add(grade);
     }
-
     String nomeCurso(ComboBox cbx) {
         String curso = (String) cbx.getValue();
         return curso;
     }
-
-    boolean verificarCurso(ComboBox cbx) {
-        if (cbx.getValue() == null) {
-            return true;
-        } else {
-            return false;
+    void visualizarGrade(ComboBox cbx){
+        String nome = nomeCurso(cbx_curso);
+        List<Grade> grades = new ArrayList<>();
+        grades = gradeDao.buscarPorCurso(nome);
+        //cbx.setText(" ");
+        for (int i = 0; i < grades.size(); i++) {
+            if (grades.get(i).getLinha() == GridPane.getRowIndex(cbx) &&
+                    grades.get(i).getColuna() == GridPane.getColumnIndex(cbx))
+                    cbx.getItems().add(grades.get(i).getDisciplinanome());
         }
     }
     @FXML
@@ -270,7 +271,7 @@ public class CriadorController implements Initializable {
         visualizarDisciplinas(cbx_sexta_quar);
         visualizarDisciplinas(cbx_sexta_qui);
     }
-    void receberDados(){
+    void receberDados() {
         receberDados(cbx_segunda_pri);
         receberDados(cbx_segunda_seg);
         receberDados(cbx_segunda_ter);
@@ -302,8 +303,6 @@ public class CriadorController implements Initializable {
         receberDados(cbx_sexta_qui);
 
         gradeDao.cadastrarGrade(grades);
-
     }
-
 }
 

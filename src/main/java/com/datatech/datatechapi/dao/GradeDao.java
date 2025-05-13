@@ -61,8 +61,6 @@ public class GradeDao {
 
                 grades.add(grade);
             }
-
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -71,7 +69,8 @@ public class GradeDao {
     public void cadastrarGrade(List<Grade> grades) {
         for (Grade grade : grades) {
             try {
-                String sql = "INSERT INTO grade(cursonome,dia,horario,disciplinanome,linha,coluna) VALUES(?,?,?,?,?,?)";
+
+                String sql = "INSERT INTO grade(cursonome,dia,horario,disciplinanome,linha,coluna,professornome) VALUES(?,?,?,?,?,?,?)";
                 PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
                 ps.setString(1, grade.getCursoNome());
                 ps.setString(2, grade.getDia().toString());
@@ -79,7 +78,7 @@ public class GradeDao {
                 ps.setString(4, grade.getDisciplinanome());
                 ps.setInt(5, grade.getLinha());
                 ps.setInt(6, grade.getColuna());
-                //ps.setString(7, grade.getProfessorNome());
+                ps.setString(7, grade.getProfessorNome());
                 ps.execute();
             } catch (Exception e) {
                 e.printStackTrace();

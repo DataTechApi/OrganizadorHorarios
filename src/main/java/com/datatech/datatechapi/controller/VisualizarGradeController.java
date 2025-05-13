@@ -140,34 +140,50 @@ public class VisualizarGradeController implements Initializable {
             cbx.setValue(c.getNome());
         }
     }
-
-
     void receberDados(Label lbl) {
         String nome = nomeCurso(cbx_curso);
         List<Grade> grades = new ArrayList<>();
         grades = gradeDao.buscarPorCurso(nome);
-        lbl.setText("");
+        lbl.setText(" ");
         for (int i = 0; i < grades.size(); i++) {
             if (grades.get(i).getLinha() == GridPane.getRowIndex(lbl) &&
                     grades.get(i).getColuna() == GridPane.getColumnIndex(lbl)) {
-                lbl.setText(grades.get(i).getDisciplinanome() + "\n" + grades.get(i).getProfessorNome());
+                if (grades.get(i).getDisciplinanome().equals("AULA VAGA"))
+                    lbl.setText(grades.get(i).getDisciplinanome());
+                else
+                    lbl.setText(grades.get(i).getDisciplinanome() + "\n" + grades.get(i).getProfessorNome());
             }
         }
-
-
     }
-
     String nomeCurso(ComboBox cbx) {
         String curso = (String) cbx.getValue();
         return curso;
     }
-    void visualizarGrade(){
-        receberDados(lbl_ter_pri); receberDados(lbl_ter_qua); receberDados(lbl_ter_qui); receberDados(lbl_ter_seg); receberDados(lbl_ter_ter);
-        receberDados(lbl_sex_pri); receberDados(lbl_sex_seg); receberDados(lbl_sex_ter); receberDados(lbl_sex_qua); receberDados(lbl_sex_qui);
-        receberDados(lbl_seg_pri); receberDados(lbl_seg_qua); receberDados(lbl_seg_qui); receberDados(lbl_seg_seg); receberDados(lbl_seg_ter);
-        receberDados(lbl_qui_pri); receberDados(lbl_qui_qua); receberDados(lbl_qui_qui); receberDados(lbl_qui_seg); receberDados(lbl_qui_ter);
-        receberDados(lbl_qua_pri); receberDados(lbl_qua_qua); receberDados(lbl_qua_qui); receberDados(lbl_qua_seg); receberDados(lbl_qua_ter);
+    void visualizarGrade() {
+        receberDados(lbl_ter_pri);
+        receberDados(lbl_ter_qua);
+        receberDados(lbl_ter_qui);
+        receberDados(lbl_ter_seg);
+        receberDados(lbl_ter_ter);
+        receberDados(lbl_sex_pri);
+        receberDados(lbl_sex_seg);
+        receberDados(lbl_sex_ter);
+        receberDados(lbl_sex_qua);
+        receberDados(lbl_sex_qui);
+        receberDados(lbl_seg_pri);
+        receberDados(lbl_seg_qua);
+        receberDados(lbl_seg_qui);
+        receberDados(lbl_seg_seg);
+        receberDados(lbl_seg_ter);
+        receberDados(lbl_qui_pri);
+        receberDados(lbl_qui_qua);
+        receberDados(lbl_qui_qui);
+        receberDados(lbl_qui_seg);
+        receberDados(lbl_qui_ter);
+        receberDados(lbl_qua_pri);
+        receberDados(lbl_qua_qua);
+        receberDados(lbl_qua_qui);
+        receberDados(lbl_qua_seg);
+        receberDados(lbl_qua_ter);
     }
-
-
 }
