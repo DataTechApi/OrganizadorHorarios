@@ -173,6 +173,8 @@ public class CriadorController implements Initializable {
                     .showWarning();
         } else {
             receberDados();
+            limparCampos();
+            
         }
     }
     void visualizarDisciplinas(ComboBox cbx) {
@@ -189,14 +191,14 @@ public class CriadorController implements Initializable {
         cursos = FXCollections.observableList(cursoDao.buscarTodos());
         for (Curso c : cursos) {
             cbx.getItems().add(c.getNome());
-            cbx.setValue(c.getNome());
+            cbx.setValue(" ");
         }
     }
     void receberDados(ComboBox cbx) {
         String curso = nomeCurso(cbx_curso);
         Grade grade = new Grade();
         for (int i = 1; i < gdp_grade.getRowCount(); i++) {
-            for (int j = 1; j < gdp_grade.getColumnCount(); j++)
+            for (int j = 1; j < gdp_grade.getColumnCount(); j++) {
                 if (GridPane.getColumnIndex(cbx) == j && GridPane.getRowIndex(cbx) == i) {
                     if (cbx.getValue() == null) {
                         grade.setCursoNome(curso);
@@ -219,6 +221,8 @@ public class CriadorController implements Initializable {
                         grade.setProfessorNome(nome);
                     }
                 }
+
+            }
         }
         grades.add(grade);
     }
@@ -277,32 +281,57 @@ public class CriadorController implements Initializable {
         receberDados(cbx_segunda_ter);
         receberDados(cbx_segunda_quar);
         receberDados(cbx_segunda_qui);
-
         receberDados(cbx_terca_pri);
         receberDados(cbx_terca_seg);
         receberDados(cbx_terca_ter);
         receberDados(cbx_terca_quar);
         receberDados(cbx_terca_qui);
-
         receberDados(cbx_quarta_pri);
         receberDados(cbx_quarta_seg);
         receberDados(cbx_quarta_ter);
         receberDados(cbx_quarta_quar);
         receberDados(cbx_quarta_qui);
-
         receberDados(cbx_quinta_pri);
         receberDados(cbx_quinta_seg);
         receberDados(cbx_quinta_ter);
         receberDados(cbx_quinta_quar);
         receberDados(cbx_quinta_qui);
-
         receberDados(cbx_sexta_pri);
         receberDados(cbx_sexta_seg);
         receberDados(cbx_sexta_ter);
         receberDados(cbx_sexta_quar);
         receberDados(cbx_sexta_qui);
-
         gradeDao.cadastrarGrade(grades);
     }
+    void limparCampos(ComboBox cbx) {
+        cbx.setValue(" ");
+    }
+   void limparCampos() {
+       limparCampos(cbx_segunda_pri);limparCampos(cbx_segunda_seg);limparCampos(cbx_segunda_ter);
+       limparCampos(cbx_segunda_quar);
+       limparCampos(cbx_segunda_qui);
+       limparCampos(cbx_terca_pri);
+       limparCampos(cbx_terca_seg);
+       limparCampos(cbx_terca_ter);
+       limparCampos(cbx_terca_quar);
+       limparCampos(cbx_terca_qui);
+       limparCampos(cbx_quarta_pri);
+       limparCampos(cbx_quarta_seg);
+       limparCampos(cbx_quarta_ter);
+       limparCampos(cbx_quarta_quar);
+       limparCampos(cbx_quarta_qui);
+       limparCampos(cbx_quinta_pri);
+       limparCampos(cbx_quinta_seg);
+       limparCampos(cbx_quinta_ter);
+       limparCampos(cbx_quinta_quar);
+       limparCampos(cbx_quinta_qui);
+       limparCampos(cbx_sexta_pri);
+       limparCampos(cbx_sexta_seg);
+       limparCampos(cbx_sexta_ter);
+       limparCampos(cbx_sexta_quar);
+       limparCampos(cbx_sexta_qui);
+
+
+   }
 }
 

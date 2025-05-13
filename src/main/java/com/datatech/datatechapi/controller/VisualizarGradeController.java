@@ -137,7 +137,7 @@ public class VisualizarGradeController implements Initializable {
         cursos = FXCollections.observableList(cursoDao.buscarTodos());
         for (Curso c : cursos) {
             cbx.getItems().add(c.getNome());
-            cbx.setValue(c.getNome());
+            cbx.setValue(" ");
         }
     }
     void receberDados(Label lbl) {
