@@ -1,5 +1,7 @@
 package com.datatech.datatechapi.controller;
 
+
+import com.datatech.datatechapi.App;
 import com.datatech.datatechapi.dao.GradeDao;
 import com.datatech.datatechapi.entities.Enums.DiaDaSemana;
 import com.datatech.datatechapi.entities.Enums.HorarioDaAula;
@@ -13,17 +15,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
+
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.controlsfx.control.Notifications;
-import org.jetbrains.annotations.NotNull;
 
-
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
@@ -174,9 +181,9 @@ public class CriadorController implements Initializable {
         } else {
             receberDados();
             limparCampos();
-            
         }
     }
+
     void visualizarDisciplinas(ComboBox cbx) {
         Curso c = new Curso();
         List<Disciplina> disciplinas = new ArrayList<>();
@@ -187,6 +194,7 @@ public class CriadorController implements Initializable {
             cbx.getItems().add(d.getNome());
         }
     }
+
     void visualizarCursos(ComboBox cbx) {
         cursos = FXCollections.observableList(cursoDao.buscarTodos());
         for (Curso c : cursos) {
@@ -194,6 +202,7 @@ public class CriadorController implements Initializable {
             cbx.setValue(" ");
         }
     }
+
     void receberDados(ComboBox cbx) {
         String curso = nomeCurso(cbx_curso);
         Grade grade = new Grade();
@@ -221,33 +230,43 @@ public class CriadorController implements Initializable {
                         grade.setProfessorNome(nome);
                     }
                 }
-
             }
         }
         grades.add(grade);
     }
+
     String nomeCurso(ComboBox cbx) {
         String curso = (String) cbx.getValue();
         return curso;
     }
-    void visualizarGrade(ComboBox cbx){
-        String nome = nomeCurso(cbx_curso);
-        List<Grade> grades = new ArrayList<>();
-        grades = gradeDao.buscarPorCurso(nome);
-        //cbx.setText(" ");
-        for (int i = 0; i < grades.size(); i++) {
-            if (grades.get(i).getLinha() == GridPane.getRowIndex(cbx) &&
-                    grades.get(i).getColuna() == GridPane.getColumnIndex(cbx))
-                    cbx.getItems().add(grades.get(i).getDisciplinanome());
-        }
-    }
+
     @FXML
-    void preencherDisciplinas(ActionEvent event) {
+    void preencherDisciplinas(ActionEvent event) throws IOException {
         if (event.getSource() == cbx_curso) {
             String nomeCurso = String.valueOf(cbx_curso.getSelectionModel().getSelectedItem());
-            visualizarDisciplinas();
+            if (testarGrade(nomeCurso)){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Necessário atençaõ");
+                alert.setHeaderText("Grade");
+                alert.setContentText("Esse curso já possui uma grade cadastrada!!! \n" +
+                        "Acesse á Visualização de Grades para ver a sua grade.");
+                alert.showAndWait();
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/visualizargrade.fxml"));
+                Parent visualizar = fxmlLoader.load();
+                Scene scene = new Scene(visualizar);
+                Stage stage = new Stage();
+                stage.setTitle("DataTech API - Visualizar Grade    "+ " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
+                stage.initStyle(StageStyle.UTILITY);
+                stage.setScene(scene);
+                stage.show();
+
+            }else{
+                visualizarDisciplinas();
+            }
+
         }
     }
+
     void visualizarDisciplinas() {
         visualizarDisciplinas(cbx_segunda_pri);
         visualizarDisciplinas(cbx_segunda_seg);
@@ -275,6 +294,7 @@ public class CriadorController implements Initializable {
         visualizarDisciplinas(cbx_sexta_quar);
         visualizarDisciplinas(cbx_sexta_qui);
     }
+
     void receberDados() {
         receberDados(cbx_segunda_pri);
         receberDados(cbx_segunda_seg);
@@ -303,35 +323,49 @@ public class CriadorController implements Initializable {
         receberDados(cbx_sexta_qui);
         gradeDao.cadastrarGrade(grades);
     }
+
     void limparCampos(ComboBox cbx) {
         cbx.setValue(" ");
     }
-   void limparCampos() {
-       limparCampos(cbx_segunda_pri);limparCampos(cbx_segunda_seg);limparCampos(cbx_segunda_ter);
-       limparCampos(cbx_segunda_quar);
-       limparCampos(cbx_segunda_qui);
-       limparCampos(cbx_terca_pri);
-       limparCampos(cbx_terca_seg);
-       limparCampos(cbx_terca_ter);
-       limparCampos(cbx_terca_quar);
-       limparCampos(cbx_terca_qui);
-       limparCampos(cbx_quarta_pri);
-       limparCampos(cbx_quarta_seg);
-       limparCampos(cbx_quarta_ter);
-       limparCampos(cbx_quarta_quar);
-       limparCampos(cbx_quarta_qui);
-       limparCampos(cbx_quinta_pri);
-       limparCampos(cbx_quinta_seg);
-       limparCampos(cbx_quinta_ter);
-       limparCampos(cbx_quinta_quar);
-       limparCampos(cbx_quinta_qui);
-       limparCampos(cbx_sexta_pri);
-       limparCampos(cbx_sexta_seg);
-       limparCampos(cbx_sexta_ter);
-       limparCampos(cbx_sexta_quar);
-       limparCampos(cbx_sexta_qui);
+
+    void limparCampos() {
+        limparCampos(cbx_segunda_pri);
+        limparCampos(cbx_segunda_seg);
+        limparCampos(cbx_segunda_ter);
+        limparCampos(cbx_segunda_quar);
+        limparCampos(cbx_segunda_qui);
+        limparCampos(cbx_terca_pri);
+        limparCampos(cbx_terca_seg);
+        limparCampos(cbx_terca_ter);
+        limparCampos(cbx_terca_quar);
+        limparCampos(cbx_terca_qui);
+        limparCampos(cbx_quarta_pri);
+        limparCampos(cbx_quarta_seg);
+        limparCampos(cbx_quarta_ter);
+        limparCampos(cbx_quarta_quar);
+        limparCampos(cbx_quarta_qui);
+        limparCampos(cbx_quinta_pri);
+        limparCampos(cbx_quinta_seg);
+        limparCampos(cbx_quinta_ter);
+        limparCampos(cbx_quinta_quar);
+        limparCampos(cbx_quinta_qui);
+        limparCampos(cbx_sexta_pri);
+        limparCampos(cbx_sexta_seg);
+        limparCampos(cbx_sexta_ter);
+        limparCampos(cbx_sexta_quar);
+        limparCampos(cbx_sexta_qui);
+    }
+    boolean testarGrade(String nome){
+        List<Grade> grades = new ArrayList<>();
+        grades = gradeDao.buscarPorCurso(nome);
+        if(grades.size() > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
 
-   }
 }
 
