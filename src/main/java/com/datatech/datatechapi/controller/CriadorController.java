@@ -3,6 +3,7 @@ package com.datatech.datatechapi.controller;
 
 import com.datatech.datatechapi.App;
 import com.datatech.datatechapi.dao.GradeDao;
+import com.datatech.datatechapi.dao.RestricaoDao;
 import com.datatech.datatechapi.entities.Enums.DiaDaSemana;
 import com.datatech.datatechapi.entities.Enums.HorarioDaAula;
 import com.datatech.datatechapi.entities.models.Curso;
@@ -11,6 +12,7 @@ import com.datatech.datatechapi.dao.CursoDao;
 import com.datatech.datatechapi.dao.DisciplinaDao;
 
 import com.datatech.datatechapi.entities.models.Grade;
+import com.datatech.datatechapi.entities.models.Restricao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -363,7 +365,54 @@ public class CriadorController implements Initializable {
         }else{
             return false;
         }
+    }
+    @FXML
+    void verificarSegundaPri(ActionEvent event){
+        switch(event.getSource()){
+            case cbx_segunda_pri:
+                System.out.println(String.valueOf(event.getSource().toString()));
+                String segPri = String.valueOf(cbx_segunda_pri.getSelectionModel().getSelectedItem());
+                verificarRestricao(segPri,cbx_segunda_pri);
+                break;
+            case cbx_segunda_seg:
+                System.out.println(String.valueOf(event.getSource().toString()));
+                String segSeg = String.valueOf(cbx_segunda_seg.getSelectionModel().getSelectedItem());
+                verificarRestricao(segSeg,cbx_segunda_seg);
+                break;
+            case cbx_segunda_ter:
+                System.out.println(String.valueOf(event.getSource().toString()));
+                String nomeDisciplina = String.valueOf(cbx_segunda_ter.getSelectionModel().getSelectedItem());
+                verificarRestricao(nomeDisciplina,cbx_segunda_ter);
+                break;
+            default:
+        }
 
+
+
+    }
+    void verificarRestricao(String nomeDisciplina,ComboBox cbx){
+        Restricao r = new Restricao();
+        List<Restricao> restricoes = new ArrayList<>();
+        RestricaoDao restricaoDao = new RestricaoDao();
+        DisciplinaDao d = new DisciplinaDao();
+        Disciplina disciplina = new Disciplina();
+
+
+        disciplina = d.buscarDisciplinaPorNome(nomeDisciplina);
+
+        restricoes = restricaoDao.buscarRestricao(disciplina.getProfessor().getEmail());
+        for(var item : restricoes){
+            if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail())&&
+                    item.getDiaDaSemana() == DiaDaSemana.SEGUNDA_FEIRA &&
+                    item.getHorarioDaAula() == HorarioDaAula.PRIMEIRA_AULA ){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Conflito de Horário");
+                alert.setContentText("Professor possui restriçao de horário!!!");
+                alert.showAndWait();
+                cbx.requestFocus();
+                return;
+            }
+        }
     }
 
 

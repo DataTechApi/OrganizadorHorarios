@@ -94,7 +94,7 @@ public class DisciplinaDao {
         Professor professor = null;
         try {
             ResultSet rs = null;
-            String sql = "SELECT *, p.nome FROM disciplina as d " +
+            String sql = "SELECT *, p.nome, p.email FROM disciplina as d " +
                     "join professor as p on p.id = d.professorid WHERE d.nome=?";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
             ps.setString(1, nomeDisciplina);
@@ -105,7 +105,7 @@ public class DisciplinaDao {
                 //professor.setId(rs.getInt("professorid"));
                 professor.setNome(rs.getString("p.nome"));
                 disciplina.setNome(rs.getString("nome"));
-                //disciplina.setProfessorId(rs.getInt("professorid"));
+                professor.setEmail(rs.getString("p.email"));
                 disciplina.setProfessor(professor);
 
             }

@@ -20,8 +20,9 @@ public class Disciplina {
     public String getNome() {
         return nome;
     }
-    public void setNome(String nome) {
+    public String setNome(String nome) {
         this.nome = nome;
+        return nome;
     }
     public Professor getProfessor() {
         return professor;
