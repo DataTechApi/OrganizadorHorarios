@@ -82,6 +82,11 @@ Abaixo está o backlog do projeto, agora com representações visuais para as pr
 | Documentos do projeto | Como coordenador, quero ter documentação completa do sistema, para facilitar o uso e futuras manutenções. |
 
 
+# Modelo entidade-relacionamento 
+
+![diagrama2_page-0001](https://github.com/user-attachments/assets/55ca95b2-a6ee-40d9-b9c6-89d604b67ac0)
+
+
 # Equipe de desenvolvimento 👥
 
 | Foto | Aluno | Função                                                                                                  |
@@ -93,10 +98,3 @@ Abaixo está o backlog do projeto, agora com representações visuais para as pr
 | ![Jakson](https://github.com/user-attachments/assets/c5c1f6c3-c145-4e98-be5f-4f4a281fbdb3) | <div align="center"> Jackson Tadeu | Dev |
 |  | <div align="center"> João Andrade | Dev |
 | ![Thor](https://github.com/user-attachments/assets/1953daad-e890-47b8-b646-3e40af462d2c) | <div align="center"> Thor Lyndgaard | Dev |
-
-
-# Modelo entidade-relacionamento 
-
-![diagrama2_page-0001](https://github.com/user-attachments/assets/55ca95b2-a6ee-40d9-b9c6-89d604b67ac0)
-
-
