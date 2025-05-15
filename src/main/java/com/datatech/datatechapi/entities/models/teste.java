@@ -55,11 +55,21 @@ public class teste {
             System.out.println(item);
         }
         for (var item : restricoes) {
-            if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail())&& item.getDiaDaSemana() == DiaDaSemana.SEGUNDA_FEIRA && item.getHorarioDaAula() == HorarioDaAula.SEGUNDA_AULA) {
-                System.out.println("entrou");
-            }else System.out.println("falhou");
+            if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail()) &&
+                    item.getDiaDaSemana() == DiaDaSemana.SEGUNDA_FEIRA ||
+                    item.getDiaDaSemana() == DiaDaSemana.TERCA_FEIRA||
+                    item.getDiaDaSemana() == DiaDaSemana.QUARTA_FEIRA) {
+                if (item.getHorarioDaAula() == HorarioDaAula.SEGUNDA_AULA ||
+                        item.getHorarioDaAula() == HorarioDaAula.PRIMEIRA_AULA ||
+                        item.getHorarioDaAula() == HorarioDaAula.TERCEIRA_AULA){
+                    System.out.println("entrou");
+                }else System.out.println("falhou");
+            }
+
+
         }
-
-
     }
+
+
+
 }

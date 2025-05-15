@@ -82,7 +82,7 @@ public class CriadorController implements Initializable {
     private ComboBox<Disciplina> cbx_segunda_quar;
 
     @FXML
-    private ComboBox<Disciplina> cbx_segunda_qui;
+    private ComboBox cbx_segunda_qui;
 
     @FXML
     private ComboBox<Disciplina> cbx_segunda_seg;
@@ -168,6 +168,7 @@ public class CriadorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         visualizarCursos(cbx_curso);
     }
 
@@ -246,7 +247,7 @@ public class CriadorController implements Initializable {
     void preencherDisciplinas(ActionEvent event) throws IOException {
         if (event.getSource() == cbx_curso) {
             String nomeCurso = String.valueOf(cbx_curso.getSelectionModel().getSelectedItem());
-            if (testarGrade(nomeCurso)){
+            if (testarGrade(nomeCurso)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Necessário atençaõ");
                 alert.setHeaderText("Grade");
@@ -257,12 +258,12 @@ public class CriadorController implements Initializable {
                 Parent visualizar = fxmlLoader.load();
                 Scene scene = new Scene(visualizar);
                 Stage stage = new Stage();
-                stage.setTitle("DataTech API - Visualizar Grade    "+ " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
+                stage.setTitle("DataTech API - Visualizar Grade    " + " Usuário Logado: " + LoginController.USUARIOLOGADO.toUpperCase());
                 stage.initStyle(StageStyle.UTILITY);
                 stage.setScene(scene);
                 stage.show();
 
-            }else{
+            } else {
                 visualizarDisciplinas();
             }
 
@@ -357,64 +358,63 @@ public class CriadorController implements Initializable {
         limparCampos(cbx_sexta_quar);
         limparCampos(cbx_sexta_qui);
     }
-    boolean testarGrade(String nome){
+
+    boolean testarGrade(String nome) {
         List<Grade> grades = new ArrayList<>();
         grades = gradeDao.buscarPorCurso(nome);
-        if(grades.size() > 0){
+        if (grades.size() > 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
+
+    Restricao r = new Restricao();
+    List<Restricao> restricoes = new ArrayList<>();
+    RestricaoDao restricaoDao = new RestricaoDao();
+    DisciplinaDao d = new DisciplinaDao();
+    Disciplina disciplina = new Disciplina();
+
     @FXML
-    void verificarSegundaPri(ActionEvent event){
-        switch(event.getSource()){
-            case cbx_segunda_pri:
-                System.out.println(String.valueOf(event.getSource().toString()));
-                String segPri = String.valueOf(cbx_segunda_pri.getSelectionModel().getSelectedItem());
-                verificarRestricao(segPri,cbx_segunda_pri);
-                break;
-            case cbx_segunda_seg:
-                System.out.println(String.valueOf(event.getSource().toString()));
-                String segSeg = String.valueOf(cbx_segunda_seg.getSelectionModel().getSelectedItem());
-                verificarRestricao(segSeg,cbx_segunda_seg);
-                break;
-            case cbx_segunda_ter:
-                System.out.println(String.valueOf(event.getSource().toString()));
-                String nomeDisciplina = String.valueOf(cbx_segunda_ter.getSelectionModel().getSelectedItem());
-                verificarRestricao(nomeDisciplina,cbx_segunda_ter);
-                break;
-            default:
-        }
-
-
-
-    }
-    void verificarRestricao(String nomeDisciplina,ComboBox cbx){
-        Restricao r = new Restricao();
-        List<Restricao> restricoes = new ArrayList<>();
-        RestricaoDao restricaoDao = new RestricaoDao();
-        DisciplinaDao d = new DisciplinaDao();
-        Disciplina disciplina = new Disciplina();
-
-
+    void verificarSegundaPri(ActionEvent event) {
+        String nomeDisciplina = String.valueOf(cbx_segunda_pri.getSelectionModel().getSelectedItem());
         disciplina = d.buscarDisciplinaPorNome(nomeDisciplina);
-
         restricoes = restricaoDao.buscarRestricao(disciplina.getProfessor().getEmail());
-        for(var item : restricoes){
-            if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail())&&
+        for (var item : restricoes) {
+            if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail()) &&
                     item.getDiaDaSemana() == DiaDaSemana.SEGUNDA_FEIRA &&
-                    item.getHorarioDaAula() == HorarioDaAula.PRIMEIRA_AULA ){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Conflito de Horário");
-                alert.setContentText("Professor possui restriçao de horário!!!");
-                alert.showAndWait();
-                cbx.requestFocus();
+                    item.getHorarioDaAula() == HorarioDaAula.PRIMEIRA_AULA) {
+                emitirAlerta();
+                cbx_segunda_pri.getSelectionModel().selectNext();
                 return;
             }
         }
+
     }
 
+    void emitirAlerta() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Conflito de Horário");
+        alert.setContentText("Professor possui restriçao de horário!!!");
+        alert.showAndWait();
+    }
+
+    @FXML
+    void verificarSegundaSeg(ActionEvent event) {
+        String nomeDisciplina = String.valueOf(cbx_segunda_seg.getSelectionModel().getSelectedItem());
+        disciplina = d.buscarDisciplinaPorNome(nomeDisciplina);
+        restricoes = restricaoDao.buscarRestricao(disciplina.getProfessor().getEmail());
+        for (var item : restricoes) {
+            if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail()) &&
+                    item.getDiaDaSemana() == DiaDaSemana.SEGUNDA_FEIRA &&
+                    item.getHorarioDaAula() == HorarioDaAula.SEGUNDA_AULA) {
+                emitirAlerta();
+                cbx_segunda_seg.getSelectionModel().selectNext();
+                return;
+            }
+        }
+
+    }
 
 }
 
