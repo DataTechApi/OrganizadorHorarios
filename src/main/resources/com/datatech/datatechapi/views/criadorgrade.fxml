@@ -77,7 +77,7 @@
             <ComboBox fx:id="cbx_segunda_qui" onAction="#verificarSegundaQui" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <ComboBox fx:id="cbx_terca_pri"  onAction="#verificarTercaPri" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbx_terca_seg" onAction="#verificarTercaSeg" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_terca_ter" onAction="#verificarSegundaTer" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_terca_ter" onAction="#verificarTercaTer" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <ComboBox fx:id="cbx_terca_quar" onAction="#verificarTercaQuar" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <ComboBox fx:id="cbx_terca_qui" onAction="#verificarTercaQui"  GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <ComboBox fx:id="cbx_quarta_pri" onAction="#verificarQuartaPri" GridPane.columnIndex="3" GridPane.rowIndex="1" />

@@ -41,32 +41,12 @@ public class teste {
 //        for(var i : t){
 //            System.out.println(i);
 //        }
-        Restricao r = new Restricao();
-        List<Restricao> restricoes = new ArrayList<>();
-        RestricaoDao restricaoDao = new RestricaoDao();
-        DisciplinaDao d = new DisciplinaDao();
-        Disciplina disciplina = new Disciplina();
-        disciplina = d.buscarDisciplinaPorNome("Algoritmos");
-        restricoes = restricaoDao.buscarRestricao("sabha@fatec");
-        System.out.println(disciplina);
-        String nome = disciplina.getProfessor().getNome();
-        System.out.println(nome);
-        for (var item : restricoes) {
-            System.out.println(item);
-        }
-        for (var item : restricoes) {
-            if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail()) &&
-                    item.getDiaDaSemana() == DiaDaSemana.SEGUNDA_FEIRA ||
-                    item.getDiaDaSemana() == DiaDaSemana.TERCA_FEIRA||
-                    item.getDiaDaSemana() == DiaDaSemana.QUARTA_FEIRA) {
-                if (item.getHorarioDaAula() == HorarioDaAula.SEGUNDA_AULA ||
-                        item.getHorarioDaAula() == HorarioDaAula.PRIMEIRA_AULA ||
-                        item.getHorarioDaAula() == HorarioDaAula.TERCEIRA_AULA){
-                    System.out.println("entrou");
-                }else System.out.println("falhou");
-            }
 
-
+        List<Grade> grade = new ArrayList<>();
+        GradeDao g = new GradeDao();
+        grade = g.buscarPorProfessor("Fabiano Sabha");
+        for(var i : grade){
+            System.out.println(i);
         }
     }
 
