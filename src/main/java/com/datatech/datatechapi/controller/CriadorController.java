@@ -377,43 +377,124 @@ public class CriadorController implements Initializable {
 
     @FXML
     void verificarSegundaPri(ActionEvent event) {
-        String nomeDisciplina = String.valueOf(cbx_segunda_pri.getSelectionModel().getSelectedItem());
+       verificarRestricoesProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA);
+    }
+    @FXML
+    void verificarSegundaSeg(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_segunda_seg, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.SEGUNDA_AULA);
+    }
+    @FXML
+    void verificarSegundaTer(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_segunda_ter, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.TERCEIRA_AULA);
+    }
+    @FXML
+    void verificarSegundaQuar(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_segunda_quar, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.QUARTA_AULA);
+    }
+    @FXML
+    void verificarSegundaQui(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_segunda_qui, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.QUINTA_AULA);
+    }
+    @FXML
+    void verificarTercaPri(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_terca_pri, DiaDaSemana.TERCA_FEIRA, HorarioDaAula.PRIMEIRA_AULA);
+    }
+    @FXML
+    void verificarTercaSeg(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_terca_seg, DiaDaSemana.TERCA_FEIRA, HorarioDaAula.SEGUNDA_AULA);
+    }
+    @FXML
+    void verificarTercaTer(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_terca_ter, DiaDaSemana.TERCA_FEIRA, HorarioDaAula.TERCEIRA_AULA);
+    }
+    @FXML
+    void verificarTercaQuar(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_terca_quar, DiaDaSemana.TERCA_FEIRA, HorarioDaAula.QUARTA_AULA);
+    }
+    @FXML
+    void verificarTercaQui(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_terca_qui, DiaDaSemana.TERCA_FEIRA, HorarioDaAula.QUINTA_AULA);
+    }
+    @FXML
+    void verificarQuartaPri(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quarta_pri, DiaDaSemana.QUARTA_FEIRA, HorarioDaAula.PRIMEIRA_AULA);
+    }
+    @FXML
+    void verificarQuartaSeg(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quarta_seg, DiaDaSemana.QUARTA_FEIRA, HorarioDaAula.SEGUNDA_AULA);
+    }
+    @FXML
+    void verificarQuartaTer(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quarta_ter, DiaDaSemana.QUARTA_FEIRA, HorarioDaAula.TERCEIRA_AULA);
+    }
+    @FXML
+    void verificarQuartaQuar(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quarta_quar, DiaDaSemana.QUARTA_FEIRA, HorarioDaAula.QUARTA_AULA);
+    }
+    @FXML
+    void verificarQuartaQui(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quarta_qui, DiaDaSemana.QUARTA_FEIRA, HorarioDaAula.QUINTA_AULA);
+    }
+    @FXML
+    void verificarQuintaPri(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quinta_pri, DiaDaSemana.QUINTA_FEIRA, HorarioDaAula.PRIMEIRA_AULA);
+    }
+    @FXML
+    void verificarQuintaSeg(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quinta_seg, DiaDaSemana.QUINTA_FEIRA, HorarioDaAula.SEGUNDA_AULA);
+    }
+    @FXML
+    void verificarQuintaTer(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quinta_ter, DiaDaSemana.QUINTA_FEIRA, HorarioDaAula.TERCEIRA_AULA);
+    }
+    @FXML
+    void verificarQuintaQuar(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quinta_quar, DiaDaSemana.QUINTA_FEIRA, HorarioDaAula.QUARTA_AULA);
+    }
+    @FXML
+    void verificarQuintaQui(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_quinta_qui, DiaDaSemana.QUINTA_FEIRA, HorarioDaAula.QUINTA_AULA);
+    }
+    @FXML
+    void verificarSextaPri(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_sexta_pri, DiaDaSemana.SEXTA_FEIRA, HorarioDaAula.PRIMEIRA_AULA);
+    }
+    @FXML
+    void verificarSextaSeg(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_sexta_seg, DiaDaSemana.SEXTA_FEIRA, HorarioDaAula.SEGUNDA_AULA);
+    }
+    @FXML
+    void verificarSextaTer(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_sexta_ter, DiaDaSemana.SEXTA_FEIRA, HorarioDaAula.TERCEIRA_AULA);
+    }
+    @FXML
+    void verificarSextaQuar(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_sexta_quar, DiaDaSemana.SEXTA_FEIRA, HorarioDaAula.QUARTA_AULA);
+    }
+    @FXML
+    void verificarSextaQui(ActionEvent event) {
+        verificarRestricoesProfessor(cbx_sexta_qui, DiaDaSemana.SEXTA_FEIRA, HorarioDaAula.QUINTA_AULA);
+    }
+
+    void verificarRestricoesProfessor(ComboBox cbx, DiaDaSemana dia, HorarioDaAula aula){
+        String nomeDisciplina = String.valueOf(cbx.getSelectionModel().getSelectedItem());
         disciplina = d.buscarDisciplinaPorNome(nomeDisciplina);
         restricoes = restricaoDao.buscarRestricao(disciplina.getProfessor().getEmail());
         for (var item : restricoes) {
             if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail()) &&
-                    item.getDiaDaSemana() == DiaDaSemana.SEGUNDA_FEIRA &&
-                    item.getHorarioDaAula() == HorarioDaAula.PRIMEIRA_AULA) {
+                    item.getDiaDaSemana() == dia &&
+                    item.getHorarioDaAula() == aula) {
                 emitirAlerta();
-                cbx_segunda_pri.getSelectionModel().selectNext();
-                return;
-            }
+                cbx.getSelectionModel().selectNext();
+                    }
         }
 
     }
-
     void emitirAlerta() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Conflito de Horário");
         alert.setContentText("Professor possui restriçao de horário!!!");
         alert.showAndWait();
-    }
-
-    @FXML
-    void verificarSegundaSeg(ActionEvent event) {
-        String nomeDisciplina = String.valueOf(cbx_segunda_seg.getSelectionModel().getSelectedItem());
-        disciplina = d.buscarDisciplinaPorNome(nomeDisciplina);
-        restricoes = restricaoDao.buscarRestricao(disciplina.getProfessor().getEmail());
-        for (var item : restricoes) {
-            if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail()) &&
-                    item.getDiaDaSemana() == DiaDaSemana.SEGUNDA_FEIRA &&
-                    item.getHorarioDaAula() == HorarioDaAula.SEGUNDA_AULA) {
-                emitirAlerta();
-                cbx_segunda_seg.getSelectionModel().selectNext();
-                return;
-            }
-        }
-
     }
 
 }
