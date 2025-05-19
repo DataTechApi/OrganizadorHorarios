@@ -26,10 +26,6 @@ public class TelaMenuController implements Initializable {
     private AnchorPane anchorpane;
 
     @FXML
-    private Label lbl_titulo;
-
-
-    @FXML
     private MenuBar barramenu;
 
     @FXML
@@ -61,20 +57,12 @@ public class TelaMenuController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         verificarCoordenador();
-
     }
 
 
     @FXML
     void cadastrarRestricoes(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/restricoes.fxml"));
-        Parent restricoes = fxmlLoader.load();
-        Scene scene = new Scene(restricoes);
-        Stage stage = new Stage();
-        stage.setTitle("DataTech API - Cadastrar Restrições   " + " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
-        stage.initStyle(StageStyle.UTILITY);
-        stage.setScene(scene);
-        stage.show();
+        App.setRoot("views/restricoes.fxml");
     }
 
     @FXML
