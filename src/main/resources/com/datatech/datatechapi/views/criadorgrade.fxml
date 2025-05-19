@@ -75,19 +75,19 @@
             <ComboBox fx:id="cbx_segunda_ter" onAction="#verificarSegundaTer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ComboBox fx:id="cbx_segunda_quar" onAction="#verificarSegundaQuar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <ComboBox fx:id="cbx_segunda_qui" onAction="#verificarSegundaQui" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <ComboBox fx:id="cbx_terca_pri"  onAction="#verificarTercaPri" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_terca_pri" onAction="#verificarTercaPri" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbx_terca_seg" onAction="#verificarTercaSeg" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <ComboBox fx:id="cbx_terca_ter" onAction="#verificarTercaTer" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <ComboBox fx:id="cbx_terca_quar" onAction="#verificarTercaQuar" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_terca_qui" onAction="#verificarTercaQui"  GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_terca_qui" onAction="#verificarTercaQui" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <ComboBox fx:id="cbx_quarta_pri" onAction="#verificarQuartaPri" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbx_quarta_seg" onAction="#verificarQuartaSeg" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <ComboBox fx:id="cbx_quarta_ter" onAction="#verificarQuartaTer" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <ComboBox fx:id="cbx_quarta_quar" onAction="#verificarQuartaQuar" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <ComboBox fx:id="cbx_quarta_qui" onAction="#verificarQuartaQui" GridPane.columnIndex="3" GridPane.rowIndex="5" />
             <ComboBox fx:id="cbx_quinta_pri" onAction="#verificarQuintaPri" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_sexta_pri"  onAction="#verificarSextaPri" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_quinta_seg"  onAction="#verificarQuintaSeg" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_sexta_pri" onAction="#verificarSextaPri" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_quinta_seg" onAction="#verificarQuintaSeg" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <ComboBox fx:id="cbx_quinta_ter" onAction="#verificarQuintaTer" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <ComboBox fx:id="cbx_quinta_quar" onAction="#verificarQuintaQuar" GridPane.columnIndex="4" GridPane.rowIndex="4" />
             <ComboBox fx:id="cbx_quinta_qui" onAction="#verificarQuintaQui" GridPane.columnIndex="4" GridPane.rowIndex="5" />
@@ -109,9 +109,25 @@
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <ComboBox fx:id="cbx_curso" prefHeight="25.0" onAction="#preencherDisciplinas"/>
+                <ComboBox fx:id="cbx_curso" onAction="#preencherDisciplinas" prefHeight="25.0" />
             </children>
         </HBox>
-        <Button fx:id="bt_salvar" layoutX="358.0" layoutY="459.0" mnemonicParsing="false" onAction="#salvarGrade" prefHeight="25.0" prefWidth="84.0" text="Salvar" />
+      <GridPane layoutX="135.0" layoutY="441.0" prefHeight="63.0" prefWidth="672.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btn_voltar" mnemonicParsing="false" onAction="#voltarMenu" prefHeight="25.0" prefWidth="167.0" text="Voltar ao Menu" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btn_editar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editarGrade" prefHeight="25.0" prefWidth="167.0" text="Editar Grade" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btn_salvar" mnemonicParsing="false" onAction="#salvarGrade" prefHeight="25.0" prefWidth="177.0" text="Salvar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btn_salvar1" layoutX="388.0" layoutY="29.0" mnemonicParsing="false" onAction="#salvarGrade" prefHeight="25.0" prefWidth="165.0" text="Salvar Edição" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
     </children>
 </AnchorPane>

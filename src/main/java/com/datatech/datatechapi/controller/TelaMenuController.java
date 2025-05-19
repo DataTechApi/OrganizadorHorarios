@@ -1,6 +1,7 @@
 package com.datatech.datatechapi.controller;
 
 import com.datatech.datatechapi.App;
+import com.datatech.datatechapi.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,10 @@ public class TelaMenuController implements Initializable {
 
     @FXML
     private AnchorPane anchorpane;
+
+    @FXML
+    private Label lbl_titulo;
+
 
     @FXML
     private MenuBar barramenu;
@@ -59,6 +64,7 @@ public class TelaMenuController implements Initializable {
 
     }
 
+
     @FXML
     void cadastrarRestricoes(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/restricoes.fxml"));
@@ -69,41 +75,21 @@ public class TelaMenuController implements Initializable {
         stage.initStyle(StageStyle.UTILITY);
         stage.setScene(scene);
         stage.show();
-
     }
 
     @FXML
     public void criarGrade(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/criadorgrade.fxml"));
-        Parent criador = fxmlLoader.load();
-        Scene scene = new Scene(criador,800,600);
-        Stage stage = new Stage();
-        stage.setTitle("DataTech API - Criador Grade   "+ " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
-        stage.initStyle(StageStyle.UTILITY);
-       // stage.setMaximized(true);
-        stage.setScene(scene);
-        stage.show();
-
+        App.setRoot("views/criadorgrade.fxml");
     }
 
     @FXML
     void realizarLogout(ActionEvent event) throws IOException {
-
         App.setRoot("views/login.fxml");
     }
 
     @FXML
     void visualizarGrade(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/visualizargrade.fxml"));
-        Parent visualizar = fxmlLoader.load();
-        Scene scene = new Scene(visualizar);
-        Stage stage = new Stage();
-        stage.setTitle("DataTech API - Visualizar Grade    "+ " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
-        stage.initStyle(StageStyle.UTILITY);
-        stage.setScene(scene);
-        stage.show();
-
-
+        App.setRoot("views/visualizargrade.fxml");
     }
     void verificarCoordenador(){
         if (LoginController.EHCOORDENADOR == true) mit_criargrade.setDisable(false);
@@ -114,6 +100,4 @@ public class TelaMenuController implements Initializable {
         System.exit(0);
 
     }
-
-
 }

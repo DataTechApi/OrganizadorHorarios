@@ -1,5 +1,6 @@
 package com.datatech.datatechapi.controller;
 
+import com.datatech.datatechapi.App;
 import com.datatech.datatechapi.dao.CursoDao;
 import com.datatech.datatechapi.dao.GradeDao;
 import com.datatech.datatechapi.entities.models.Curso;
@@ -9,10 +10,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,12 @@ public class VisualizarGradeController implements Initializable {
 
     @FXML
     private ComboBox<?> cbx_curso;
+
+    @FXML
+    private Button btn_visualizarpdf;
+
+    @FXML
+    private Button btn_voltar;
 
     @FXML
     private GridPane gdp_visualizar;
@@ -132,6 +141,15 @@ public class VisualizarGradeController implements Initializable {
             String nomeCurso = String.valueOf(cbx_curso.getSelectionModel().getSelectedItem());
             visualizarGrade();
         }
+    }
+    @FXML
+    void visualizarPdf(ActionEvent event) {
+
+    }
+
+    @FXML
+    void voltarMenu(ActionEvent event) throws IOException {
+        App.setRoot("views/telamenu.fxml");
     }
     void visualizarCursos(ComboBox cbx) {
         cursos = FXCollections.observableList(cursoDao.buscarTodos());

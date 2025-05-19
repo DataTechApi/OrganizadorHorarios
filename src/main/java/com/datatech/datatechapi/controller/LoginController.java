@@ -1,6 +1,7 @@
 package com.datatech.datatechapi.controller;
 
 import com.datatech.datatechapi.App;
+import com.datatech.datatechapi.Main;
 import com.datatech.datatechapi.entities.models.Professor;
 import com.datatech.datatechapi.dao.ProfessorDao;
 import javafx.event.ActionEvent;
@@ -75,24 +76,7 @@ public class LoginController implements Initializable {
             USUARIOLOGADO = professor.getNome();
             EHCOORDENADOR = professor.isEhCoordenador();
             EMAIL = professor.getEmail();
-            //navegarMenu();
             App.setRoot("views/telamenu.fxml");
         }
-
     }
-
-    void navegarMenu() throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/telamenu.fxml"));
-        Parent menu = fxmlLoader.load();
-        Scene scene = new Scene(menu);
-        Stage stage = new Stage();
-        stage.setTitle("DataTech API - Menu DATAGRADE  " + " Usuário Logado: "  + LoginController.USUARIOLOGADO.toUpperCase());
-        stage.initStyle(StageStyle.UTILITY);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-
 }
