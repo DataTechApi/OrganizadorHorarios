@@ -1,5 +1,6 @@
 package com.datatech.datatechapi.controller;
 
+import com.datatech.datatechapi.App;
 import com.datatech.datatechapi.entities.Enums.DiaDaSemana;
 import com.datatech.datatechapi.entities.Enums.HorarioDaAula;
 import com.datatech.datatechapi.entities.models.Professor;
@@ -13,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 
 import java.util.ArrayList;
@@ -23,6 +25,9 @@ public class RestricoesController implements Initializable {
 
     @FXML
     private Button btn_salvar;
+
+    @FXML
+    private Button btn_voltar;
 
     @FXML
     private ComboBox<DiaDaSemana> cbx_diadasemana;
@@ -90,6 +95,11 @@ public class RestricoesController implements Initializable {
     void limparCampos(){
         cbx_diadasemana.getSelectionModel().clearSelection();
         cbx_horariodaaula.getSelectionModel().clearSelection();
+    }
+    @FXML
+    void voltarMenu(ActionEvent event) throws IOException {
+        App.setRoot("views/telamenu.fxml");
+
     }
 
 

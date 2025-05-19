@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="375.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.RestricoesController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.RestricoesController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-3.0" prefHeight="41.0" prefWidth="647.0" text="Restrições de Horário do Professor" textAlignment="CENTER">
          <font>
@@ -58,6 +58,7 @@
       </TableView>
       <GridPane layoutX="149.0" layoutY="351.0" prefHeight="30.0" prefWidth="393.0">
         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -65,16 +66,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btn_salvar" mnemonicParsing="false" onAction="#salvarRestricao" prefHeight="25.0" prefWidth="135.0" text="Salvar" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="btn_salvar" mnemonicParsing="false" onAction="#salvarRestricao" prefHeight="25.0" prefWidth="135.0" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <tooltip>
                   <Tooltip text="Salvar Restrição" />
                </tooltip>
             </Button>
-            <Button fx:id="btn_excluir" mnemonicParsing="false" onAction="#excluirResticao" prefHeight="25.0" prefWidth="135.0" text="Excluir" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="btn_excluir" mnemonicParsing="false" onAction="#excluirResticao" prefHeight="25.0" prefWidth="135.0" text="Excluir" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <tooltip>
                   <Tooltip text="Excluir Restrição" />
                </tooltip>
             </Button>
+            <Button fx:id="btn_voltar" mnemonicParsing="false" onAction="#voltarMenu" prefHeight="25.0" prefWidth="130.0" text="Voltar ao Menu" />
          </children>
       </GridPane>
    </children>
