@@ -220,6 +220,8 @@ public class CriadorController implements Initializable {
         for (Disciplina d : disciplinas) {
             cbx.getItems().add(d.getNome());
         }
+
+        cbx.getItems().add(0, "AULA VAGA");
     }
 
     void visualizarCursos(ComboBox cbx) {
@@ -241,7 +243,7 @@ public class CriadorController implements Initializable {
         for (i = 1; i < gdp_grade.getRowCount(); i++) {
             for (j = 1; j < gdp_grade.getColumnCount(); j++) {
                 if (GridPane.getColumnIndex(cbx) == j && GridPane.getRowIndex(cbx) == i) {
-                    if (cbx.getValue() == null) {
+                    if (cbx.getValue() == null || cbx.getValue().equals("AULA VAGA")) {
                         grade.setCursoNome(curso);
                         grade.setDisciplinanome("AULA VAGA");
                         grade.setHorario(HorarioDaAula.valueOf(aulas[i - 1]));
@@ -301,14 +303,16 @@ public class CriadorController implements Initializable {
 
     boolean verificarRestricoesProfessor(ComboBox cbx, DiaDaSemana dia, HorarioDaAula aula) {
         String nomeDisciplina = String.valueOf(cbx.getSelectionModel().getSelectedItem());
-        disciplina = disciplinaDao.buscarDisciplinaPorNome(nomeDisciplina);
-        restricoes = restricaoDao.buscarRestricao(disciplina.getProfessor().getEmail());
-        for (var item : restricoes) {
-            if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail()) &&
-                    item.getDiaDaSemana() == dia &&
-                    item.getHorarioDaAula() == aula) {
-                cbx.getSelectionModel().selectNext();
-                return true;
+        if (!nomeDisciplina.equals("AULA VAGA")){
+            disciplina = disciplinaDao.buscarDisciplinaPorNome(nomeDisciplina);
+            restricoes = restricaoDao.buscarRestricao(disciplina.getProfessor().getEmail());
+            for (var item : restricoes) {
+                if (disciplina.getProfessor().getEmail().equals(item.getProfessorEmail()) &&
+                        item.getDiaDaSemana() == dia &&
+                        item.getHorarioDaAula() == aula) {
+                    cbx.getSelectionModel().selectNext();
+                    return true;
+                }
             }
         }
         return false;
@@ -316,13 +320,15 @@ public class CriadorController implements Initializable {
 
     boolean verificarAlocacaoProfessor(ComboBox cbx, DiaDaSemana dia, HorarioDaAula aula) {
         String nomeDisciplina = String.valueOf(cbx.getSelectionModel().getSelectedItem());
-        disciplina = disciplinaDao.buscarDisciplinaPorNome(nomeDisciplina);
-        List<Grade> horarios = new ArrayList<>();
-        horarios = gradeDao.buscarPorProfessor(disciplina.getProfessor().getNome());
-        for (var item : horarios) {
-            if (item.getDia() == dia && item.getHorario() == aula) {
-                cbx.getSelectionModel().selectNext();
-                return true;
+        if (!nomeDisciplina.equals("AULA VAGA")) {
+            disciplina = disciplinaDao.buscarDisciplinaPorNome(nomeDisciplina);
+            List<Grade> horarios = new ArrayList<>();
+            horarios = gradeDao.buscarPorProfessor(disciplina.getProfessor().getNome());
+            for (var item : horarios) {
+                if (item.getDia() == dia && item.getHorario() == aula) {
+                    cbx.getSelectionModel().selectNext();
+                    return true;
+                }
             }
         }
         return false;
