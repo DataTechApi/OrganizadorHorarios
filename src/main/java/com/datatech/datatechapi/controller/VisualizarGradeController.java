@@ -5,6 +5,11 @@ import com.datatech.datatechapi.dao.CursoDao;
 import com.datatech.datatechapi.dao.GradeDao;
 import com.datatech.datatechapi.entities.models.Curso;
 import com.datatech.datatechapi.entities.models.Grade;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +20,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
+import java.awt.*;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -135,6 +143,7 @@ public class VisualizarGradeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         visualizarCursos(cbx_curso);
     }
+
     @FXML
     void visualizarGrade(ActionEvent event) {
         if (event.getSource() == cbx_curso) {
@@ -142,8 +151,46 @@ public class VisualizarGradeController implements Initializable {
             visualizarGrade();
         }
     }
+
     @FXML
     void visualizarPdf(ActionEvent event) {
+        Document document = new Document();
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("grade.pdf"));
+            document.open();
+            document.add(new Paragraph("Grade de Horário do Curso: " + nomeCurso(cbx_curso)));
+            document.add(new Paragraph(" "));
+            PdfPTable grade = new PdfPTable(5);
+            PdfPCell segunda = new PdfPCell(new Paragraph("Segunda-feira"));
+            grade.addCell(segunda);
+            PdfPCell terca = new PdfPCell(new Paragraph("Terça-feira"));
+            grade.addCell(terca);
+            PdfPCell quarta = new PdfPCell(new Paragraph("Quarta-feira"));
+            grade.addCell(quarta);
+            PdfPCell quinta = new PdfPCell(new Paragraph("Quinta-feira"));
+            grade.addCell(quinta);
+            PdfPCell sexta = new PdfPCell(new Paragraph("Sexta-feira"));
+            grade.addCell(sexta);
+
+
+
+
+            document.add(grade);
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+
+            document.close();
+
+        }
+        try {
+            Desktop.getDesktop().open(new File("grade.pdf"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -151,6 +198,7 @@ public class VisualizarGradeController implements Initializable {
     void voltarMenu(ActionEvent event) throws IOException {
         App.setRoot("views/telamenu.fxml");
     }
+
     void visualizarCursos(ComboBox cbx) {
         cursos = FXCollections.observableList(cursoDao.buscarTodos());
         for (Curso c : cursos) {
@@ -158,6 +206,7 @@ public class VisualizarGradeController implements Initializable {
             cbx.setValue(" ");
         }
     }
+
     void receberDados(Label lbl) {
         String nome = nomeCurso(cbx_curso);
         List<Grade> grades = new ArrayList<>();
@@ -173,10 +222,12 @@ public class VisualizarGradeController implements Initializable {
             }
         }
     }
+
     String nomeCurso(ComboBox cbx) {
         String curso = (String) cbx.getValue();
         return curso;
     }
+
     void visualizarGrade() {
         receberDados(lbl_ter_pri);
         receberDados(lbl_ter_qua);
