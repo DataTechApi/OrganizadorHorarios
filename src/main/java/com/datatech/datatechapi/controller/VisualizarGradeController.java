@@ -5,11 +5,16 @@ import com.datatech.datatechapi.dao.CursoDao;
 import com.datatech.datatechapi.dao.GradeDao;
 import com.datatech.datatechapi.entities.models.Curso;
 import com.datatech.datatechapi.entities.models.Grade;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
+import com.datatech.datatechapi.util.Conexao;
+
+
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Table;
+import com.lowagie.text.alignment.HorizontalAlignment;
+import com.lowagie.text.pdf.PdfTable;
+import com.lowagie.text.pdf.PdfWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,11 +25,15 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
+
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -153,43 +162,38 @@ public class VisualizarGradeController implements Initializable {
     }
 
     @FXML
-    void visualizarPdf(ActionEvent event) {
-        Document document = new Document();
-        try {
-            PdfWriter.getInstance(document, new FileOutputStream("grade.pdf"));
-            document.open();
-            document.add(new Paragraph("Grade de Horário do Curso: " + nomeCurso(cbx_curso)));
-            document.add(new Paragraph(" "));
-            PdfPTable grade = new PdfPTable(5);
-            PdfPCell segunda = new PdfPCell(new Paragraph("Segunda-feira"));
-            grade.addCell(segunda);
-            PdfPCell terca = new PdfPCell(new Paragraph("Terça-feira"));
-            grade.addCell(terca);
-            PdfPCell quarta = new PdfPCell(new Paragraph("Quarta-feira"));
-            grade.addCell(quarta);
-            PdfPCell quinta = new PdfPCell(new Paragraph("Quinta-feira"));
-            grade.addCell(quinta);
-            PdfPCell sexta = new PdfPCell(new Paragraph("Sexta-feira"));
-            grade.addCell(sexta);
+    void visualizarPdf(ActionEvent event) throws IOException {
 
+        Document documento = new Document();
 
+        PdfWriter.getInstance(documento, new FileOutputStream("grade.pdf"));
 
+        documento.open();
+        documento.setPageSize(PageSize.A4);
 
-            document.add(grade);
+        Table table = new Table(5);
+        table.setWidths(new float[]{15, 15, 15, 15, 15});
+        
+        table.setHorizontalAlignment(HorizontalAlignment.CENTER);
+        table.addCell(lb_segunda.getText());
+        table.addCell(lb_terca.getText());
+        table.addCell(lb_quarta.getText());
+        table.addCell(lb_quinta.getText());
+        table.addCell(lb_sexta.getText());
 
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-
-            document.close();
-
+        List<Grade> grades = new ArrayList<>();
+        grades = gradeDao.buscarPorCurso(nomeCurso(cbx_curso));
+        for (int i = 0; i < grades.size(); i++) {
+            table.addCell(grades.get(i).getDisciplinanome());
         }
-        try {
-            Desktop.getDesktop().open(new File("grade.pdf"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+
+        documento.add(table);
+
+        Desktop desktop = Desktop.getDesktop();
+        desktop.open(new File("grade.pdf"));
+
+        documento.close();
 
 
     }

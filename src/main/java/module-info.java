@@ -5,8 +5,12 @@ module com.datatech.datatechapi {
     requires org.controlsfx.controls;
     requires java.sql;
     requires org.jetbrains.annotations;
-    requires itextpdf;
+
     requires java.desktop;
+    requires mysql.connector.j;
+
+    requires com.github.librepdf.openpdf;
+
 
     opens com.datatech.datatechapi to javafx.fxml;
     opens com.datatech.datatechapi.controller to javafx.fxml;

@@ -44,7 +44,7 @@ public class GradeDao {
         List<Grade> grades = new ArrayList<>();
         try{
             ResultSet rs = null;
-            String sql = "select * from grade where cursonome = ?";
+            String sql = "select * from grade where cursonome = ? order by linha, coluna";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
             ps.setString(1, cursoNome);
             rs = ps.executeQuery();
