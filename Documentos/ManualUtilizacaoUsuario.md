@@ -40,7 +40,7 @@ O **DataGrade** foi desenvolvido para auxiliar coordenadores na criação de gra
 
 ### Windows:
 
-1. Baixe o instalador em (Link Para .Jar)
+1. Baixe o instalador em (Link do .Jar)
 2. Dê dois cliques no arquivo `.jar`
 
 ## 🔑 Primeiro Acesso
