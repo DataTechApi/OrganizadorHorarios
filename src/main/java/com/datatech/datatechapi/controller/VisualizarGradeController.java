@@ -8,10 +8,8 @@ import com.datatech.datatechapi.entities.models.Grade;
 import com.datatech.datatechapi.util.Conexao;
 
 
-import com.lowagie.text.Document;
-import com.lowagie.text.DocumentException;
-import com.lowagie.text.PageSize;
-import com.lowagie.text.Table;
+import com.lowagie.text.*;
+import com.lowagie.text.Font;
 import com.lowagie.text.alignment.HorizontalAlignment;
 import com.lowagie.text.pdf.PdfTable;
 import com.lowagie.text.pdf.PdfWriter;
@@ -26,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -170,21 +169,44 @@ public class VisualizarGradeController implements Initializable {
 
         documento.open();
         documento.setPageSize(PageSize.A4);
+        documento.setMargins(0,0,3,3);
 
-        Table table = new Table(5);
-        table.setWidths(new float[]{15, 15, 15, 15, 15});
+
+        Table table = new Table(6);
+        table.setWidths(new float[]{12,25, 25, 25,25,25});
+        table.setWidth(100);
+
+        Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD,9);
         
         table.setHorizontalAlignment(HorizontalAlignment.CENTER);
-        table.addCell(lb_segunda.getText());
-        table.addCell(lb_terca.getText());
-        table.addCell(lb_quarta.getText());
-        table.addCell(lb_quinta.getText());
-        table.addCell(lb_sexta.getText());
+        Paragraph p = new Paragraph(String.valueOf(cbx_curso.getValue()));
+        p.setAlignment("center");
+        documento.add(p);
+
+        table.addCell(new Cell(lb_segunda.getText()),0,1);
+        table.addCell(new Cell(lb_terca.getText()),0,2);
+        table.addCell(new Cell( lb_quarta.getText()),0,3);
+        table.addCell(new Cell( lb_quinta.getText()),0,4);
+        table.addCell(new Cell(lb_sexta.getText()),0,5);
+
+
+        table.addCell(new Cell("1ª Aula"),1,0);
+        table.addCell(new Cell("2ª Aula"),2,0);
+        table.addCell(new Cell("3ª Aula"),3,0);
+        table.addCell(new Cell("4ª Aula"),4,0);
+        table.addCell(new Cell("5ª Aula"),5,0);
+        table.setBackgroundColor(ColorUIResource.getHSBColor(255,200,50));
+
 
         List<Grade> grades = new ArrayList<>();
         grades = gradeDao.buscarPorCurso(nomeCurso(cbx_curso));
-        for (int i = 0; i < grades.size(); i++) {
-            table.addCell(grades.get(i).getDisciplinanome());
+        for(var item : grades){
+            if(item.getDisciplinanome().equals("AULA VAGA"))
+                table.addCell(new Cell(item.getDisciplinanome()),item.getLinha(),item.getColuna());
+            else
+                table.addCell(new Cell(item.getDisciplinanome() + "\n" + item.getProfessorNome()),item.getLinha(),item.getColuna());
+
+
         }
 
 
