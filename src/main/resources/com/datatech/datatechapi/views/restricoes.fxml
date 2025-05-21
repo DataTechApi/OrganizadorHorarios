@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -66,17 +68,41 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btn_salvar" mnemonicParsing="false" onAction="#salvarRestricao" prefHeight="25.0" prefWidth="135.0" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="btn_salvar" mnemonicParsing="false" onAction="#salvarRestricao" prefHeight="44.0" prefWidth="52.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <tooltip>
                   <Tooltip text="Salvar Restrição" />
                </tooltip>
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/salvar.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="btn_excluir" mnemonicParsing="false" onAction="#excluirResticao" prefHeight="25.0" prefWidth="135.0" text="Excluir" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="btn_excluir" mnemonicParsing="false" onAction="#excluirResticao" prefHeight="44.0" prefWidth="49.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <tooltip>
                   <Tooltip text="Excluir Restrição" />
                </tooltip>
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/excluir.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="btn_voltar" mnemonicParsing="false" onAction="#voltarMenu" prefHeight="25.0" prefWidth="130.0" text="Voltar ao Menu" />
+            <Button fx:id="btn_voltar" alignment="CENTER" mnemonicParsing="false" onAction="#voltarMenu" prefHeight="36.0" prefWidth="55.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/voltar.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Voltar ao Menu Principal" />
+               </tooltip></Button>
          </children>
       </GridPane>
    </children>

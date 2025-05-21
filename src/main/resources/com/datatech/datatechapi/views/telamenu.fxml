@@ -3,27 +3,64 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="anchorpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.TelaMenuController">
    <children>
-      <MenuBar fx:id="barramenu" layoutY="1.0" prefHeight="26.0" prefWidth="900.0">
+      <MenuBar fx:id="barramenu" layoutY="1.0" prefHeight="38.0" prefWidth="900.0">
         <menus>
           <Menu fx:id="menuprofessor" mnemonicParsing="false" text="Professor">
             <items>
-              <MenuItem fx:id="mit_restricoes" mnemonicParsing="false" onAction="#cadastrarRestricoes" text="Restrições" />
+              <MenuItem fx:id="mit_restricoes" mnemonicParsing="false" onAction="#cadastrarRestricoes" text="Restrições">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/restricoes.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
             </items>
           </Menu>
           <Menu fx:id="menugrade" mnemonicParsing="false" text="Grade">
             <items>
-              <MenuItem fx:id="mit_criargrade" mnemonicParsing="false" onAction="#criarGrade" text="Criar Grade" />
-                  <MenuItem fx:id="mit_visualizargrade" mnemonicParsing="false" onAction="#visualizarGrade" text="Visualizar Grade" />
+              <MenuItem fx:id="mit_criargrade" mnemonicParsing="false" onAction="#criarGrade" text="Criar Grade">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/criar.jpeg" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="mit_visualizargrade" mnemonicParsing="false" onAction="#visualizarGrade" text="Visualizar Grade">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/visualizar.jpeg" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
             </items>
           </Menu>
           <Menu fx:id="logout" mnemonicParsing="false" text="Sair">
             <items>
-              <MenuItem fx:id="mit_logout" mnemonicParsing="false" onAction="#realizarLogout" text="Efetuar Logoff" />
-                  <MenuItem fx:id="mit_sair" mnemonicParsing="false" onAction="#sairDoSistema" text="Sair do Sistema" />
+              <MenuItem fx:id="mit_logout" mnemonicParsing="false" onAction="#realizarLogout" text="Efetuar Logoff">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/logoff.jpeg" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="mit_sair" mnemonicParsing="false" onAction="#sairDoSistema" text="Sair do Sistema">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/sair.jpeg" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
             </items>
           </Menu>
         </menus>
