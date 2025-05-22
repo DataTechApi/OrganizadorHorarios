@@ -40,9 +40,10 @@ public class GradeDao {
         }
         return grades;
     }
+
     public List<Grade> buscarPorCurso(String cursoNome) {
         List<Grade> grades = new ArrayList<>();
-        try{
+        try {
             ResultSet rs = null;
             String sql = "select * from grade where cursonome = ? order by linha, coluna";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
@@ -66,9 +67,10 @@ public class GradeDao {
         }
         return grades;
     }
+
     public List<Grade> buscarPorProfessor(String professornome) {
         List<Grade> grades = new ArrayList<>();
-        try{
+        try {
             ResultSet rs = null;
             String sql = "select * from grade where professornome = ?";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
@@ -92,10 +94,10 @@ public class GradeDao {
         }
         return grades;
     }
+
     public void cadastrarGrade(List<Grade> grades) {
         for (Grade grade : grades) {
             try {
-
                 String sql = "INSERT INTO grade(cursonome,dia,horario,disciplinanome,linha,coluna,professornome) VALUES(?,?,?,?,?,?,?)";
                 PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
                 ps.setString(1, grade.getCursoNome());
@@ -112,5 +114,24 @@ public class GradeDao {
             }
 
         }
+    }
+
+    public void editarGrade(Grade grade) {
+
+        try {
+            String sql = "update grade set disciplinanome=?,professornome=? ";
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+
+            ps.setString(1, grade.getDisciplinanome());
+            ps.setString(2, grade.getProfessorNome());
+
+
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
