@@ -35,6 +35,9 @@ public class TelaMenuController implements Initializable {
     private MenuItem mit_sair;
 
     @FXML
+    private MenuItem mit_editargrade;
+
+    @FXML
     private Menu menugrade;
 
     @FXML
@@ -73,6 +76,10 @@ public class TelaMenuController implements Initializable {
     @FXML
     void realizarLogout(ActionEvent event) throws IOException {
         App.setRoot("views/login.fxml");
+    }
+    @FXML
+    void editarGrade(ActionEvent event) throws IOException {
+        App.setRoot("views/editorgrade.fxml");
     }
 
     @FXML

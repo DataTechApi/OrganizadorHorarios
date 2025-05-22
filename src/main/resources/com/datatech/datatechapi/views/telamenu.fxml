@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="anchorpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.datatech.datatechapi.controller.TelaMenuController">
    <children>
-      <MenuBar fx:id="barramenu" layoutY="1.0" prefHeight="38.0" prefWidth="900.0">
+      <MenuBar fx:id="barramenu" layoutY="1.0" prefHeight="28.0" prefWidth="900.0">
         <menus>
           <Menu fx:id="menuprofessor" mnemonicParsing="false" text="Professor">
             <items>
@@ -41,6 +41,15 @@
                            </image>
                         </ImageView>
                      </graphic></MenuItem>
+                  <MenuItem fx:id="mit_editargrade" mnemonicParsing="false" onAction="#editarGrade" text="Editar Grade">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/editar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
             </items>
           </Menu>
           <Menu fx:id="logout" mnemonicParsing="false" text="Sair">
