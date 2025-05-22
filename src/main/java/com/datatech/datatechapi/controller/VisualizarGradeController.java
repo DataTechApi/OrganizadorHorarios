@@ -158,7 +158,6 @@ public class VisualizarGradeController implements Initializable {
 
     @FXML
     void visualizarPdf(ActionEvent event) throws IOException {
-
         Document documento = new Document();
 
         PdfWriter.getInstance(documento, new FileOutputStream("grade.pdf"));
@@ -189,20 +188,12 @@ public class VisualizarGradeController implements Initializable {
         table.addCell(ajustarCabecalho(quartaFeira),0,3);
         table.addCell(ajustarCabecalho( quintaFeira),0,4);
         table.addCell(ajustarCabecalho(sextaFeira),0,5);
-
-
-
-
-
         Cell primeira = new Cell(new Phrase("1ª Aula",fonteCabecalho));
         Cell segunda = new Cell(new Phrase("2ª Aula",fonteCabecalho));
         Cell terceira = new Cell(new Phrase("3ª Aula",fonteCabecalho));
         Cell quarta= new Cell(new Phrase("4ª Aula",fonteCabecalho));
         Cell quinta = new Cell(new Phrase("5ª Aula",fonteCabecalho));
         Cell branco = new Cell(new Phrase("",fonteCabecalho));
-
-
-
         table.addCell(ajustarCabecalho(primeira),1,0);
         table.addCell(ajustarCabecalho(segunda),2,0);
         table.addCell(ajustarCabecalho(terceira),3,0);
@@ -219,9 +210,6 @@ public class VisualizarGradeController implements Initializable {
             }else{
                 table.addCell(new Cell(new Phrase(item.getDisciplinanome() + "\n" + item.getProfessorNome(),fonte)),item.getLinha(),item.getColuna());
             }
-
-
-
         }
         documento.add(table);
 

@@ -2,44 +2,37 @@ package com.datatech.datatechapi.controller;
 
 
 import com.datatech.datatechapi.App;
+import com.datatech.datatechapi.dao.CursoDao;
+import com.datatech.datatechapi.dao.DisciplinaDao;
 import com.datatech.datatechapi.dao.GradeDao;
 import com.datatech.datatechapi.dao.RestricaoDao;
 import com.datatech.datatechapi.entities.Enums.DiaDaSemana;
 import com.datatech.datatechapi.entities.Enums.HorarioDaAula;
 import com.datatech.datatechapi.entities.models.Curso;
 import com.datatech.datatechapi.entities.models.Disciplina;
-import com.datatech.datatechapi.dao.CursoDao;
-import com.datatech.datatechapi.dao.DisciplinaDao;
-
 import com.datatech.datatechapi.entities.models.Grade;
 import com.datatech.datatechapi.entities.models.Restricao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.AccessDeniedException;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
-public class CriadorController implements Initializable {
+public class EditorController implements Initializable {
 
     @FXML
     private Button btn_salvar;
@@ -176,7 +169,6 @@ public class CriadorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         visualizarCursos(cbx_curso);
     }
 
@@ -206,10 +198,18 @@ public class CriadorController implements Initializable {
 
     }
 
-    @FXML
-    void editarGrade(ActionEvent event) {
-
+    void enviarDados(ComboBox cbx) {
+        String nome = nomeCurso(cbx_curso);
+        List<Grade> grades = new ArrayList<>();
+        grades = gradeDao.buscarPorCurso(nome);
+        for (int i = 0; i < grades.size(); i++) {
+            if (grades.get(i).getLinha() == GridPane.getRowIndex(cbx) &&
+                    grades.get(i).getColuna() == GridPane.getColumnIndex(cbx)) {
+                cbx.setValue(grades.get(i).getDisciplinanome());
+            }
+        }
     }
+
 
     void visualizarDisciplinas(ComboBox cbx) {
         Curso c = new Curso();
@@ -278,16 +278,19 @@ public class CriadorController implements Initializable {
     void preencherDisciplinas(ActionEvent event) throws IOException {
         if (event.getSource() == cbx_curso) {
             String nomeCurso = String.valueOf(cbx_curso.getSelectionModel().getSelectedItem());
-            if (testarGrade(nomeCurso)) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Necessário atençaõ");
-                alert.setHeaderText("Grade");
-                alert.setContentText("Esse curso já possui uma grade cadastrada!!! \n" +
-                        "Acesse á Visualização de Grades para ver a sua grade.");
-                alert.showAndWait();
-            } else {
-                visualizarDisciplinas();
-            }
+//            if (testarGrade(nomeCurso)) {
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Necessário atençaõ");
+//                alert.setHeaderText("Grade");
+//                alert.setContentText("Esse curso já possui uma grade cadastrada!!! \n" +
+//                        "Acesse á Visualização de Grades para ver a sua grade.");
+//                alert.showAndWait();
+//            } else {
+//                visualizarDisciplinas();
+//            }
+            visualizarDisciplinas();
+            enviarDados(cbx_segunda_pri);
+            enviarDados(cbx_segunda_ter);
         }
     }
 
@@ -303,7 +306,7 @@ public class CriadorController implements Initializable {
 
     boolean verificarRestricoesProfessor(ComboBox cbx, DiaDaSemana dia, HorarioDaAula aula) {
         String nomeDisciplina = String.valueOf(cbx.getSelectionModel().getSelectedItem());
-        if (!nomeDisciplina.equals("AULA VAGA")){
+        if (!nomeDisciplina.equals("AULA VAGA")) {
             disciplina = disciplinaDao.buscarDisciplinaPorNome(nomeDisciplina);
             restricoes = restricaoDao.buscarRestricao(disciplina.getProfessor().getEmail());
             for (var item : restricoes) {
@@ -330,7 +333,10 @@ public class CriadorController implements Initializable {
                     return true;
                 }
             }
+        } else {
+            return false;
         }
+
         return false;
     }
 
@@ -351,11 +357,11 @@ public class CriadorController implements Initializable {
     }
 
     @FXML
-    void verificarSegundaPri(ActionEvent event) {
+   /* void verificarSegundaPri(ActionEvent event) {
         if (verificarRestricoesProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
             emitirAlerta();
-        else if (verificarAlocacaoProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
-            emitirAlertaAlocacao();
+//        else if (verificarAlocacaoProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
+//            emitirAlertaAlocacao();
 
 
     }
@@ -364,16 +370,16 @@ public class CriadorController implements Initializable {
     void verificarSegundaSeg(ActionEvent event) {
         if (verificarRestricoesProfessor(cbx_segunda_seg, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.SEGUNDA_AULA))
             emitirAlerta();
-        else if (verificarAlocacaoProfessor(cbx_segunda_seg, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.SEGUNDA_AULA))
-            emitirAlertaAlocacao();
+//        else if (verificarAlocacaoProfessor(cbx_segunda_seg, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.SEGUNDA_AULA))
+//            emitirAlertaAlocacao();
     }
 
     @FXML
     void verificarSegundaTer(ActionEvent event) {
         if (verificarRestricoesProfessor(cbx_segunda_ter, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.TERCEIRA_AULA))
             emitirAlerta();
-        else if (verificarAlocacaoProfessor(cbx_segunda_ter, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.TERCEIRA_AULA))
-            emitirAlertaAlocacao();
+//        else if (verificarAlocacaoProfessor(cbx_segunda_ter, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.TERCEIRA_AULA))
+//            emitirAlertaAlocacao();
     }
 
     @FXML
@@ -550,7 +556,7 @@ public class CriadorController implements Initializable {
             emitirAlerta();
         else if (verificarAlocacaoProfessor(cbx_sexta_qui, DiaDaSemana.SEXTA_FEIRA, HorarioDaAula.QUINTA_AULA))
             emitirAlertaAlocacao();
-    }
+    }*/
 
     void receberDados() {
         receberDados(cbx_segunda_pri);
