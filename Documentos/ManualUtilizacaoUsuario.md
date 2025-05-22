@@ -36,6 +36,12 @@ O **DataGrade** foi desenvolvido para auxiliar coordenadores na criação de gra
 
 ---
 
+## 💻 Requisitos de Software
+
+-**Versão Java 23 ou acima:** Link para instalação: (https://www.oracle.com/br/java/technologies/downloads/)
+-**MySql e seus serviços instalados** Link para instalação: (https://dev.mysql.com/downloads/installer/)
+
+
 ## 🛠️ Instalação
 
 ### Windows:
