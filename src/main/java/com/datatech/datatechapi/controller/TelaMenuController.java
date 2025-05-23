@@ -87,8 +87,12 @@ public class TelaMenuController implements Initializable {
         App.setRoot("views/visualizargrade.fxml");
     }
     void verificarCoordenador(){
-        if (LoginController.EHCOORDENADOR == true) mit_criargrade.setDisable(false);
-        else mit_criargrade.setDisable(true);
+        if (LoginController.EHCOORDENADOR == true) {
+            mit_criargrade.setDisable(false);
+        }else{
+            mit_criargrade.setDisable(true);
+            mit_editargrade.setDisable(true);
+        }
     }
     @FXML
     void sairDoSistema(ActionEvent event) {

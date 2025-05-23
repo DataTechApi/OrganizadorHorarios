@@ -116,21 +116,25 @@ public class GradeDao {
         }
     }
 
-    public void editarGrade(Grade grade) {
-
-        try {
-            String sql = "update grade set disciplinanome=?,professornome=? ";
-            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
-
-            ps.setString(1, grade.getDisciplinanome());
-            ps.setString(2, grade.getProfessorNome());
+    public void editarGrade(List<Grade> grades) {
+        for (Grade grade : grades) {
 
 
+            try {
+                String sql = "update grade set disciplinanome=?,professornome=? where (linha = ?) and (coluna=?)";
+                PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
 
-            ps.executeUpdate();
+                ps.setString(1, grade.getDisciplinanome());
+                ps.setString(2, grade.getProfessorNome());
+                ps.setInt(3, grade.getLinha());
+                ps.setInt(4, grade.getColuna());
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+                ps.executeUpdate();
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
     }

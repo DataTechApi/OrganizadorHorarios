@@ -73,8 +73,8 @@
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Label>
-            <ComboBox fx:id="cbx_segunda_pri" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_segunda_seg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_segunda_pri" onAction="#verificarSegundaPri" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_segunda_seg" onAction="#verificarSegundaSeg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ComboBox fx:id="cbx_segunda_ter" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ComboBox fx:id="cbx_segunda_quar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <ComboBox fx:id="cbx_segunda_qui" GridPane.columnIndex="1" GridPane.rowIndex="5" />

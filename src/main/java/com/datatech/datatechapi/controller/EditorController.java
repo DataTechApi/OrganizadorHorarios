@@ -250,7 +250,7 @@ public class EditorController implements Initializable {
                         grade.setDia(DiaDaSemana.valueOf(dias[j - 1]));
                         grade.setLinha(i);
                         grade.setColuna(j);
-                        gradeDao.editarGrade(grade);
+
                     } else {
                         grade.setCursoNome(curso);
                         grade.setDisciplinanome(cbx.getValue().toString());
@@ -262,12 +262,13 @@ public class EditorController implements Initializable {
                         grade.setLinha(i);
                         grade.setColuna(j);
                         grade.setProfessorNome(nome);
-                        gradeDao.editarGrade(grade);
+
                     }
                 }
             }
         }
-            }
+        grades.add(grade);
+    }
 
 
     String nomeCurso(ComboBox cbx) {
@@ -320,12 +321,33 @@ public class EditorController implements Initializable {
         }
         return false;
     }
+
     void enviarDados() {
-        enviarDados(cbx_segunda_pri);enviarDados(cbx_segunda_seg);enviarDados(cbx_segunda_ter);enviarDados(cbx_segunda_quar);enviarDados(cbx_segunda_qui);
-        enviarDados(cbx_terca_pri);enviarDados(cbx_terca_seg);enviarDados(cbx_terca_ter);enviarDados(cbx_terca_quar);enviarDados(cbx_terca_qui);
-        enviarDados(cbx_quarta_pri);enviarDados(cbx_quarta_seg);enviarDados(cbx_quarta_ter);enviarDados(cbx_quarta_quar);enviarDados(cbx_quarta_qui);
-        enviarDados(cbx_quinta_pri);enviarDados(cbx_quinta_seg);enviarDados(cbx_quinta_ter);enviarDados(cbx_quinta_quar);enviarDados(cbx_quinta_qui);
-        enviarDados(cbx_sexta_pri);enviarDados(cbx_sexta_seg);enviarDados(cbx_sexta_ter);enviarDados(cbx_sexta_quar);enviarDados(cbx_sexta_qui);
+        enviarDados(cbx_segunda_pri);
+        enviarDados(cbx_segunda_seg);
+        enviarDados(cbx_segunda_ter);
+        enviarDados(cbx_segunda_quar);
+        enviarDados(cbx_segunda_qui);
+        enviarDados(cbx_terca_pri);
+        enviarDados(cbx_terca_seg);
+        enviarDados(cbx_terca_ter);
+        enviarDados(cbx_terca_quar);
+        enviarDados(cbx_terca_qui);
+        enviarDados(cbx_quarta_pri);
+        enviarDados(cbx_quarta_seg);
+        enviarDados(cbx_quarta_ter);
+        enviarDados(cbx_quarta_quar);
+        enviarDados(cbx_quarta_qui);
+        enviarDados(cbx_quinta_pri);
+        enviarDados(cbx_quinta_seg);
+        enviarDados(cbx_quinta_ter);
+        enviarDados(cbx_quinta_quar);
+        enviarDados(cbx_quinta_qui);
+        enviarDados(cbx_sexta_pri);
+        enviarDados(cbx_sexta_seg);
+        enviarDados(cbx_sexta_ter);
+        enviarDados(cbx_sexta_quar);
+        enviarDados(cbx_sexta_qui);
     }
 
     boolean verificarAlocacaoProfessor(ComboBox cbx, DiaDaSemana dia, HorarioDaAula aula) {
@@ -364,11 +386,11 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-   /* void verificarSegundaPri(ActionEvent event) {
+    void verificarSegundaPri(ActionEvent event) {
         if (verificarRestricoesProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
             emitirAlerta();
-//        else if (verificarAlocacaoProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
-//            emitirAlertaAlocacao();
+        else if (verificarAlocacaoProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
+           emitirAlertaAlocacao();
 
 
     }
@@ -377,11 +399,11 @@ public class EditorController implements Initializable {
     void verificarSegundaSeg(ActionEvent event) {
         if (verificarRestricoesProfessor(cbx_segunda_seg, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.SEGUNDA_AULA))
             emitirAlerta();
-//        else if (verificarAlocacaoProfessor(cbx_segunda_seg, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.SEGUNDA_AULA))
-//            emitirAlertaAlocacao();
+        else if (verificarAlocacaoProfessor(cbx_segunda_seg, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.SEGUNDA_AULA))
+            emitirAlertaAlocacao();
     }
 
-    @FXML
+  /*  @FXML
     void verificarSegundaTer(ActionEvent event) {
         if (verificarRestricoesProfessor(cbx_segunda_ter, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.TERCEIRA_AULA))
             emitirAlerta();
@@ -566,23 +588,60 @@ public class EditorController implements Initializable {
     }*/
 
     void receberDados() {
-        receberDados(cbx_segunda_pri);receberDados(cbx_segunda_seg);receberDados(cbx_segunda_ter);receberDados(cbx_segunda_quar);receberDados(cbx_segunda_qui);
-        receberDados(cbx_terca_pri);receberDados(cbx_terca_seg);receberDados(cbx_terca_ter);receberDados(cbx_terca_quar);receberDados(cbx_terca_qui);
-        receberDados(cbx_quarta_pri);receberDados(cbx_quarta_seg);receberDados(cbx_quarta_ter);receberDados(cbx_quarta_quar);receberDados(cbx_quarta_qui);
-        receberDados(cbx_quinta_pri);receberDados(cbx_quinta_seg);receberDados(cbx_quinta_ter);receberDados(cbx_quinta_quar);receberDados(cbx_quinta_qui);
-        receberDados(cbx_sexta_pri);receberDados(cbx_sexta_seg);receberDados(cbx_sexta_ter);receberDados(cbx_sexta_quar);receberDados(cbx_sexta_qui);
+        receberDados(cbx_segunda_pri);
+        receberDados(cbx_segunda_seg);
+        receberDados(cbx_segunda_ter);
+        receberDados(cbx_segunda_quar);
+        receberDados(cbx_segunda_qui);
+        receberDados(cbx_terca_pri);
+        receberDados(cbx_terca_seg);
+        receberDados(cbx_terca_ter);
+        receberDados(cbx_terca_quar);
+        receberDados(cbx_terca_qui);
+        receberDados(cbx_quarta_pri);
+        receberDados(cbx_quarta_seg);
+        receberDados(cbx_quarta_ter);
+        receberDados(cbx_quarta_quar);
+        receberDados(cbx_quarta_qui);
+        receberDados(cbx_quinta_pri);
+        receberDados(cbx_quinta_seg);
+        receberDados(cbx_quinta_ter);
+        receberDados(cbx_quinta_quar);
+        receberDados(cbx_quinta_qui);
+        receberDados(cbx_sexta_pri);
+        receberDados(cbx_sexta_seg);
+        receberDados(cbx_sexta_ter);
+        receberDados(cbx_sexta_quar);
+        receberDados(cbx_sexta_qui);
+        gradeDao.editarGrade(grades);
 
     }
 
     void visualizarDisciplinas() {
-        visualizarDisciplinas(cbx_segunda_pri);visualizarDisciplinas(cbx_segunda_seg);visualizarDisciplinas(cbx_segunda_ter);
-        visualizarDisciplinas(cbx_segunda_quar);visualizarDisciplinas(cbx_segunda_qui);visualizarDisciplinas(cbx_terca_pri);
-        visualizarDisciplinas(cbx_terca_seg);visualizarDisciplinas(cbx_terca_ter);visualizarDisciplinas(cbx_terca_quar);
-        visualizarDisciplinas(cbx_terca_qui);visualizarDisciplinas(cbx_quarta_pri);visualizarDisciplinas(cbx_quarta_seg);
-        visualizarDisciplinas(cbx_quarta_ter);visualizarDisciplinas(cbx_quarta_qui);visualizarDisciplinas(cbx_quarta_quar);
-        visualizarDisciplinas(cbx_quinta_pri);visualizarDisciplinas(cbx_quinta_seg);visualizarDisciplinas(cbx_quinta_ter);
-        visualizarDisciplinas(cbx_quinta_quar);visualizarDisciplinas(cbx_quinta_qui);visualizarDisciplinas(cbx_sexta_pri);
-        visualizarDisciplinas(cbx_sexta_seg);visualizarDisciplinas(cbx_sexta_ter);visualizarDisciplinas(cbx_sexta_quar);
+        visualizarDisciplinas(cbx_segunda_pri);
+        visualizarDisciplinas(cbx_segunda_seg);
+        visualizarDisciplinas(cbx_segunda_ter);
+        visualizarDisciplinas(cbx_segunda_quar);
+        visualizarDisciplinas(cbx_segunda_qui);
+        visualizarDisciplinas(cbx_terca_pri);
+        visualizarDisciplinas(cbx_terca_seg);
+        visualizarDisciplinas(cbx_terca_ter);
+        visualizarDisciplinas(cbx_terca_quar);
+        visualizarDisciplinas(cbx_terca_qui);
+        visualizarDisciplinas(cbx_quarta_pri);
+        visualizarDisciplinas(cbx_quarta_seg);
+        visualizarDisciplinas(cbx_quarta_ter);
+        visualizarDisciplinas(cbx_quarta_qui);
+        visualizarDisciplinas(cbx_quarta_quar);
+        visualizarDisciplinas(cbx_quinta_pri);
+        visualizarDisciplinas(cbx_quinta_seg);
+        visualizarDisciplinas(cbx_quinta_ter);
+        visualizarDisciplinas(cbx_quinta_quar);
+        visualizarDisciplinas(cbx_quinta_qui);
+        visualizarDisciplinas(cbx_sexta_pri);
+        visualizarDisciplinas(cbx_sexta_seg);
+        visualizarDisciplinas(cbx_sexta_ter);
+        visualizarDisciplinas(cbx_sexta_quar);
         visualizarDisciplinas(cbx_sexta_qui);
     }
 }
