@@ -75,29 +75,29 @@
                </font></Label>
             <ComboBox fx:id="cbx_segunda_pri" onAction="#verificarSegundaPri" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbx_segunda_seg" onAction="#verificarSegundaSeg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_segunda_ter" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_segunda_quar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_segunda_qui" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <ComboBox fx:id="cbx_terca_pri" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_terca_seg" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_terca_ter" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_terca_quar" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_terca_qui" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <ComboBox fx:id="cbx_quarta_pri" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_quarta_seg" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_quarta_ter" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_quarta_quar" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_quarta_qui" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <ComboBox fx:id="cbx_quinta_pri" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_sexta_pri" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbx_quinta_seg" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_quinta_ter" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_quinta_quar" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_quinta_qui" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <ComboBox fx:id="cbx_sexta_seg" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_sexta_ter" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_sexta_quar" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cbx_sexta_qui" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_segunda_ter" onAction="#verificarSegundaTer"  GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_segunda_quar" onAction="#verificarSegundaQuar"  GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_segunda_qui" onAction="#verificarSegundaQui" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_terca_pri" onAction="#verificarTercaPri" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_terca_seg" onAction="#verificarTercaSeg" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_terca_ter" onAction="#verificarTercaTer" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_terca_quar" onAction="#verificarTercaQuar" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_terca_qui" onAction="#verificarTercaQui" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_quarta_pri" onAction="#verificarQuartaPri" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_quarta_seg" onAction="#verificarQuartaSeg" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_quarta_ter" onAction="#verificarQuartaTer" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_quarta_quar" onAction="#verificarQuartaQuar"  GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_quarta_qui" onAction="#verificarQuartaQui" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_quinta_pri" onAction="#verificarQuintaPri" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_sexta_pri" onAction="#verificarSextaPri" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbx_quinta_seg" onAction="#verificarQuintaSeg" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_quinta_ter" onAction="#verificarQuintaTer" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_quinta_quar" onAction="#verificarQuintaQuar" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_quinta_qui" onAction="#verificarQuintaQui" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cbx_sexta_seg" onAction="#verificarSextaSeg" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbx_sexta_ter" onAction="#verificarSextaTer" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_sexta_quar" onAction="#verificarSextaQuar" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_sexta_qui" onAction="#verificarSextaQui" GridPane.columnIndex="5" GridPane.rowIndex="5" />
             </children>
         </GridPane>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="7.0" prefHeight="28.0" prefWidth="789.0" text="Edição da Grade de Horários" textAlignment="CENTER">

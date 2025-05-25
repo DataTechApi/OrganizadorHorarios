@@ -68,21 +68,23 @@ public class GradeDao {
         return grades;
     }
 
-    public List<Grade> buscarPorProfessor(String professornome) {
+    public List<Grade> buscarPorProfessor(String professornome, String cursoNome) {
         List<Grade> grades = new ArrayList<>();
         try {
             ResultSet rs = null;
-            String sql = "select * from grade where professornome = ?";
+            String sql = "select * from grade where (professornome = ?) and (cursonome !=?)";
             PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
             ps.setString(1, professornome);
+            ps.setString(2, cursoNome);
+
             rs = ps.executeQuery();
 
             while (rs.next()) {
                 Grade grade = new Grade();
-                //grade.setCursoNome(rs.getString("cursonome"));
+                grade.setCursoNome(rs.getString("cursonome"));
                 grade.setDia(DiaDaSemana.valueOf(rs.getString("dia")));
                 grade.setHorario(HorarioDaAula.valueOf(rs.getString("horario")));
-                //grade.setDisciplinanome(String.valueOf(rs.getString("disciplinanome")));
+                grade.setDisciplinanome(String.valueOf(rs.getString("disciplinanome")));
                 grade.setProfessorNome(String.valueOf(rs.getString("professornome")));
                 grade.setLinha(rs.getInt("linha"));
                 grade.setColuna(rs.getInt("coluna"));
@@ -118,16 +120,15 @@ public class GradeDao {
 
     public void editarGrade(List<Grade> grades) {
         for (Grade grade : grades) {
-
-
             try {
-                String sql = "update grade set disciplinanome=?,professornome=? where (linha = ?) and (coluna=?)";
+                String sql = "update grade set disciplinanome=?,professornome=? where (linha = ?) and (coluna=?) and (cursonome=?)";
                 PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
 
                 ps.setString(1, grade.getDisciplinanome());
                 ps.setString(2, grade.getProfessorNome());
                 ps.setInt(3, grade.getLinha());
                 ps.setInt(4, grade.getColuna());
+                ps.setString(5, grade.getCursoNome());
 
 
                 ps.executeUpdate();
@@ -137,5 +138,32 @@ public class GradeDao {
             }
         }
 
+    }
+    public List<Grade> buscarCursoDiferenteDoSelecionado(String cursoSelecionado) {
+        List<Grade> grades = new ArrayList<>();
+        try {
+            String sql = "select * from grade where cursonome != ?";
+            ResultSet rs = null;
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+            ps.setString(1, cursoSelecionado);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Grade grade = new Grade();
+                grade.setCursoNome(rs.getString("cursonome"));
+                grade.setDia(DiaDaSemana.valueOf(rs.getString("dia")));
+                grade.setHorario(HorarioDaAula.valueOf(rs.getString("horario")));
+                grade.setDisciplinanome(String.valueOf(rs.getString("disciplinanome")));
+                grade.setProfessorNome(String.valueOf(rs.getString("professornome")));
+                grade.setLinha(rs.getInt("linha"));
+                grade.setColuna(rs.getInt("coluna"));
+                grades.add(grade);
+            }
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return grades;
     }
 }

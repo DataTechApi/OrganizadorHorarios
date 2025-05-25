@@ -169,7 +169,9 @@ public class EditorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         visualizarCursos(cbx_curso);
+
     }
 
     @FXML
@@ -204,7 +206,8 @@ public class EditorController implements Initializable {
         grades = gradeDao.buscarPorCurso(nome);
         for (int i = 0; i < grades.size(); i++) {
             if (grades.get(i).getLinha() == GridPane.getRowIndex(cbx) &&
-                    grades.get(i).getColuna() == GridPane.getColumnIndex(cbx)) {
+                    grades.get(i).getColuna() == GridPane.getColumnIndex(cbx) &&
+                    grades.get(i).getCursoNome().equals(nome)) {
                 cbx.setValue(grades.get(i).getDisciplinanome());
             }
         }
@@ -220,7 +223,6 @@ public class EditorController implements Initializable {
         for (Disciplina d : disciplinas) {
             cbx.getItems().add(d.getNome());
         }
-
         cbx.getItems().add(0, "AULA VAGA");
     }
 
@@ -280,16 +282,6 @@ public class EditorController implements Initializable {
     void preencherDisciplinas(ActionEvent event) throws IOException {
         if (event.getSource() == cbx_curso) {
             String nomeCurso = String.valueOf(cbx_curso.getSelectionModel().getSelectedItem());
-//            if (testarGrade(nomeCurso)) {
-//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                alert.setTitle("Necessário atençaõ");
-//                alert.setHeaderText("Grade");
-//                alert.setContentText("Esse curso já possui uma grade cadastrada!!! \n" +
-//                        "Acesse á Visualização de Grades para ver a sua grade.");
-//                alert.showAndWait();
-//            } else {
-//                visualizarDisciplinas();
-//            }
             visualizarDisciplinas();
             enviarDados();
         }
@@ -322,50 +314,23 @@ public class EditorController implements Initializable {
         return false;
     }
 
-    void enviarDados() {
-        enviarDados(cbx_segunda_pri);
-        enviarDados(cbx_segunda_seg);
-        enviarDados(cbx_segunda_ter);
-        enviarDados(cbx_segunda_quar);
-        enviarDados(cbx_segunda_qui);
-        enviarDados(cbx_terca_pri);
-        enviarDados(cbx_terca_seg);
-        enviarDados(cbx_terca_ter);
-        enviarDados(cbx_terca_quar);
-        enviarDados(cbx_terca_qui);
-        enviarDados(cbx_quarta_pri);
-        enviarDados(cbx_quarta_seg);
-        enviarDados(cbx_quarta_ter);
-        enviarDados(cbx_quarta_quar);
-        enviarDados(cbx_quarta_qui);
-        enviarDados(cbx_quinta_pri);
-        enviarDados(cbx_quinta_seg);
-        enviarDados(cbx_quinta_ter);
-        enviarDados(cbx_quinta_quar);
-        enviarDados(cbx_quinta_qui);
-        enviarDados(cbx_sexta_pri);
-        enviarDados(cbx_sexta_seg);
-        enviarDados(cbx_sexta_ter);
-        enviarDados(cbx_sexta_quar);
-        enviarDados(cbx_sexta_qui);
-    }
 
     boolean verificarAlocacaoProfessor(ComboBox cbx, DiaDaSemana dia, HorarioDaAula aula) {
-        String nomeDisciplina = String.valueOf(cbx.getSelectionModel().getSelectedItem());
+        String nome = nomeCurso(cbx_curso);
+        String nomeDisciplina = String.valueOf(cbx.getValue().toString());
+        disciplina = disciplinaDao.buscarDisciplinaPorNome(nomeDisciplina);
         if (!nomeDisciplina.equals("AULA VAGA")) {
-            disciplina = disciplinaDao.buscarDisciplinaPorNome(nomeDisciplina);
+
             List<Grade> horarios = new ArrayList<>();
-            horarios = gradeDao.buscarPorProfessor(disciplina.getProfessor().getNome());
+            horarios = gradeDao.buscarPorProfessor(disciplina.getProfessor().getNome(), nome);
             for (var item : horarios) {
-                if (item.getDia() == dia && item.getHorario() == aula) {
+                if (item.getDia() == dia && item.getHorario() == aula &&
+                        item.getProfessorNome().equals(disciplina.getProfessor().getNome())){
                     cbx.getSelectionModel().selectNext();
                     return true;
                 }
             }
-        } else {
-            return false;
         }
-
         return false;
     }
 
@@ -389,7 +354,7 @@ public class EditorController implements Initializable {
     void verificarSegundaPri(ActionEvent event) {
         if (verificarRestricoesProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
             emitirAlerta();
-        else if (verificarAlocacaoProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
+        if (verificarAlocacaoProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
            emitirAlertaAlocacao();
 
 
@@ -403,12 +368,12 @@ public class EditorController implements Initializable {
             emitirAlertaAlocacao();
     }
 
-  /*  @FXML
+    @FXML
     void verificarSegundaTer(ActionEvent event) {
         if (verificarRestricoesProfessor(cbx_segunda_ter, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.TERCEIRA_AULA))
             emitirAlerta();
-//        else if (verificarAlocacaoProfessor(cbx_segunda_ter, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.TERCEIRA_AULA))
-//            emitirAlertaAlocacao();
+        else if (verificarAlocacaoProfessor(cbx_segunda_ter, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.TERCEIRA_AULA))
+            emitirAlertaAlocacao();
     }
 
     @FXML
@@ -585,7 +550,7 @@ public class EditorController implements Initializable {
             emitirAlerta();
         else if (verificarAlocacaoProfessor(cbx_sexta_qui, DiaDaSemana.SEXTA_FEIRA, HorarioDaAula.QUINTA_AULA))
             emitirAlertaAlocacao();
-    }*/
+    }
 
     void receberDados() {
         receberDados(cbx_segunda_pri);
@@ -644,6 +609,34 @@ public class EditorController implements Initializable {
         visualizarDisciplinas(cbx_sexta_quar);
         visualizarDisciplinas(cbx_sexta_qui);
     }
+    void enviarDados() {
+        enviarDados(cbx_segunda_pri);
+        enviarDados(cbx_segunda_seg);
+        enviarDados(cbx_segunda_ter);
+        enviarDados(cbx_segunda_quar);
+        enviarDados(cbx_segunda_qui);
+        enviarDados(cbx_terca_pri);
+        enviarDados(cbx_terca_seg);
+        enviarDados(cbx_terca_ter);
+        enviarDados(cbx_terca_quar);
+        enviarDados(cbx_terca_qui);
+        enviarDados(cbx_quarta_pri);
+        enviarDados(cbx_quarta_seg);
+        enviarDados(cbx_quarta_ter);
+        enviarDados(cbx_quarta_quar);
+        enviarDados(cbx_quarta_qui);
+        enviarDados(cbx_quinta_pri);
+        enviarDados(cbx_quinta_seg);
+        enviarDados(cbx_quinta_ter);
+        enviarDados(cbx_quinta_quar);
+        enviarDados(cbx_quinta_qui);
+        enviarDados(cbx_sexta_pri);
+        enviarDados(cbx_sexta_seg);
+        enviarDados(cbx_sexta_ter);
+        enviarDados(cbx_sexta_quar);
+        enviarDados(cbx_sexta_qui);
+    }
+
 }
 
 

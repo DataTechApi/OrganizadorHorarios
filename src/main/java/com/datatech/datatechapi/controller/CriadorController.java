@@ -319,11 +319,12 @@ public class CriadorController implements Initializable {
     }
 
     boolean verificarAlocacaoProfessor(ComboBox cbx, DiaDaSemana dia, HorarioDaAula aula) {
+        String nomeCurso = nomeCurso(cbx_curso);
         String nomeDisciplina = String.valueOf(cbx.getSelectionModel().getSelectedItem());
         if (!nomeDisciplina.equals("AULA VAGA")) {
             disciplina = disciplinaDao.buscarDisciplinaPorNome(nomeDisciplina);
             List<Grade> horarios = new ArrayList<>();
-            horarios = gradeDao.buscarPorProfessor(disciplina.getProfessor().getNome());
+            horarios = gradeDao.buscarPorProfessor(disciplina.getProfessor().getNome(), nomeCurso);
             for (var item : horarios) {
                 if (item.getDia() == dia && item.getHorario() == aula) {
                     cbx.getSelectionModel().selectNext();
