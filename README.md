@@ -84,7 +84,7 @@ Abaixo está o backlog do projeto, agora com representações visuais para as pr
 
 # Modelo entidade-relacionamento 
 
-![diagrama2_page-0001](https://github.com/user-attachments/assets/55ca95b2-a6ee-40d9-b9c6-89d604b67ac0)
+![image](https://github.com/user-attachments/assets/b1550a9b-1e0f-4792-a9f5-f683ee53f541)
 
 
 # Equipe de desenvolvimento 👥
