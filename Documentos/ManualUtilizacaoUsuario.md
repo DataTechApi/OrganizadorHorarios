@@ -46,7 +46,7 @@ O **DataGrade** foi desenvolvido para auxiliar coordenadores na criação de gra
 
 ### Windows:
 
-1. Baixe o instalador em (Link do .Jar)
+1. Baixe o instalador .jar, no seguinte caminho: (https://github.com/DataTechApi/OrganizadorHorarios/blob/main/out/artifacts/DatatechAPI_jar/DatatechAPI.jar)
 2. Dê dois cliques no arquivo `.jar`
 
 ## 🔑 Primeiro Acesso
