@@ -17,10 +17,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import org.controlsfx.control.Notifications;
 
 
 import javax.swing.plaf.ColorUIResource;
@@ -32,6 +34,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static com.datatech.datatechapi.util.Alertas.emitirAlertaCampoCurso;
+import static com.datatech.datatechapi.util.Detalhes.mostrarDataHora;
 
 public class VisualizarGradeController implements Initializable {
 
@@ -46,6 +51,9 @@ public class VisualizarGradeController implements Initializable {
 
     @FXML
     private GridPane gdp_visualizar;
+
+    @FXML
+    private Label lbl_rodape;
 
     @FXML
     private Label lb_quarta;
@@ -145,6 +153,7 @@ public class VisualizarGradeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        lbl_rodape.setText(mostrarDataHora());
         visualizarCursos(cbx_curso);
     }
 
@@ -158,69 +167,73 @@ public class VisualizarGradeController implements Initializable {
 
     @FXML
     void visualizarPdf(ActionEvent event) throws IOException {
-        Document documento = new Document();
+        if (cbx_curso.getSelectionModel().isEmpty()) {
+            emitirAlertaCampoCurso();
+        } else {
+            Document documento = new Document();
 
-        PdfWriter.getInstance(documento, new FileOutputStream("grade.pdf"));
+            PdfWriter.getInstance(documento, new FileOutputStream("grade.pdf"));
 
-        documento.open();
-        documento.setPageSize(PageSize.A4);
-        documento.setMargins(0,0,3,3);
+            documento.open();
+            documento.setPageSize(PageSize.A4);
+            documento.setMargins(0, 0, 3, 3);
 
-        Font fonte = FontFactory.getFont(FontFactory.HELVETICA,8,Font.BOLD);
-        Font fonteCabecalho = FontFactory.getFont(FontFactory.HELVETICA,12,Font.BOLD,new Color(255,255,255));
-        Font nomeCurso = FontFactory.getFont(FontFactory.HELVETICA,16,Font.BOLD);
-        Table table = new Table(6);
-        table.setWidths(new float[]{12,25, 25, 25,25,25});
-        table.setWidth(100);
-        table.setHorizontalAlignment(HorizontalAlignment.CENTER);
-        Paragraph p = new Paragraph(String.valueOf(cbx_curso.getValue()),nomeCurso);
-        p.setAlignment("center");
-        documento.add(p);
+            Font fonte = FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD);
+            Font fonteCabecalho = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, new Color(255, 255, 255));
+            Font nomeCurso = FontFactory.getFont(FontFactory.HELVETICA, 16, Font.BOLD);
+            Table table = new Table(6);
+            table.setWidths(new float[]{12, 25, 25, 25, 25, 25});
+            table.setWidth(100);
+            table.setHorizontalAlignment(HorizontalAlignment.CENTER);
+            Paragraph p = new Paragraph(String.valueOf(cbx_curso.getValue()), nomeCurso);
+            p.setAlignment("center");
+            documento.add(p);
 
-        Cell segundaFeira = new Cell(new Phrase(lb_segunda.getText(),fonteCabecalho));
-        Cell tercaFeira = new Cell(new Phrase(lb_terca.getText(),fonteCabecalho));
-        Cell quartaFeira = new Cell(new Phrase(lb_quarta.getText(),fonteCabecalho));
-        Cell quintaFeira = new Cell(new Phrase(lb_quinta.getText(),fonteCabecalho));
-        Cell sextaFeira = new Cell(new Phrase(lb_sexta.getText(),fonteCabecalho));
+            Cell segundaFeira = new Cell(new Phrase(lb_segunda.getText(), fonteCabecalho));
+            Cell tercaFeira = new Cell(new Phrase(lb_terca.getText(), fonteCabecalho));
+            Cell quartaFeira = new Cell(new Phrase(lb_quarta.getText(), fonteCabecalho));
+            Cell quintaFeira = new Cell(new Phrase(lb_quinta.getText(), fonteCabecalho));
+            Cell sextaFeira = new Cell(new Phrase(lb_sexta.getText(), fonteCabecalho));
 
-        table.addCell(ajustarCabecalho(sextaFeira),0,1);
-        table.addCell(ajustarCabecalho(tercaFeira),0,2);
-        table.addCell(ajustarCabecalho(quartaFeira),0,3);
-        table.addCell(ajustarCabecalho( quintaFeira),0,4);
-        table.addCell(ajustarCabecalho(sextaFeira),0,5);
-        Cell primeira = new Cell(new Phrase("1ª Aula",fonteCabecalho));
-        Cell segunda = new Cell(new Phrase("2ª Aula",fonteCabecalho));
-        Cell terceira = new Cell(new Phrase("3ª Aula",fonteCabecalho));
-        Cell quarta= new Cell(new Phrase("4ª Aula",fonteCabecalho));
-        Cell quinta = new Cell(new Phrase("5ª Aula",fonteCabecalho));
-        Cell branco = new Cell(new Phrase("",fonteCabecalho));
-        table.addCell(ajustarCabecalho(primeira),1,0);
-        table.addCell(ajustarCabecalho(segunda),2,0);
-        table.addCell(ajustarCabecalho(terceira),3,0);
-        table.addCell(ajustarCabecalho(quarta),4,0);
-        table.addCell(ajustarCabecalho(quinta),5,0);
-        table.addCell(ajustarCabecalho(branco),0,0);
-        table.setBackgroundColor(ColorUIResource.getHSBColor(255,200,50));
+            table.addCell(ajustarCabecalho(sextaFeira), 0, 1);
+            table.addCell(ajustarCabecalho(tercaFeira), 0, 2);
+            table.addCell(ajustarCabecalho(quartaFeira), 0, 3);
+            table.addCell(ajustarCabecalho(quintaFeira), 0, 4);
+            table.addCell(ajustarCabecalho(sextaFeira), 0, 5);
+            Cell primeira = new Cell(new Phrase("1ª Aula", fonteCabecalho));
+            Cell segunda = new Cell(new Phrase("2ª Aula", fonteCabecalho));
+            Cell terceira = new Cell(new Phrase("3ª Aula", fonteCabecalho));
+            Cell quarta = new Cell(new Phrase("4ª Aula", fonteCabecalho));
+            Cell quinta = new Cell(new Phrase("5ª Aula", fonteCabecalho));
+            Cell branco = new Cell(new Phrase("", fonteCabecalho));
+            table.addCell(ajustarCabecalho(primeira), 1, 0);
+            table.addCell(ajustarCabecalho(segunda), 2, 0);
+            table.addCell(ajustarCabecalho(terceira), 3, 0);
+            table.addCell(ajustarCabecalho(quarta), 4, 0);
+            table.addCell(ajustarCabecalho(quinta), 5, 0);
+            table.addCell(ajustarCabecalho(branco), 0, 0);
+            table.setBackgroundColor(ColorUIResource.getHSBColor(255, 200, 50));
 
-        List<Grade> grades = new ArrayList<>();
-        grades = gradeDao.buscarPorCurso(nomeCurso(cbx_curso));
-        for(var item : grades){
-            if(item.getDisciplinanome().equals("AULA VAGA")){
-                table.addCell(new Cell(new Phrase(item.getDisciplinanome(),fonte)),item.getLinha(),item.getColuna());
-            }else{
-                table.addCell(new Cell(new Phrase(item.getDisciplinanome() + "\n" + item.getProfessorNome(),fonte)),item.getLinha(),item.getColuna());
+            List<Grade> grades = new ArrayList<>();
+            grades = gradeDao.buscarPorCurso(nomeCurso(cbx_curso));
+            for (var item : grades) {
+                if (item.getDisciplinanome().equals("AULA VAGA")) {
+                    table.addCell(new Cell(new Phrase(item.getDisciplinanome(), fonte)), item.getLinha(), item.getColuna());
+                } else {
+                    table.addCell(new Cell(new Phrase(item.getDisciplinanome() + "\n" + item.getProfessorNome(), fonte)), item.getLinha(), item.getColuna());
+                }
             }
+            documento.add(table);
+
+            Desktop desktop = Desktop.getDesktop();
+            desktop.open(new File("grade.pdf"));
+
+            documento.close();
+
         }
-        documento.add(table);
-
-        Desktop desktop = Desktop.getDesktop();
-        desktop.open(new File("grade.pdf"));
-
-        documento.close();
-
-
     }
-    Cell ajustarCabecalho(Cell cell){
+
+    Cell ajustarCabecalho(Cell cell) {
         cell.setBackgroundColor(Color.RED);
         cell.setVerticalAlignment(VerticalAlignment.CENTER);
         cell.setHorizontalAlignment(HorizontalAlignment.CENTER);

@@ -12,6 +12,7 @@ import com.datatech.datatechapi.entities.models.Curso;
 import com.datatech.datatechapi.entities.models.Disciplina;
 import com.datatech.datatechapi.entities.models.Grade;
 import com.datatech.datatechapi.entities.models.Restricao;
+import com.datatech.datatechapi.util.Alertas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,6 +31,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static com.datatech.datatechapi.util.Alertas.*;
+import static com.datatech.datatechapi.util.Detalhes.mostrarDataHora;
 
 
 public class EditorController implements Initializable {
@@ -134,6 +138,9 @@ public class EditorController implements Initializable {
     private Label lb_quinta;
 
     @FXML
+    private Label lbl_rodape;
+
+    @FXML
     private Label lb_quintaaula;
 
     @FXML
@@ -169,27 +176,17 @@ public class EditorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         visualizarCursos(cbx_curso);
-
+        lbl_rodape.setText(mostrarDataHora());
     }
 
     @FXML
     void salvarGrade(ActionEvent event) throws IOException {
         if (cbx_curso.getSelectionModel().isEmpty()) {
-            Notifications.create()
-                    .darkStyle()
-                    .position(Pos.CENTER)
-                    .text("O campo CURSO deve ser preenchido!!!")
-                    .title("Necessário atençaõ")
-                    .showWarning();
+            emitirAlertaCampoCurso();
         } else {
             receberDados();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Sucesso");
-            alert.setHeaderText("Grade");
-            alert.setContentText("A sua grade foi salva com sucesso!!!");
-            alert.showAndWait();
+            emitirAlertaGradeSalva();
             App.setRoot("views/editorgrade.fxml");
         }
     }
@@ -197,7 +194,6 @@ public class EditorController implements Initializable {
     @FXML
     void voltarMenu(ActionEvent event) throws IOException {
         App.setRoot("views/telamenu.fxml");
-
     }
 
     void enviarDados(ComboBox cbx) {
@@ -287,16 +283,6 @@ public class EditorController implements Initializable {
         }
     }
 
-    boolean testarGrade(String nome) {
-        List<Grade> grades = new ArrayList<>();
-        grades = gradeDao.buscarPorCurso(nome);
-        if (grades.size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     boolean verificarRestricoesProfessor(ComboBox cbx, DiaDaSemana dia, HorarioDaAula aula) {
         String nomeDisciplina = String.valueOf(cbx.getSelectionModel().getSelectedItem());
         if (!nomeDisciplina.equals("AULA VAGA")) {
@@ -333,31 +319,12 @@ public class EditorController implements Initializable {
         }
         return false;
     }
-
-    void emitirAlerta() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Conflito de Horário");
-        alert.setHeaderText("RESTRIÇÂO VERIFICADA!!!");
-        alert.setContentText("Professor possui restriçao de horário!!!");
-        alert.showAndWait();
-    }
-
-    void emitirAlertaAlocacao() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Conflito de Alocação");
-        alert.setHeaderText("ALOCAÇÂO VERIFICADA!!!");
-        alert.setContentText("Professor já está alocado em outra sala nessa hora!!!");
-        alert.showAndWait();
-    }
-
     @FXML
     void verificarSegundaPri(ActionEvent event) {
         if (verificarRestricoesProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
             emitirAlerta();
         if (verificarAlocacaoProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
            emitirAlertaAlocacao();
-
-
     }
 
     @FXML

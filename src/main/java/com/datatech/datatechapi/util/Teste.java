@@ -7,6 +7,8 @@ public class Teste {
 
         Conexao.obterConexao();
 
+        System.out.println(Detalhes.mostrarDataHora());
+
 
 
 

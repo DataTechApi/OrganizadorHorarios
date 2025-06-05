@@ -2,6 +2,7 @@ package com.datatech.datatechapi.controller;
 
 import com.datatech.datatechapi.App;
 import com.datatech.datatechapi.Main;
+import com.datatech.datatechapi.util.Detalhes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +28,9 @@ public class TelaMenuController implements Initializable {
 
     @FXML
     private MenuBar barramenu;
+
+    @FXML
+    private Label lbl_rodape;
 
     @FXML
     private Menu logout;
@@ -59,7 +63,9 @@ public class TelaMenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         verificarCoordenador();
+        lbl_rodape.setText(Detalhes.mostrarDataHora());
     }
 
 

@@ -75,8 +75,8 @@
                </font></Label>
             <ComboBox fx:id="cbx_segunda_pri" onAction="#verificarSegundaPri" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbx_segunda_seg" onAction="#verificarSegundaSeg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbx_segunda_ter" onAction="#verificarSegundaTer"  GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_segunda_quar" onAction="#verificarSegundaQuar"  GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_segunda_ter" onAction="#verificarSegundaTer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbx_segunda_quar" onAction="#verificarSegundaQuar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <ComboBox fx:id="cbx_segunda_qui" onAction="#verificarSegundaQui" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <ComboBox fx:id="cbx_terca_pri" onAction="#verificarTercaPri" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbx_terca_seg" onAction="#verificarTercaSeg" GridPane.columnIndex="2" GridPane.rowIndex="2" />
@@ -86,7 +86,7 @@
             <ComboBox fx:id="cbx_quarta_pri" onAction="#verificarQuartaPri" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbx_quarta_seg" onAction="#verificarQuartaSeg" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <ComboBox fx:id="cbx_quarta_ter" onAction="#verificarQuartaTer" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbx_quarta_quar" onAction="#verificarQuartaQuar"  GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbx_quarta_quar" onAction="#verificarQuartaQuar" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <ComboBox fx:id="cbx_quarta_qui" onAction="#verificarQuartaQui" GridPane.columnIndex="3" GridPane.rowIndex="5" />
             <ComboBox fx:id="cbx_quinta_pri" onAction="#verificarQuintaPri" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbx_sexta_pri" onAction="#verificarSextaPri" GridPane.columnIndex="5" GridPane.rowIndex="1" />
@@ -148,5 +148,10 @@
                </tooltip></Button>
          </children>
       </GridPane>
+      <Label fx:id="lbl_rodape" layoutY="568.0" prefHeight="17.0" prefWidth="688.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

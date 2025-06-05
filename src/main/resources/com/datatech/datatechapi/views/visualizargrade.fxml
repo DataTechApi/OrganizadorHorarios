@@ -224,5 +224,10 @@
                </tooltip></Button>
          </children>
       </GridPane>
+      <Label fx:id="lbl_rodape" layoutX="-2.0" layoutY="577.0" prefHeight="17.0" prefWidth="680.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

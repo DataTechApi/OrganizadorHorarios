@@ -38,6 +38,9 @@ import java.nio.file.AccessDeniedException;
 import java.util.*;
 import java.util.List;
 
+import static com.datatech.datatechapi.util.Alertas.*;
+import static com.datatech.datatechapi.util.Detalhes.mostrarDataHora;
+
 
 public class CriadorController implements Initializable {
 
@@ -135,6 +138,9 @@ public class CriadorController implements Initializable {
     private Label lb_quarta;
 
     @FXML
+    private Label lbl_rodape;
+
+    @FXML
     private Label lb_quartaaula;
 
     @FXML
@@ -176,26 +182,17 @@ public class CriadorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         visualizarCursos(cbx_curso);
+        lbl_rodape.setText(mostrarDataHora());
     }
 
     @FXML
     void salvarGrade(ActionEvent event) throws IOException {
         if (cbx_curso.getSelectionModel().isEmpty()) {
-            Notifications.create()
-                    .darkStyle()
-                    .position(Pos.CENTER)
-                    .text("O campo CURSO deve ser preenchido!!!")
-                    .title("Necessário atençaõ")
-                    .showWarning();
+           emitirAlertaCampoCurso();
         } else {
             receberDados();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Sucesso");
-            alert.setHeaderText("Grade");
-            alert.setContentText("A sua grade foi salva com sucesso!!!");
-            alert.showAndWait();
+            emitirAlertaGradeSalva();
             App.setRoot("views/criadorgrade.fxml");
         }
     }
@@ -205,12 +202,6 @@ public class CriadorController implements Initializable {
         App.setRoot("views/telamenu.fxml");
 
     }
-
-    @FXML
-    void editarGrade(ActionEvent event) {
-
-    }
-
     void visualizarDisciplinas(ComboBox cbx) {
         Curso c = new Curso();
         ObservableList<Disciplina> disciplinas;
@@ -279,12 +270,7 @@ public class CriadorController implements Initializable {
         if (event.getSource() == cbx_curso) {
             String nomeCurso = String.valueOf(cbx_curso.getSelectionModel().getSelectedItem());
             if (testarGrade(nomeCurso)) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Necessário atençaõ");
-                alert.setHeaderText("Grade");
-                alert.setContentText("Esse curso já possui uma grade cadastrada!!! \n" +
-                        "Acesse á Visualização de Grades para ver a sua grade.");
-                alert.showAndWait();
+                emitirAlertaGradeCriada();
             } else {
                 visualizarDisciplinas();
             }
@@ -335,21 +321,7 @@ public class CriadorController implements Initializable {
         return false;
     }
 
-    void emitirAlerta() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Conflito de Horário");
-        alert.setHeaderText("RESTRIÇÂO VERIFICADA!!!");
-        alert.setContentText("Professor possui restriçao de horário!!!");
-        alert.showAndWait();
-    }
 
-    void emitirAlertaAlocacao() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Conflito de Alocação");
-        alert.setHeaderText("ALOCAÇÂO VERIFICADA!!!");
-        alert.setContentText("Professor já está alocado em outra sala nessa hora!!!");
-        alert.showAndWait();
-    }
 
     @FXML
     void verificarSegundaPri(ActionEvent event) {
@@ -357,8 +329,6 @@ public class CriadorController implements Initializable {
             emitirAlerta();
         else if (verificarAlocacaoProfessor(cbx_segunda_pri, DiaDaSemana.SEGUNDA_FEIRA, HorarioDaAula.PRIMEIRA_AULA))
             emitirAlertaAlocacao();
-
-
     }
 
     @FXML
