@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.controlsfx.control.Notifications;
@@ -53,6 +55,16 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        tf_email.setOnKeyPressed(event -> {
+            if(event.getCode()== KeyCode.ENTER){
+                pwd_senha.requestFocus();
+            }
+        });
+        pwd_senha.setOnKeyPressed(event -> {
+            if(event.getCode()== KeyCode.ENTER){
+                bt_logar.fire();
+            }
+        });
         lbl_rodape.setText(mostrarDataHora());
     }
 
